@@ -16,6 +16,8 @@ class Adaline {
   var $error_global;   			//Error cuadrático global.
   var $error_global_validacion; //Error cuadrático global en el proceso de validación
   var $num_datos_entrada;   	//Número de datos de entrada.
+  var $array_errores_ent;		//Array para guardar los errores globales por cada ciclo.
+  var $array_errores_val;		//Array para guardar los errores globales de validación por cada ciclo.  
 
   // Método constructor y que inicializa los pesos y umbral aleatoriamente.
   public function __construct($tasa_aprendizaje, $num_datos_entrada) {
@@ -34,6 +36,9 @@ class Adaline {
 	$this->umbral = rand(-5,5)/10;
 	$this->error = 0;
 	$this->error_global = 0;
+
+	$this->array_errores_ent = array();
+	$this->array_errores_val = array();
 
   }
 
@@ -166,16 +171,30 @@ class Adaline {
 				width:80%;
 				margin:0 auto;
 			}
+			table, td, th {    
+			    border: 1px solid #ddd;
+			    text-align: left;
+			}
+
+			table {
+			    border-collapse: collapse;
+			    width: 100%;
+			}
+
+			th, td {
+			    padding: 15px;
+			}
 		</style>
 
 		<html>
 			<head>
-			  <title>Resultados entrenamiento Adaline</title>
+			  <title>Resultados entrenamiento Adaline ciclo '.$ciclo.'</title>
 			</head>
 			<body>
+				 <div style="margin:0 auto;"><h1> Resultados entrenamiento Adaline ciclo '.$ciclo.'</h1></div>
 				 <table class="tabla_adaline">
 					  <tr>
-					    <th><h1> Pesos </h1></th>
+					    <th colspan="8"><h2> Pesos </h2></th>
 					  </tr>
 					  <tr>
 					    <th>w0</th>
@@ -201,16 +220,34 @@ class Adaline {
 		 		 <br>
 		 		 <table style="width:80%;margin:0 auto;">
 				   <tr>
-				     <th><h1> Error </h1></th>
+				     <th colspan="2"><h2> Error global aprendizaje</h2></th>
 				   </tr>
 				   <tr>
+				   	 <td>Valor sin redondear</td>
 				     <td>'.$this->error_global.'</td>
+				   </tr>
+				   <tr>
+				   	 <td>Valor redondeado 10 decimales</td>
+				     <td>'.round($this->error_global,10).'</td>
+				   </tr>
+				 </table>
+				 <table style="width:80%;margin:0 auto;">
+				   <tr>
+				     <th colspan="2"><h2> Error global validacion</h2></th>
+				   </tr>
+				   <tr>
+				   	 <td>Valor sin redondear</td>
+				     <td>'.$this->error_global_validacion.'</td>
+				   </tr>
+				   <tr>
+				   	 <td>Valor redondeado 10 decimales</td>
+				     <td>'.round($this->error_global_validacion,10).'</td>
 				   </tr>
 				 </table>
 				 <br>
 				 <table style="width:80%;margin:0 auto;">
 				   <tr>
-				     <th><h1> Umbral </h1></th>
+				     <th><h2> Umbral </h2></th>
 				   </tr>
 				   <tr>
 				     <td>'.$this->umbral.'</td>
@@ -228,17 +265,83 @@ class Adaline {
   }
 
 
+  // Método para mostrar los errores globales de entrenamiento y validación en una tabla,
+  public function mostrarerrores($file_to_show, $num_ciclos){
+
+  	$resultado = fopen($file_to_show, "w");
+  	$html =
+	 '
+		<style>
+			.tabla_adaline{
+				width:80%;
+				margin:0 auto;
+			}
+			table, td, th {    
+			    border: 1px solid #ddd;
+			    text-align: left;
+			}
+
+			table {
+			    border-collapse: collapse;
+			    width: 100%;
+			}
+
+			th, td {
+			    padding: 15px;
+			}
+		</style>
+
+		<html>
+			<head>
+			  <title>Errores producidos en proceso entrenamiento Adaline</title>
+			</head>
+			<body>
+				 <div style="margin:0 auto;"><h1>Errores producidos en proceso entrenamiento Adaline</h1></div>
+				 <table class="tabla_adaline">
+					  <tr>
+					    <th><h2> Ciclo </h2></th>
+					    <th><h2> Error medio de entrenamiento </h2></th>
+					    <th><h2> Error medio de validacion </h2></th>
+					  </tr>';
+
+	for ($i=0; $i < $num_ciclos; $i++) { 
+		
+		$html .= 
+			'<tr>
+			   <td>'.$i.'</td>
+			   <td>'.$this->array_errores_ent[$i].'</td>
+	   	       <td>'.$this->array_errores_val[$i].'</td>
+		     </tr>';
+	}
+
+	$html .=
+	 '		  </table>
+		 		 
+			</body>
+		</html>
+	 ';
+	
+	fwrite($resultado, $html);
+
+	fclose($resultado);
+  }
+
   // Método para mostrar los resultados del aprendizaje
   public function entrenamiento($num_ciclos){
   	for ($i=1; $i <= $num_ciclos; $i++) { 
 		//Aprendizaje de la red
 		$this->aprendizaje('data/entrenamiento.csv', $i);
 		$this->error('data/entrenamiento.csv', $i);
-		$this->resultados('results/resultados - ciclo '.$i.'.html', $i);
-
 		//Validación
 		$this->errorvalidacion('data/validacion.csv', $i);
+
+		$this->resultados('results/resultados - ciclo '.$i.'.html', $i);
+
+		array_push($this->array_errores_ent, $this->error_global);
+		array_push($this->array_errores_val, $this->error_global_validacion);
 	}
+
+	$this->mostrarerrores('results/errores.html', $num_ciclos);
   }
 
 }

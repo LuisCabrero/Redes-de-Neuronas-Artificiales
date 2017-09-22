@@ -4,16 +4,30 @@
 				width:80%;
 				margin:0 auto;
 			}
+			table, td, th {    
+			    border: 1px solid #ddd;
+			    text-align: left;
+			}
+
+			table {
+			    border-collapse: collapse;
+			    width: 100%;
+			}
+
+			th, td {
+			    padding: 15px;
+			}
 		</style>
 
 		<html>
 			<head>
-			  <title>Resultados entrenamiento Adaline</title>
+			  <title>Resultados entrenamiento Adaline ciclo 2</title>
 			</head>
 			<body>
+				 <div style="margin:0 auto;"><h1> Resultados entrenamiento Adaline ciclo 2</h1></div>
 				 <table class="tabla_adaline">
 					  <tr>
-					    <th><h1> Pesos </h1></th>
+					    <th colspan="8"><h2> Pesos </h2></th>
 					  </tr>
 					  <tr>
 					    <th>w0</th>
@@ -26,32 +40,50 @@
 					    <th>w7</th>
 					  </tr>
 					  <tr>
-					    <td>9.967607985305E-10</td>
+					    <td>-9.7860399964459E-10</td>
 					    <td>-0.1</td>
+					    <td>-0.1</td>
+					    <td>-0.2</td>
+					    <td>-0.2</td>
 					    <td>0</td>
-					    <td>-0.3</td>
-					    <td>-0.3</td>
-					    <td>-0.3</td>
-					    <td>0.3</td>
-					    <td>-0.3</td>
+					    <td>-0.5</td>
+					    <td>0.4</td>
 					  </tr>
 				 </table>
 		 		 <br>
 		 		 <table style="width:80%;margin:0 auto;">
 				   <tr>
-				     <th><h1> Error </h1></th>
+				     <th colspan="2"><h2> Error global aprendizaje</h2></th>
 				   </tr>
 				   <tr>
-				     <td>3.2137727807906E-9</td>
+				   	 <td>Valor sin redondear</td>
+				     <td>3.0977562531919E-9</td>
+				   </tr>
+				   <tr>
+				   	 <td>Valor redondeado 10 decimales</td>
+				     <td>3.1E-9</td>
+				   </tr>
+				 </table>
+				 <table style="width:80%;margin:0 auto;">
+				   <tr>
+				     <th colspan="2"><h2> Error global validacion</h2></th>
+				   </tr>
+				   <tr>
+				   	 <td>Valor sin redondear</td>
+				     <td>1.3552676692432E-9</td>
+				   </tr>
+				   <tr>
+				   	 <td>Valor redondeado 10 decimales</td>
+				     <td>1.4E-9</td>
 				   </tr>
 				 </table>
 				 <br>
 				 <table style="width:80%;margin:0 auto;">
 				   <tr>
-				     <th><h1> Umbral </h1></th>
+				     <th><h2> Umbral </h2></th>
 				   </tr>
 				   <tr>
-				     <td>-1.4870130028303E-13</td>
+				     <td>1.4599258661041E-13</td>
 				   </tr>
 				 </table>
 				 <br>
