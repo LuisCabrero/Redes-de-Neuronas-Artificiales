@@ -1,6 +1,6 @@
 <?php
 
-	//MODO DE EJECUCIÓN: php entrenamiento.php <tasa_aprendizaje> <numero_datos_entrada> <fichero_entrada> <fichero_salida>
+	//MODO DE EJECUCIÓN: php entrenamiento.php <tasa_aprendizaje> <numero_datos_entrada> <fichero_entrada>
 
 	include 'adaline.php';
 	$tasa_aprendizaje = $argv[1];
@@ -11,8 +11,8 @@
 
 	$adaline = new Adaline($tasa_aprendizaje, $num_datos_entrada);
 
-	$adaline->aprendizaje('data/'.$file_to_open);
-	$adaline->error('data/'.$file_to_open);
+	$adaline->aprendizaje('data/entrenamiento.csv');
+	$adaline->error('data/entrenamiento.csv');
 	$adaline->resultados('results/'.$file_to_show);
 
 
