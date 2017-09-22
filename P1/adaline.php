@@ -9,12 +9,13 @@
 
 class Adaline {
 
-  var $tasa_aprendizaje;    //Controla el cambio que sufren los pesos de una iteración a otra (entre 0 y 1)
-  var $w;  					//Array de pesos
-  var $umbral;     			//Umbral
-  var $error;   			//Error producido en un patrón.
-  var $error_global;   		//Error cuadrático global.
-  var $num_datos_entrada;   //Número de datos de entrada.
+  var $tasa_aprendizaje;    	//Controla el cambio que sufren los pesos de una iteración a otra (entre 0 y 1)
+  var $w;  						//Array de pesos
+  var $umbral;     				//Umbral
+  var $error;   				//Error producido en un patrón.
+  var $error_global;   			//Error cuadrático global.
+  var $error_global_validacion; //Error cuadrático global en el proceso de validación
+  var $num_datos_entrada;   	//Número de datos de entrada.
 
   // Método constructor y que inicializa los pesos y umbral aleatoriamente.
   public function __construct($tasa_aprendizaje, $num_datos_entrada) {
@@ -80,7 +81,7 @@ class Adaline {
 
   }
 
-  // Método de aprendizaje de la red.
+  // Método para obtener el error producido posteriormente al aprendizaje.
   public function error($file_to_open){
 
   	//Hallamos el error global.
@@ -111,6 +112,43 @@ class Adaline {
 		//Calculamos el error.
 		$this->error = $salida_deseada - $salida_obtenida;
 		$this->error_global +=  pow($this->error , 2);
+
+	}
+	fclose($file);
+
+  }
+
+  // Método para obtener el error producido en la validación
+  public function errorvalidacion($file_to_open){
+
+  	//Hallamos el error global.
+	//Abrimos el entrenamiento.
+	$file = fopen($file_to_open, "r");
+
+	if($file == false){
+		echo 'No se ha podido abrir el archivo';
+		exit;
+	}
+
+	while (($linea = fgetcsv($file, 1000, ";")) !== false) {
+
+		$salida_deseada = $linea[8];
+		$salida_obtenida = 0;
+		$contador = 0;
+
+		$entradas = array();
+		for ($i=0; $i < 7; $i++) { 
+			$entradas[$i] = $linea[$i];
+		}
+
+		foreach ($entradas as $entrada) {
+			$salida_obtenida += $this->w[$contador]*$entrada;		
+		}
+		$salida_obtenida += $this->umbral;
+
+		//Calculamos el error.
+		$this->error = $salida_deseada - $salida_obtenida;
+		$this->error_global_validacion +=  pow($this->error , 2);
 
 	}
 	fclose($file);

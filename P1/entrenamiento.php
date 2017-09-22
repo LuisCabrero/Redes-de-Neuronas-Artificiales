@@ -11,9 +11,13 @@
 
 	$adaline = new Adaline($tasa_aprendizaje, $num_datos_entrada);
 
+	//Aprendizaje de la red
 	$adaline->aprendizaje('data/entrenamiento.csv');
 	$adaline->error('data/entrenamiento.csv');
 	$adaline->resultados('results/'.$file_to_show);
+
+	//Validación
+	$adaline->errorvalidacion('data/validacion.csv');
 
 
 ?>
