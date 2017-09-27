@@ -2,7 +2,7 @@
 
 Requisitos: tener instalado PHP preferiblemente v7.x.x
 
-:white_check_mark: Modo de ejecución: php entrenamiento.php < tasa_aprendizaje > < num_datos_entrada > < file_to_show> < num_ciclos >
+:white_check_mark: Modo de ejecución: php entrenamiento.php < tasa_aprendizaje > < num_datos_entrada > < num_ciclos >
 
 Entradas:
 
