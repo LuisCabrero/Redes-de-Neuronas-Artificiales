@@ -20,7 +20,7 @@ class Adaline {
   var $array_errores_val;		//Array para guardar los errores globales de validación por cada ciclo.  
 
   // Método constructor y que inicializa los pesos y umbral aleatoriamente.
-  public function __construct($tasa_aprendizaje, $num_datos_entrada) {
+  public function __construct($tasa_aprendizaje) {
 
   	if($tasa_aprendizaje < 0 || $tasa_aprendizaje > 1){
   		return 'La tasa de aprendizaje debe ser un número real comprendido entre 0 y 1';
@@ -30,7 +30,7 @@ class Adaline {
     $this->w = array();
 
     //Inicialización aleatoria de los pesos y umbral
-    for ($i=0; $i < $num_datos_entrada; $i++) { 
+    for ($i=0; $i < 8; $i++) { 
 		$this->w[$i] = rand(-5,5)/10;
 	}
 	$this->umbral = rand(-5,5)/10;
@@ -55,11 +55,13 @@ class Adaline {
 
 	while (($linea = fgetcsv($file, 1000, ";")) !== false) {
 
-		$salida_deseada = $linea[8];
+		$numero_elementos = count($linea);
+
+		$salida_deseada = $linea[$numero_elementos - 1];
 		$salida_obtenida = 0;
 
 		$entradas = array();
-		for ($i=0; $i < 7; $i++) { 
+		for ($i=0; $i < $numero_elementos - 1; $i++) { 
 			$entradas[$i] = $linea[$i];
 		}
 
@@ -100,12 +102,14 @@ class Adaline {
 
 	while (($linea = fgetcsv($file, 1000, ";")) !== false) {
 
-		$salida_deseada = $linea[8];
+		$numero_elementos = count($linea);
+
+		$salida_deseada = $linea[$numero_elementos - 1];
 		$salida_obtenida = 0;
 		$contador = 0;
 
 		$entradas = array();
-		for ($i=0; $i < 7; $i++) { 
+		for ($i=0; $i < $numero_elementos - 1; $i++) { 
 			$entradas[$i] = $linea[$i];
 		}
 
@@ -137,12 +141,14 @@ class Adaline {
 
 	while (($linea = fgetcsv($file, 1000, ";")) !== false) {
 
-		$salida_deseada = $linea[8];
+		$numero_elementos = count($linea);
+
+		$salida_deseada = $linea[$numero_elementos - 1];
 		$salida_obtenida = 0;
 		$contador = 0;
 
 		$entradas = array();
-		for ($i=0; $i < 7; $i++) { 
+		for ($i=0; $i < $numero_elementos - 2; $i++) { 
 			$entradas[$i] = $linea[$i];
 		}
 
