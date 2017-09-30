@@ -23,7 +23,8 @@ class Adaline {
   public function __construct($tasa_aprendizaje) {
 
   	if($tasa_aprendizaje < 0 || $tasa_aprendizaje > 1){
-  		return 'La tasa de aprendizaje debe ser un número real comprendido entre 0 y 1';
+  		echo 'La tasa de aprendizaje debe ser un número real comprendido entre 0 y 1' . PHP_EOL;
+  		exit;
   	}
 
     $this->tasa_aprendizaje = $tasa_aprendizaje;
@@ -78,6 +79,7 @@ class Adaline {
 		foreach ($this->w as $peso) {
 			$incremento_peso = $this->tasa_aprendizaje * $this->error * $entradas[$contador];
 			$this->w[$contador] += $incremento_peso;
+			$contador++;
 		}
 
 		//Calcular incremento del umbral.
@@ -127,7 +129,7 @@ class Adaline {
 
   }
 
-  // Método para obtener el error producido en la validación
+  // Método para obtener el error producido posteriormente al aprendizaje.
   public function errorvalidacion($file_to_open, $ciclo){
 
   	//Hallamos el error global.
@@ -148,7 +150,7 @@ class Adaline {
 		$contador = 0;
 
 		$entradas = array();
-		for ($i=0; $i < $numero_elementos - 2; $i++) { 
+		for ($i=0; $i < $numero_elementos - 1; $i++) { 
 			$entradas[$i] = $linea[$i];
 		}
 
