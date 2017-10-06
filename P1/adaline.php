@@ -68,7 +68,8 @@ class Adaline {
 
 		$contador = 0;
 		foreach ($entradas as $entrada) {
-			$salida_obtenida += $this->w[$contador]*$entrada;		
+			$salida_obtenida += $this->w[$contador]*$entrada;
+			$contador++;
 		}
 		$salida_obtenida += $this->umbral;
 
@@ -116,7 +117,8 @@ class Adaline {
 		}
 
 		foreach ($entradas as $entrada) {
-			$salida_obtenida += $this->w[$contador]*$entrada;		
+			$salida_obtenida += $this->w[$contador]*$entrada;
+			$contador++;	
 		}
 		$salida_obtenida += $this->umbral;
 
@@ -154,14 +156,20 @@ class Adaline {
 			$entradas[$i] = $linea[$i];
 		}
 
+		
+
 		foreach ($entradas as $entrada) {
-			$salida_obtenida += $this->w[$contador]*$entrada;		
+			$salida_obtenida += $this->w[$contador]*$entrada;
+			$contador++;	
 		}
 		$salida_obtenida += $this->umbral;
 
+		
 		//Calculamos el error.
 		$this->error = $salida_deseada - $salida_obtenida;
 		$this->error_global_validacion +=  pow($this->error , 2);
+
+		
 
 	}
 	fclose($file);
@@ -169,9 +177,14 @@ class Adaline {
   }
 
   // Método para mostrar los resultados del aprendizaje
-  public function resultados($file_to_show, $ciclo){
+  public function resultados($folder, $ciclo, $num_ciclos){
 
-  	$resultado = fopen($file_to_show, "w");
+  	//Creamos una carpeta para estos parámetros si no existe.
+  	if(!file_exists (dirname(__FILE__).'/'.$folder.'/'.$this->tasa_aprendizaje.' - '.$num_ciclos)){
+  		mkdir(dirname(__FILE__).'/'.$folder.'/'.$this->tasa_aprendizaje.' - '.$num_ciclos, 0755);
+  	}
+
+  	$resultado = fopen(dirname(__FILE__).'/'.$folder.'/'.$this->tasa_aprendizaje.' - '.$num_ciclos.'/resultados ciclo '.$ciclo.'.html', "w");
   	$html =
 	 '
 		<style>
@@ -274,9 +287,15 @@ class Adaline {
 
 
   // Método para mostrar los errores globales de entrenamiento y validación en una tabla,
-  public function mostrarerrores($file_to_show, $num_ciclos){
+  public function mostrarerrores($folder, $num_ciclos){
 
-  	$resultado = fopen($file_to_show, "w");
+  	//Creamos una carpeta para estos parámetros si no existe.
+  	if(!file_exists (dirname(__FILE__).'/'.$folder.'/'.$this->tasa_aprendizaje.' - '.$num_ciclos)){
+  		mkdir(dirname(__FILE__).'/'.$folder.'/'.$this->tasa_aprendizaje.' - '.$num_ciclos, 0755);
+  	}
+
+  	$resultado = fopen(dirname(__FILE__).'/'.$folder.'/'.$this->tasa_aprendizaje.' - '.$num_ciclos.'/errores.html', "w");
+
   	$html =
 	 '
 		<style>
@@ -302,9 +321,104 @@ class Adaline {
 		<html>
 			<head>
 			  <title>Errores producidos en proceso entrenamiento Adaline</title>
+
+
+				<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+			    <script type="text/javascript">
+			      google.charts.load("current", {"packages":["corechart"]});
+			      google.charts.setOnLoadCallback(drawChart);
+
+			      function drawChart() {
+			        var data = google.visualization.arrayToDataTable([
+			        ["Ciclo", "Error global"],';
+
+
+	for ($i=0; $i < $num_ciclos; $i++) { 
+		if($i == $num_ciclos -1){
+			$html .='[ '.$i.',      '.$this->array_errores_ent[$i].']';
+		}else{
+			$html .='[ '.$i.',      '.$this->array_errores_ent[$i].'],';
+		}
+		
+	}
+
+	$maximo = 0;
+	foreach ($this->array_errores_ent as $error_ent) {
+		if($error_ent > $maximo){
+			$maximo = $error_ent;
+		}
+	}
+
+
+	$html .='
+			        ]);
+
+			        var options = {
+			          title: "Errores en aprendizaje por ciclo",
+			          hAxis: {title: "Ciclo", minValue: 0, maxValue: '.$num_ciclos.' },
+			          vAxis: {title: "Error global", minValue: 0, maxValue: '.$maximo.' },
+			          legend: "none"
+			        };
+
+			        var chart = new google.visualization.ScatterChart(document.getElementById("chart_div"));
+
+			        chart.draw(data, options);
+			      }
+			    </script>';
+
+
+	$html .='	<script type="text/javascript">
+			      google.charts.load("current", {"packages":["corechart"]});
+			      google.charts.setOnLoadCallback(drawChart2);
+
+			      function drawChart2() {
+			        var data = google.visualization.arrayToDataTable([
+			        ["Ciclo", "Error global validación"],';
+
+
+					for ($i=0; $i < $num_ciclos; $i++) { 
+						if($i == $num_ciclos -1){
+							$html .='[ '.$i.',      '.$this->array_errores_val[$i].']';
+						}else{
+							$html .='[ '.$i.',      '.$this->array_errores_val[$i].'],';
+						}
+						
+					}
+
+					$maximo = 0;
+					foreach ($this->array_errores_val as $error_val) {
+						if($error_val > $maximo){
+							$maximo = $error_val;
+						}
+					}
+
+
+	$html .='
+			        ]);
+
+			        var options = {
+			          title: "Errores en validación por ciclo",
+			          hAxis: {title: "Ciclo", minValue: 0, maxValue: '.$num_ciclos.' },
+			          vAxis: {title: "Error global validación", minValue: 0, maxValue: '.$maximo.' },
+			          legend: "none",
+			          colors: ["#ff0000"]
+
+			        };
+
+			        var chart = new google.visualization.ScatterChart(document.getElementById("chart_div2"));
+
+			        chart.draw(data, options);
+			      }
+			    </script>
+
 			</head>
 			<body>
-				 <div style="margin:0 auto;"><h1>Errores producidos en proceso entrenamiento Adaline</h1></div>
+				 <div style="margin:0 auto;"><h1>Errores producidos en proceso entrenamiento Adaline ('.$this->tasa_aprendizaje.','.$num_ciclos.')</h1></div>
+
+				 <div id="chart_div" style="width: 900px; height: 500px;"></div>
+
+				 <div id="chart_div2" style="width: 900px; height: 500px;"></div>
+
 				 <table class="tabla_adaline">
 					  <tr>
 					    <th><h2> Ciclo </h2></th>
@@ -343,13 +457,13 @@ class Adaline {
 		//Validación
 		$this->errorvalidacion('data/validacion.csv', $i);
 
-		$this->resultados('results/resultados - ciclo '.$i.'.html', $i);
+		$this->resultados('results', $i, $num_ciclos);
 
 		array_push($this->array_errores_ent, $this->error_global);
 		array_push($this->array_errores_val, $this->error_global_validacion);
 	}
 
-	$this->mostrarerrores('results/errores.html', $num_ciclos);
+	$this->mostrarerrores('results', $num_ciclos);
   }
 
 }

@@ -1,0 +1,101 @@
+
+		<style>
+			.tabla_adaline{
+				width:80%;
+				margin:0 auto;
+			}
+			table, td, th {    
+			    border: 1px solid #ddd;
+			    text-align: left;
+			}
+
+			table {
+			    border-collapse: collapse;
+			    width: 100%;
+			}
+
+			th, td {
+			    padding: 15px;
+			}
+		</style>
+
+		<html>
+			<head>
+			  <title>Errores producidos en proceso entrenamiento Adaline</title>
+
+
+				<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+			    <script type="text/javascript">
+			      google.charts.load("current", {"packages":["corechart"]});
+			      google.charts.setOnLoadCallback(drawChart);
+
+			      function drawChart() {
+			        var data = google.visualization.arrayToDataTable([
+			        ["Ciclo", "Error global"],[ 0,      0.78128456066297],[ 1,      1.0709985057185],[ 2,      1.2223014830225]
+			        ]);
+
+			        var options = {
+			          title: "Errores en aprendizaje por ciclo",
+			          hAxis: {title: "Ciclo", minValue: 0, maxValue: 3 },
+			          vAxis: {title: "Error global", minValue: 0, maxValue: 1.2223014830225 },
+			          legend: "none"
+			        };
+
+			        var chart = new google.visualization.ScatterChart(document.getElementById("chart_div"));
+
+			        chart.draw(data, options);
+			      }
+			    </script>	<script type="text/javascript">
+			      google.charts.load("current", {"packages":["corechart"]});
+			      google.charts.setOnLoadCallback(drawChart2);
+
+			      function drawChart2() {
+			        var data = google.visualization.arrayToDataTable([
+			        ["Ciclo", "Error global validación"],[ 0,      0.22207520439648],[ 1,      0.35939716571034],[ 2,      0.46811649287884]
+			        ]);
+
+			        var options = {
+			          title: "Errores en validación por ciclo",
+			          hAxis: {title: "Ciclo", minValue: 0, maxValue: 3 },
+			          vAxis: {title: "Error global validación", minValue: 0, maxValue: 0.46811649287884 },
+			          legend: "none",
+			          colors: ["#ff0000"]
+
+			        };
+
+			        var chart = new google.visualization.ScatterChart(document.getElementById("chart_div2"));
+
+			        chart.draw(data, options);
+			      }
+			    </script>
+
+			</head>
+			<body>
+				 <div style="margin:0 auto;"><h1>Errores producidos en proceso entrenamiento Adaline (0.1,3)</h1></div>
+
+				 <div id="chart_div" style="width: 900px; height: 500px;"></div>
+
+				 <div id="chart_div2" style="width: 900px; height: 500px;"></div>
+
+				 <table class="tabla_adaline">
+					  <tr>
+					    <th><h2> Ciclo </h2></th>
+					    <th><h2> Error medio de entrenamiento </h2></th>
+					    <th><h2> Error medio de validacion </h2></th>
+					  </tr><tr>
+			   <td>0</td>
+			   <td>0.78128456066297</td>
+	   	       <td>0.22207520439648</td>
+		     </tr><tr>
+			   <td>1</td>
+			   <td>1.0709985057185</td>
+	   	       <td>0.35939716571034</td>
+		     </tr><tr>
+			   <td>2</td>
+			   <td>1.2223014830225</td>
+	   	       <td>0.46811649287884</td>
+		     </tr>		  </table>
+		 		 
+			</body>
+		</html>
+	 
