@@ -31,13 +31,13 @@
 
 			      function drawChart() {
 			        var data = google.visualization.arrayToDataTable([
-			        ["Ciclo", "Error global"],[ 0,      0.78128456066297],[ 1,      1.0709985057185],[ 2,      1.2223014830225]
+			        ["Ciclo", "Error global"],[ 0,      1.1422776573136],[ 1,      1.5312722285531],[ 2,      1.6988082877667]
 			        ]);
 
 			        var options = {
 			          title: "Errores en aprendizaje por ciclo",
 			          hAxis: {title: "Ciclo", minValue: 0, maxValue: 3 },
-			          vAxis: {title: "Error global", minValue: 0, maxValue: 1.2223014830225 },
+			          vAxis: {title: "Error global", minValue: 0, maxValue: 1.6988082877667 },
 			          legend: "none"
 			        };
 
@@ -51,13 +51,13 @@
 
 			      function drawChart2() {
 			        var data = google.visualization.arrayToDataTable([
-			        ["Ciclo", "Error global validación"],[ 0,      0.22207520439648],[ 1,      0.35939716571034],[ 2,      0.46811649287884]
+			        ["Ciclo", "Error global validación"],[ 0,      0.39255341035305],[ 1,      0.66908348636311],[ 2,      0.89250831377949]
 			        ]);
 
 			        var options = {
 			          title: "Errores en validación por ciclo",
 			          hAxis: {title: "Ciclo", minValue: 0, maxValue: 3 },
-			          vAxis: {title: "Error global validación", minValue: 0, maxValue: 0.46811649287884 },
+			          vAxis: {title: "Error global validación", minValue: 0, maxValue: 0.89250831377949 },
 			          legend: "none",
 			          colors: ["#ff0000"]
 
@@ -84,16 +84,16 @@
 					    <th><h2> Error medio de validacion </h2></th>
 					  </tr><tr>
 			   <td>0</td>
-			   <td>0.78128456066297</td>
-	   	       <td>0.22207520439648</td>
+			   <td>1.1422776573136</td>
+	   	       <td>0.39255341035305</td>
 		     </tr><tr>
 			   <td>1</td>
-			   <td>1.0709985057185</td>
-	   	       <td>0.35939716571034</td>
+			   <td>1.5312722285531</td>
+	   	       <td>0.66908348636311</td>
 		     </tr><tr>
 			   <td>2</td>
-			   <td>1.2223014830225</td>
-	   	       <td>0.46811649287884</td>
+			   <td>1.6988082877667</td>
+	   	       <td>0.89250831377949</td>
 		     </tr>		  </table>
 		 		 
 			</body>

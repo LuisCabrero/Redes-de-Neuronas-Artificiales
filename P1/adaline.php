@@ -156,8 +156,6 @@ class Adaline {
 			$entradas[$i] = $linea[$i];
 		}
 
-		
-
 		foreach ($entradas as $entrada) {
 			$salida_obtenida += $this->w[$contador]*$entrada;
 			$contador++;	
@@ -168,9 +166,6 @@ class Adaline {
 		//Calculamos el error.
 		$this->error = $salida_deseada - $salida_obtenida;
 		$this->error_global_validacion +=  pow($this->error , 2);
-
-		
-
 	}
 	fclose($file);
 
