@@ -1,0 +1,209 @@
+
+		<style>
+			.tabla_adaline{
+				width:80%;
+				margin:0 auto;
+			}
+			table, td, th {    
+			    border: 1px solid #ddd;
+			    text-align: left;
+			}
+
+			table {
+			    border-collapse: collapse;
+			    width: 100%;
+			}
+
+			th, td {
+			    padding: 15px;
+			}
+		</style>
+
+		<html>
+			<head>
+			  <title>Errores producidos en proceso entrenamiento Adaline</title>
+
+
+				<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+			    <script type="text/javascript">
+			      google.charts.load("current", {"packages":["corechart"]});
+			      google.charts.setOnLoadCallback(drawChart);
+
+			      function drawChart() {
+			        var data = google.visualization.arrayToDataTable([
+			        ["Ciclo", "Error global"],[ 0,      0.01877511733107],[ 1,      0.018827002024815],[ 2,      0.018739962033717],[ 3,      0.018649103006212],[ 4,      0.018562070302134],[ 5,      0.018480269342141],[ 6,      0.0184040061802],[ 7,      0.018333216591912],[ 8,      0.018267669313999],[ 9,      0.01820705582483],[ 10,      0.018151038117647],[ 11,      0.018099274980452],[ 12,      0.018051436101552],[ 13,      0.018007209163771],[ 14,      0.017966302930665],[ 15,      0.017928448081519],[ 16,      0.017893396818274],[ 17,      0.017860921836156],[ 18,      0.017830814996937],[ 19,      0.017802885896225],[ 20,      0.017776960430358],[ 21,      0.017752879418872],[ 22,      0.017730497309997],[ 23,      0.017709680980461],[ 24,      0.017690308631858],[ 25,      0.017672268780978],[ 26,      0.017655459339007],[ 27,      0.017639786773417],[ 28,      0.017625165345997],[ 29,      0.017611516420586]
+			        ]);
+
+			        var options = {
+			          title: "Errores en aprendizaje por ciclo",
+			          hAxis: {title: "Ciclo", minValue: 0, maxValue: 30 },
+			          vAxis: {title: "Error global", minValue: 0, maxValue: 0.018827002024815 },
+			          legend: "none"
+			        };
+
+			        var chart = new google.visualization.ScatterChart(document.getElementById("chart_div"));
+
+			        chart.draw(data, options);
+			      }
+			    </script>	<script type="text/javascript">
+			      google.charts.load("current", {"packages":["corechart"]});
+			      google.charts.setOnLoadCallback(drawChart2);
+
+			      function drawChart2() {
+			        var data = google.visualization.arrayToDataTable([
+			        ["Ciclo", "Error global validación"],[ 0,      0.01908696596406],[ 1,      0.019070598616816],[ 2,      0.018963573535683],[ 3,      0.018879284802972],[ 4,      0.018805229112307],[ 5,      0.018738778907003],[ 6,      0.018679072634806],[ 7,      0.018625498524322],[ 8,      0.01857749339146],[ 9,      0.018534527436781],[ 10,      0.018496108546132],[ 11,      0.018461784898385],[ 12,      0.018431144843679],[ 13,      0.018403815126931],[ 14,      0.018379458310309],[ 15,      0.018357769900616],[ 16,      0.018338475455853],[ 17,      0.018321327810123],[ 18,      0.018306104481005],[ 19,      0.018292605282959],[ 20,      0.018280650149137],[ 21,      0.018270077153356],[ 22,      0.018260740719195],[ 23,      0.018252510001366],[ 24,      0.018245267424346],[ 25,      0.018238907363835],[ 26,      0.018233334957549],[ 27,      0.01822846503293],[ 28,      0.018224221140448],[ 29,      0.018220534682205]
+			        ]);
+
+			        var options = {
+			          title: "Errores en validación por ciclo",
+			          hAxis: {title: "Ciclo", minValue: 0, maxValue: 30 },
+			          vAxis: {title: "Error global validación", minValue: 0, maxValue: 0.01908696596406 },
+			          legend: "none",
+			          colors: ["#ff0000"]
+
+			        };
+
+			        var chart = new google.visualization.ScatterChart(document.getElementById("chart_div2"));
+
+			        chart.draw(data, options);
+			      }
+			    </script>
+
+			</head>
+			<body>
+				 <div style="margin:0 auto;"><h1>Errores producidos en proceso entrenamiento Adaline (0.1,30)</h1></div>
+
+				 <div id="chart_div" style="width: 900px; height: 500px;"></div>
+
+				 <div id="chart_div2" style="width: 900px; height: 500px;"></div>
+
+				 <table class="tabla_adaline">
+					  <tr>
+					    <th><h2> Ciclo </h2></th>
+					    <th><h2> Error medio de entrenamiento </h2></th>
+					    <th><h2> Error medio de validacion </h2></th>
+					  </tr><tr>
+			   <td>0</td>
+			   <td>0.01877511733107</td>
+	   	       <td>0.01908696596406</td>
+		     </tr><tr>
+			   <td>1</td>
+			   <td>0.018827002024815</td>
+	   	       <td>0.019070598616816</td>
+		     </tr><tr>
+			   <td>2</td>
+			   <td>0.018739962033717</td>
+	   	       <td>0.018963573535683</td>
+		     </tr><tr>
+			   <td>3</td>
+			   <td>0.018649103006212</td>
+	   	       <td>0.018879284802972</td>
+		     </tr><tr>
+			   <td>4</td>
+			   <td>0.018562070302134</td>
+	   	       <td>0.018805229112307</td>
+		     </tr><tr>
+			   <td>5</td>
+			   <td>0.018480269342141</td>
+	   	       <td>0.018738778907003</td>
+		     </tr><tr>
+			   <td>6</td>
+			   <td>0.0184040061802</td>
+	   	       <td>0.018679072634806</td>
+		     </tr><tr>
+			   <td>7</td>
+			   <td>0.018333216591912</td>
+	   	       <td>0.018625498524322</td>
+		     </tr><tr>
+			   <td>8</td>
+			   <td>0.018267669313999</td>
+	   	       <td>0.01857749339146</td>
+		     </tr><tr>
+			   <td>9</td>
+			   <td>0.01820705582483</td>
+	   	       <td>0.018534527436781</td>
+		     </tr><tr>
+			   <td>10</td>
+			   <td>0.018151038117647</td>
+	   	       <td>0.018496108546132</td>
+		     </tr><tr>
+			   <td>11</td>
+			   <td>0.018099274980452</td>
+	   	       <td>0.018461784898385</td>
+		     </tr><tr>
+			   <td>12</td>
+			   <td>0.018051436101552</td>
+	   	       <td>0.018431144843679</td>
+		     </tr><tr>
+			   <td>13</td>
+			   <td>0.018007209163771</td>
+	   	       <td>0.018403815126931</td>
+		     </tr><tr>
+			   <td>14</td>
+			   <td>0.017966302930665</td>
+	   	       <td>0.018379458310309</td>
+		     </tr><tr>
+			   <td>15</td>
+			   <td>0.017928448081519</td>
+	   	       <td>0.018357769900616</td>
+		     </tr><tr>
+			   <td>16</td>
+			   <td>0.017893396818274</td>
+	   	       <td>0.018338475455853</td>
+		     </tr><tr>
+			   <td>17</td>
+			   <td>0.017860921836156</td>
+	   	       <td>0.018321327810123</td>
+		     </tr><tr>
+			   <td>18</td>
+			   <td>0.017830814996937</td>
+	   	       <td>0.018306104481005</td>
+		     </tr><tr>
+			   <td>19</td>
+			   <td>0.017802885896225</td>
+	   	       <td>0.018292605282959</td>
+		     </tr><tr>
+			   <td>20</td>
+			   <td>0.017776960430358</td>
+	   	       <td>0.018280650149137</td>
+		     </tr><tr>
+			   <td>21</td>
+			   <td>0.017752879418872</td>
+	   	       <td>0.018270077153356</td>
+		     </tr><tr>
+			   <td>22</td>
+			   <td>0.017730497309997</td>
+	   	       <td>0.018260740719195</td>
+		     </tr><tr>
+			   <td>23</td>
+			   <td>0.017709680980461</td>
+	   	       <td>0.018252510001366</td>
+		     </tr><tr>
+			   <td>24</td>
+			   <td>0.017690308631858</td>
+	   	       <td>0.018245267424346</td>
+		     </tr><tr>
+			   <td>25</td>
+			   <td>0.017672268780978</td>
+	   	       <td>0.018238907363835</td>
+		     </tr><tr>
+			   <td>26</td>
+			   <td>0.017655459339007</td>
+	   	       <td>0.018233334957549</td>
+		     </tr><tr>
+			   <td>27</td>
+			   <td>0.017639786773417</td>
+	   	       <td>0.01822846503293</td>
+		     </tr><tr>
+			   <td>28</td>
+			   <td>0.017625165345997</td>
+	   	       <td>0.018224221140448</td>
+		     </tr><tr>
+			   <td>29</td>
+			   <td>0.017611516420586</td>
+	   	       <td>0.018220534682205</td>
+		     </tr>		  </table>
+		 		 
+			</body>
+		</html>
+	 

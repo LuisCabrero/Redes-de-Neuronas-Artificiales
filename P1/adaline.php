@@ -28,6 +28,7 @@ class Adaline {
   	}
 
     $this->tasa_aprendizaje = $tasa_aprendizaje;
+    $this->tasa_aprendizaje+=0;
     $this->w = array();
 
     //Inicialización aleatoria de los pesos y umbral
@@ -58,12 +59,13 @@ class Adaline {
 
 		$numero_elementos = count($linea);
 
-		$salida_deseada = $linea[$numero_elementos - 1];
+		$salida_deseada = floatval ($linea[$numero_elementos - 1]);
 		$salida_obtenida = 0;
 
 		$entradas = array();
 		for ($i=0; $i < $numero_elementos - 1; $i++) { 
 			$entradas[$i] = $linea[$i];
+			$entradas[$i] = floatval ($entradas[$i]);
 		}
 
 		$contador = 0;
@@ -103,6 +105,8 @@ class Adaline {
 		exit;
 	}
 
+	$numero_errores = 0;
+
 	while (($linea = fgetcsv($file, 1000, ";")) !== false) {
 
 		$numero_elementos = count($linea);
@@ -114,6 +118,7 @@ class Adaline {
 		$entradas = array();
 		for ($i=0; $i < $numero_elementos - 1; $i++) { 
 			$entradas[$i] = $linea[$i];
+			$entradas[$i] = floatval ($entradas[$i]);
 		}
 
 		foreach ($entradas as $entrada) {
@@ -126,7 +131,14 @@ class Adaline {
 		$this->error = $salida_deseada - $salida_obtenida;
 		$this->error_global +=  pow($this->error , 2);
 
+		$numero_errores++;
 	}
+
+	$this->error_global = $this->error_global/$numero_errores;
+
+
+
+
 	fclose($file);
 
   }
@@ -143,11 +155,13 @@ class Adaline {
 		exit;
 	}
 
+	$numero_errores = 0;
+
 	while (($linea = fgetcsv($file, 1000, ";")) !== false) {
 
 		$numero_elementos = count($linea);
 
-		$salida_deseada = $linea[$numero_elementos - 1];
+		$salida_deseada = floatval($linea[$numero_elementos - 1]);
 		$salida_obtenida = 0;
 		$contador = 0;
 
@@ -166,8 +180,15 @@ class Adaline {
 		//Calculamos el error.
 		$this->error = $salida_deseada - $salida_obtenida;
 		$this->error_global_validacion +=  pow($this->error , 2);
+
+		$numero_errores++;
 	}
+
+	$this->error_global_validacion = $this->error_global_validacion/$numero_errores;
+
 	fclose($file);
+
+
 
   }
 

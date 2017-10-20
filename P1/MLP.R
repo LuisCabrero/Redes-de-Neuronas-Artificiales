@@ -30,6 +30,7 @@ model <- mlp(x= trainSet[,-target],
              maxit=ciclosMaximos,  #Ciclos máximos
              learnFuncParams=c(razonAprendizaje),  #Parámetros de aprendizaje, solo pasamos la tasa.
              shufflePatterns = F  #Al ya estar aleatorizado se deja como está, si no lo estuviese se cambia.
+             #hiddenActFunc = "Act_TanH" Tangente hiperbólica. Ganas de experimentar. Si la sigmoide está bien no hace falta, pero para más nota vale.
              )
 
 #GRAFICO DE LA EVOLUCION DEL ERROR 
