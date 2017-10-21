@@ -14,6 +14,6 @@
 \contentsline {section}{\numberline {2.4}Resumen experimentaci\IeC {\'o}n Adaline}{8}{section.2.4}
 \contentsline {chapter}{\numberline {3}Modelo Perceptr\IeC {\'o}n Multicapa}{9}{chapter.3}
 \contentsline {section}{\numberline {3.1}Perceptron Multicapa (MLP)}{9}{section.3.1}
-\contentsline {section}{\numberline {3.2}Experimentaci\IeC {\'o}n realizada}{9}{section.3.2}
+\contentsline {section}{\numberline {3.2}Experimentaci\IeC {\'o}n realizada}{10}{section.3.2}
 \contentsline {chapter}{\numberline {4}Conclusiones}{11}{chapter.4}
-\contentsline {chapter}{Bibliograf\'{\i }a}{13}{chapter*.11}
+\contentsline {chapter}{Bibliograf\'{\i }a}{13}{chapter*.13}

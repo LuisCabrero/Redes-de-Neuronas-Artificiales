@@ -97,7 +97,7 @@
 
 \chapter{Modelo Adaline}
 
-\par En este capítulo se va a explicar en primer lugar el modelo Adaline, se va a indicar cuales son sus ventajas e inconvenientes, se explicará la implementación que se ha llevado a cabo en PHP y el formato que se ha elegido para devolver las salidas del modelo. También se expermientará con distintos ciclos de aprendizaje y distintas razones de aprendizaje, y se verá el comportamiento de la red en todos los casos posibles, para ello se representará cada posible situación con un experimento para abordar todos los casos posibles.
+\par En este capítulo se va a explicar en primer lugar el modelo Adaline, se explicará la implementación que se ha llevado a cabo en PHP y el formato que se ha elegido para devolver las salidas del modelo. También se expermientará con distintos ciclos de aprendizaje y distintas razones de aprendizaje, y se verá el comportamiento de la red en todos los casos posibles, para ello se representará cada posible situación con un experimento para abordar todos los casos posibles.
 
 \section{ADALINE: ADAptive LInear NEuron}
 
@@ -248,9 +248,43 @@ E = \frac{1}{N}* \sum_{p=1}^{N}(d^{p} - y^{p})^{2}
 
 \chapter{Modelo Perceptrón Multicapa}
 
-????? ????????????? ????????????? ????????????? ????????????? ????????????? 
+\par En este capítulo se explicará el modelo del Perceptrón multicapa, se explicará la experimentación realizada sobre el script básico proporcionado en lenguaje R, se resumirá la experimentación y se tratará de explicar los resultados. Para realizar la experimentación se irán variando tanto la tasa de aprendizaje como el número de neuronas ocultas.
 
 \section{Perceptron Multicapa (MLP)}
+
+\par Es una red de neuronas artificiales formada por múltiples capas (\ref{fig:mlp}). A diferencia del modelo Adaline, resuelve problemas que no son linealmente separables. Además, se ha demostrado que es un aproximador universal, es decir,  cualquier función contínua en el espacio $\mathbb{R}^n$ puede aproximarse con este modelo. 
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.5]{mlp}
+\caption{Red Perceptrón multicapa \cite{MLP}}\label{fig:mlp}
+\end{figure}
+
+\par La arquitectura está distribuida en tres tipos de neuronas: neuronas de entrada, que únicamente reciben las entradas y las propagan a la siguiente capa, las neuronas ocultas, que procesan de manera no lineal las entradas, y las neuronas de salida, que devuelven las salidas al exterior.
+
+\par Teniendo dos neuronas \textit{i} y \textit{j}:
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.3]{mlpesquema}
+\caption{Esquema MLP \cite{MLP}}\label{fig:esquema}
+\end{figure}
+
+\par Los pesos y el umbral (\ref{eq:ej6}) se expresan en forma matricial y dependen de la capa en la que se encuentran.
+
+\begin{equation}\label{eq:ej6}
+W^c = (w_{ij}^c) = \begin{pmatrix}
+w_{11}^c & w_{12}^c & ... & w_{1n_{c+1}}^c\\ 
+w_{21}^c & w_{22}^c & ... & w_{2n_{c+1}}^c\\ 
+... & ... & & ...\\ 
+w_{n_{c}1}^c & w_{n_{c}2}^c & ... & w_{n_{c}n_{c+1}}^c 
+\end{pmatrix}  ,  U^c = (u_{i}^c) = \begin{pmatrix}
+u_{1}^c\\ 
+u_{2}^c\\ 
+...\\ 
+u_{n_{c}}^c 
+\end{pmatrix}
+\end{equation}
 
 ????? ???????El objetivo es obtener una red tal que y?????? ????????????? ????????????? ????????????? ?????????????
 

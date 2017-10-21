@@ -23,6 +23,8 @@
 
 \usepackage{multirow}
 \usepackage{float}
+\usepackage{dsfont}
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Codificacio dels caracteres 

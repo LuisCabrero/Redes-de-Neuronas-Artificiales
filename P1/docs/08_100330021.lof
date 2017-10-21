@@ -8,4 +8,6 @@
 \contentsline {figure}{\numberline {2.5}{\ignorespaces Gr\IeC {\'a}fica Adaline 0.0001 - 20000\relax }}{7}{figure.caption.8}
 \contentsline {figure}{\numberline {2.6}{\ignorespaces Salidas obtenidas vs salidas deseadas para tasa de aprendizaje 0.0001\relax }}{8}{figure.caption.10}
 \addvspace {10\p@ }
+\contentsline {figure}{\numberline {3.1}{\ignorespaces Red Perceptr\IeC {\'o}n multicapa \cite {MLP}\relax }}{9}{figure.caption.11}
+\contentsline {figure}{\numberline {3.2}{\ignorespaces Esquema MLP \cite {MLP}\relax }}{10}{figure.caption.12}
 \addvspace {10\p@ }
