@@ -587,7 +587,7 @@ class Adaline {
   }
 
   // Método para mostrar los resultados del aprendizaje
-  public function entrenamiento($num_ciclos){
+  public function ejecutaradaline($num_ciclos){
   	for ($i=1; $i <= $num_ciclos; $i++) { 
 		//Aprendizaje de la red
 		$this->aprendizaje('data/entrenamiento.csv', $i);

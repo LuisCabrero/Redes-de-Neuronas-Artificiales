@@ -9,6 +9,6 @@
 
 	$adaline = new Adaline($tasa_aprendizaje);
 
-	$adaline->entrenamiento($num_ciclos);
+	$adaline->ejecutaradaline($num_ciclos);
 
 ?>

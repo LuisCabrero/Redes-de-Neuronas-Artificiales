@@ -94,7 +94,7 @@
 
 \newcommand{\authorname}{Autor}
 \newcommand{\tutorname}{Tutor}
-\newcommand{\coursename}{Curs}
+\newcommand{\coursename}{Curso}
 \newcommand{\keywordsname}{Paraules clau}
 
 \newcommand{\algorithmname}{Algorisme}
@@ -105,8 +105,8 @@
 \newcommand{\appendicesname}{Ap\`endixs}
 
 \addto\captionscatalan{%
-     \renewcommand{\titulacioname}{Grau en Enginyeria Inform\`atica}
-     \renewcommand{\tfgname}{Treball fi de grau}
+     \renewcommand{\titulacioname}{Grado en Ingenier\'\i a Inform\'atica}
+     \renewcommand{\tfgname}{Redes de Neuronas Artificiales}
      \renewcommand{\authorname}{Autor}
      \renewcommand{\tutorname}{Tutor}
      \renewcommand{\coursename}{Curs}
@@ -172,28 +172,17 @@
 
 \RequirePackage{listings}
 
-\lstset{ %
-	language=C++,					% choose the language of the code
-	basicstyle=\footnotesize,		% the size of the fonts that are used for the code
-	numbers=left,                   % where to put the line-numbers
-	numberstyle=\footnotesize,      % the size of the fonts that are used for the line-numbers
-	stepnumber=1,                   % the step between two line-numbers. If it is 1 each line will be numbered
-	numbersep=5pt,                  % how far the line-numbers are from the code
-	backgroundcolor=\color{white},	% choose the background color. 
-	numberstyle=\tiny\color{gray},	% choose the color of the numbers
-	keywordstyle=\color{blue},		% choose the color of the keywords
-	commentstyle=\color{dkgreen},	% choose the color of the comments
-	stringstyle=\color{mauve}, 		% choose the color of the strings
-	showspaces=false,               % show spaces adding particular underscores
-	showstringspaces=false,         % underline spaces within strings
-	showtabs=false,                 % show tabs within strings adding particular underscores
-	frame=single,          			% adds a frame around the code
-	tabsize=2,          			% sets default tabsize to 2 spaces
-	captionpos=b,           		% sets the caption-position to bottom
-	breaklines=true,        		% sets automatic line breaking
-	breakatwhitespace=false,   		% sets if automatic breaks should only happen at whitespace
-	escapeinside={\%*}{*)}          % if you want to add a comment withi your code
-}
+\lstset{
+  language        = php,
+  basicstyle      = \small\ttfamily,
+  keywordstyle    = \color{dkblue},
+  stringstyle     = \color{red},
+  identifierstyle = \color{dkgreen},
+  commentstyle    = \color{gray},
+  emph            =[1]{php},
+  emphstyle       =[1]\color{black},
+  emph            =[2]{if,and,or,else},
+  emphstyle       =[2]\color{dkyellow}}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Aspecto los t√≠tulos para \chapter y \section, as√≠ como 
@@ -254,6 +243,7 @@
 %  Navegable
 %%%%%%%%%%%%%
 
+
 \RequirePackage[colorlinks]{hyperref}
 
 
@@ -276,8 +266,11 @@
    \addto\captionsspanish{\def\keywords{#2}}
    \addto\captionsenglish{\def\keywords{#3}}}
 
-\newenvironment{abstract}[1][catalan]{%
+\definecolor{bluex}{rgb}{8,37,150}
+
+\newenvironment{abstract}[1][spanish]{%
         \begingroup
+          \hypersetup{linkbordercolor=blue}
           \selectlanguage{#1}\addvspace{\baselineskip}\par\hfill
           {\sffamily\bfseries\Huge\abstractname}\smallskip\par}{%
           \par\nopagebreak\noindent\textbf{\keywordsname:} \keywords\vspace*{3pt}\hrule
@@ -306,28 +299,22 @@
 \renewcommand{\cftafterlottitle}{\par\noindent\hrulefill}
 \renewcommand{\cftafterloftitle}{\par\noindent\hrulefill}
 
-\newcommand{\APPENDIX}{\appendix
-             \phantomsection
-             \addtocontents{toc}{\protect\noindent\protect\hrulefill\protect\par}             
-             \ifnum\value{appendix}=1 \addtocontents{toc}{\protect\appendixname\protect\par}
-                    \else\addtocontents{toc}{\protect\appendicesname\protect\par}\fi}
-
 \newcommand{\m@ketitle}{%
 \begin{titlepage}
 \AddToShipoutPicture*{\AtPageUpperLeft{%
     % Marges: dalt=esquerra=dreta=2cm 
-    \raisebox{-4cm}{\hspace{2cm}\includegraphics[height=2cm]{logo-upv}% grand√ ria 116mmx37mm escalada a 62.7mmx20mm
+    \raisebox{-4cm}{\hspace{2cm}\includegraphics[height=2cm]{logo-uc3m}% grand√ ria 116mmx37mm escalada a 62.7mmx20mm
     \hspace{5.54cm}% 21cm-(2+6.27+5.19+2)cm
-                    \includegraphics[height=2cm]{logo-etsinf}% grand√ ria 109mmx42mm escalada a 51.9mmx20mm
+                    \includegraphics[height=1.5cm]{logo-colme}% grand√ ria 109mmx42mm escalada a 51.9mmx20mm
                     }}}
 \AddToShipoutPicture*{\includegraphics[width=21cm,height=12.89cm]{baseportada}}
 \centering
 \vspace*{2cm}
 \begin{color}{grisfosc}
 \large
-Escola T\`ecnica Superior d'Enginyeria Inform\`atica
+Escuela PolitÈcnica Superior Campus Colmenarejo
 
-Universitat Polit\`ecnica de Val\`encia
+Universidad Carlos III de Madrid
 \end{color}
 \vspace{\stretch{1}}
 
