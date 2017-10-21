@@ -15,12 +15,16 @@ class Adaline {
   var $error;   				//Error producido en un patrón.
   var $error_global;   			//Error cuadrático medio global.
   var $error_global_validacion; //Error cuadrático medio global en el proceso de validación
-  var $error_global_test;		 //Error cuadrático medio global en test.
+  var $error_global_test;		//Error cuadrático medio global en test.
   var $num_datos_entrada;   	//Número de datos de entrada.
   var $array_errores_ent;		//Array para guardar los errores globales por cada ciclo.
   var $array_errores_val;		//Array para guardar los errores globales de validación por cada ciclo.  
   var $array_salidas_test;		//Array para guardar las salidas desnormalizadas en proceso de test.
   var $total_test;				//Número total de datos de test.
+  var $sal_ent_desn;			//Array para ir almacenando las salidas desnormalizadas de entrenamiento.
+  var $sal_ent_nor;				//Array para ir almacenando las salidas normalizadas de entrenamiento.
+  var $sal_val_desn;			//Array para ir almacenando las salidas desnormalizadas de validación.
+  var $sal_val_nor;				//Array para ir almacenando las salidas normalizadas de validación.
 
   // Método constructor y que inicializa los pesos y umbral aleatoriamente.
   public function __construct($tasa_aprendizaje) {
@@ -47,6 +51,11 @@ class Adaline {
 	$this->array_errores_ent = array();
 	$this->array_errores_val = array();
 	$this->array_salidas_test = array();
+
+	$this->sal_ent_desn = array();
+	$this->sal_ent_nor = array();
+	$this->sal_val_desn = array();
+	$this->sal_val_nor = array();
 
   }
 
@@ -133,6 +142,12 @@ class Adaline {
 		}
 		$salida_obtenida += $this->umbral;
 
+		$file2 = fopen('data/desnormalizar.csv', "r");
+		$maxmin = fgetcsv($file2, 1000, ";");
+		$s_desn = $salida_obtenida*($maxmin[0] - $maxmin[1]) + $maxmin[1];
+		array_push($this->sal_ent_desn, $s_desn);
+		array_push($this->sal_ent_nor, $salida_obtenida);
+
 		//Calculamos el error.
 		$this->error = $salida_deseada - $salida_obtenida;
 		$this->error_global +=  pow($this->error , 2);
@@ -181,6 +196,12 @@ class Adaline {
 			$contador++;	
 		}
 		$salida_obtenida += $this->umbral;
+
+		$file2 = fopen('data/desnormalizar.csv', "r");
+		$maxmin = fgetcsv($file2, 1000, ";");
+		$s_desn = $salida_obtenida*($maxmin[0] - $maxmin[1]) + $maxmin[1];
+		array_push($this->sal_val_desn, $s_desn);
+		array_push($this->sal_val_nor, $salida_obtenida);
 
 		
 		//Calculamos el error.
@@ -288,72 +309,59 @@ class Adaline {
 
 		<html>
 			<head>
-			  <title>Resultados entrenamiento Adaline ciclo '.$ciclo.'</title>
+			  <title>Resultados Adaline ciclo '.$ciclo.'</title>
 			</head>
 			<body>
-				 <div style="margin:0 auto;"><h1> Resultados entrenamiento Adaline ciclo '.$ciclo.'</h1></div>
+				 <div style="margin:0 auto;"><h1> Salidas Adaline ciclo '.$ciclo.'</h1></div>
 				 <table class="tabla_adaline">
 					  <tr>
-					    <th colspan="8"><h2> Pesos </h2></th>
+					    <th colspan="8"><h2> Salidas entrenamiento</h2></th>
 					  </tr>
 					  <tr>
-					    <th>w0</th>
-					    <th>w1</th>
-					    <th>w2</th>
-					    <th>w3</th>
-					    <th>w4</th>
-					    <th>w5</th>
-					    <th>w6</th>
-					    <th>w7</th>
+					    <th>Salida entrenamiento normalizada</th>
+					    <th>Salida entrenamiento desnormalizada</th>
+					  </tr>
+
+					  ';
+
+					   for ($i=0; $i < count($this->sal_ent_nor); $i++) { 
+					   	$html .= '
+
+							  <tr>
+							    <td>'.$this->sal_ent_nor[$i].'</td>
+							    <td>'.$this->sal_ent_desn[$i].'</td>
+							  </tr>
+
+					   	';
+					   }
+
+					 
+	$html .= ' </table>
+
+			   <table class="tabla_adaline">
+					  <tr>
+					    <th colspan="8"><h2> Salidas validación</h2></th>
 					  </tr>
 					  <tr>
-					    <td>'.$this->w[0].'</td>
-					    <td>'.$this->w[1].'</td>
-					    <td>'.$this->w[2].'</td>
-					    <td>'.$this->w[3].'</td>
-					    <td>'.$this->w[4].'</td>
-					    <td>'.$this->w[5].'</td>
-					    <td>'.$this->w[6].'</td>
-					    <td>'.$this->w[7].'</td>
+					    <th>Salida validación normalizada</th>
+					    <th>Salida validación desnormalizada</th>
 					  </tr>
-				 </table>
-		 		 <br>
-		 		 <table style="width:80%;margin:0 auto;">
-				   <tr>
-				     <th colspan="2"><h2> Error global aprendizaje</h2></th>
-				   </tr>
-				   <tr>
-				   	 <td>Valor sin redondear</td>
-				     <td>'.$this->error_global.'</td>
-				   </tr>
-				   <tr>
-				   	 <td>Valor redondeado 10 decimales</td>
-				     <td>'.round($this->error_global,10).'</td>
-				   </tr>
-				 </table>
-				 <table style="width:80%;margin:0 auto;">
-				   <tr>
-				     <th colspan="2"><h2> Error global validacion</h2></th>
-				   </tr>
-				   <tr>
-				   	 <td>Valor sin redondear</td>
-				     <td>'.$this->error_global_validacion.'</td>
-				   </tr>
-				   <tr>
-				   	 <td>Valor redondeado 10 decimales</td>
-				     <td>'.round($this->error_global_validacion,10).'</td>
-				   </tr>
-				 </table>
-				 <br>
-				 <table style="width:80%;margin:0 auto;">
-				   <tr>
-				     <th><h2> Umbral </h2></th>
-				   </tr>
-				   <tr>
-				     <td>'.$this->umbral.'</td>
-				   </tr>
-				 </table>
-				 <br>
+
+					  ';
+
+					   for ($i=0; $i < count($this->sal_val_nor); $i++) { 
+					   	$html .= '
+
+							  <tr>
+							    <td>'.$this->sal_val_nor[$i].'</td>
+							    <td>'.$this->sal_val_desn[$i].'</td>
+							  </tr>
+
+					   	';
+					   }
+			   
+	$html .= ' </table>
+
 			</body>
 		</html>
 	 ';
@@ -516,8 +524,10 @@ class Adaline {
 
 	$html .=
 	 '		  </table>
+				
+				<br><br>
 
-				 <table class="tabla_adaline">
+				 <table class="tabla_adaline" style="margin: 0 auto; width:80%;">
 					  <tr>
 					    <th colspan="8"><h2> Pesos </h2></th>
 					  </tr>
@@ -544,6 +554,8 @@ class Adaline {
 					    <td>'.$this->umbral.'</td>
 					  </tr>
 				 </table>
+
+				<br><br>
 
 				 <table class="tabla_adaline">
 					  <tr>
@@ -583,7 +595,7 @@ class Adaline {
 		//Validación
 		$this->errorvalidacion('data/validacion.csv', $i);
 
-		/*$this->resultados('results', $i, $num_ciclos);*/
+		$this->resultados('results', $i, $num_ciclos);
 
 		array_push($this->array_errores_ent, $this->error_global);
 		array_push($this->array_errores_val, $this->error_global_validacion);
