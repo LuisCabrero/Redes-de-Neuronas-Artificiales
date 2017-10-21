@@ -173,24 +173,97 @@ E = \frac{1}{N}* \sum_{p=1}^{N}(d^{p} - y^{p})^{2}
 \item \textit{errortest}. Parámetro: fichero a utilizar. Calcula el error cuadrático medio sobre el conjunto de los datos de test.
 \item \textit{resultados}. Parámetros: carpeta, ciclo y número de ciclos. Muestra en un fichero HTML las salidas obtenidas para el conjunto de entrenamiento y validación normalizadas y desnormalizadas.
 \item \textit{mostrarerrores}. Parámetros: carpeta y número de ciclos. Muestra en un fichero HTML los errores cuadráticos medios por cada ciclo para entrenamiento y validación, el valor del error cuadrático medio para el conjunto de test, los pesos y umbral resultantes tras aprendizaje y las salidas desnormalizadas de test.
+\item \textit{datostest}. Parámetros: carpeta y número de ciclos. Muestra en un fichero HTML los errores sobre el conjunto de test normalizado y sin normalizar, muestra también una gráfica comparando las salidas obtenidas con las esperadas.
 \end{itemize}
 
 \section{Experimentación realizada}
 
+\par La experimentación realizada en Adaline se basa en ir variando la razón de aprendizaje ($\gamma$) y el número de ciclos de ejecución. Iremos extrayendo ciertas conclusiones en función de los valores posibles de $\gamma$, entre 0 y 1 y los ciclos de ejecución, que pueden ser desde 1 al número que se quiera indicar.
 
-\chapter{??? ???? ??????}
+\par \underline{\textbf{Experimentaciones}}
+
+\par \textbf{$\gamma = 0.8$ y $ciclos = 500$}
+
+\par Con una tasa de 0.8 y 500 ciclos la red "no aprende" (\ref{fig:8500}) dado que comienza cometiendo un error y en el ciclo inmediatamente posterior el error aumenta, tendencia que continúa hasta que el error se estabiliza en un valor elevado, por tanto considero de poco interés este experimento. El error obtenido sobre el conjunto de test es de 0.49219936325144.
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.5]{8500}
+\caption{Gráfica Adaline 0.8 - 500}\label{fig:8500}
+\end{figure}
+
+\par \textbf{$\gamma = 0.2$ y $ciclos = 500$}
+
+\par Con una tasa de 0.2 y 500 ciclos (\ref{fig:2500}) se produce un claro sobreaprendizaje dado que la red es capaz de generalizar el conjunto de entrenamiento con un error cuadrático medio que se estabiliza en torno a 0.021043565092019 mientras que el conjunto de validación se estabiliza en torno a 0.021394445575013. Como vemos la diferencia es muy pequeña pero digamos que en este valor se comienza a producir el sobreaprendizaje, situación que no deseamos porque esto indica que la red no será capaz de generalizar bien datos que no conozca. El error de test es de 0.023142903383433.
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.5]{2500}
+\caption{Gráfica Adaline 0.2 - 500}\label{fig:2500}
+\end{figure}
+
+\par \textbf{$\gamma = 0.15$ y $ciclos = 500$, $\gamma = 0.1$ y $ciclos = 500$}
+
+\par Con una tasa de 0.15 y 500 ciclos se sigue produciendo sobreaprendizaje pero se puede observar que según se va disminuyendo la tasa de aprendizaje, el valor absoluto de la diferencia entre ambos errores va disminuyendo. También va disminuyendo el error de test que ahora se sitúa en 0.021433296435724. Esta tendencia se puede comprobar con la experimentación realizada para $\gamma = 0.1$ y $ciclos = 500$ (\ref{fig:1500}). El error de entrenamiento se estabiliza en 0.017396882217266 y el de validación en 0.018214407942476. El error producido en test en este caso es de 0.020000915138424. En este caso, con $\gamma = 0.1$ sigue produciendose sobreaprendizaje.
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.5]{1500}
+\caption{Gráfica Adaline 0.1 - 500}\label{fig:1500}
+\end{figure}
+
+\par \textbf{$\gamma = 0.0001$ y $ciclos = 20000$}
+
+\par Con una tasa muy pequeña ($\gamma = 0.0001$) son necesarios cerca de 20000 ciclos (\ref{fig:000120000}) para conseguir que los errores de validación y entrenamiento se estabilicen. Se obtienen 0.016186448864616 y 0.016999895299418 como errores estabilizados en entrenamiento y validación respectivamente. El error producido sobre el conjunto de test es 0.019147481314295.
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.5]{000120000}
+\caption{Gráfica Adaline 0.0001 - 20000}\label{fig:000120000}
+\end{figure}
+
+\section{Resumen experimentación Adaline}
+
+\begin{table}[H]
+\centering
+\caption{Resumen experimentación Adaline}
+\label{tb:tb1}
+\begin{tabular}{lllll}
+\hline
+\multicolumn{1}{|l|}{Tasa de aprendizaje} & Error entrenamiento & Error validación  & Error test        \\ \hline \hline
+0.8                                       & 0.47269316589935    & 0.49962652341666  & 0.49219936325144  \\
+0.2                                       & 0.021043565092019   & 0.021394445575013 & 0.023142903383433 \\
+0.1                                       & 0.017396882217266   & 0.018214407942476 & 0.020000915138424 \\
+0.0001                                    & 0.016186448864616   & 0.016999895299418 & 0.019147481314295 \\ \hline
+\end{tabular}
+\end{table}
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.5]{bestadaline}
+\caption{Salidas obtenidas vs salidas deseadas para tasa de aprendizaje 0.0001}\label{fig:bestadaline}
+\end{figure}
+
+\par Como vemos, el mejor experimento realizado es aquel que minimiza el error cuadrático medio, esto es, el realizado con tasa de aprendizaje 0.0001, por lo que se muestran las salidas obtenidas frente a las deseadas en dicho experimento. Podemos ver que para algunas de las salidas el modelo aproxima casi a la perfección pero para otras hay grandes diferencias, en esas diferencias es en las que se genera el error que en este caso se eleva a 123.26694496161, valor desnormalizado. Posteriormente evaluaremos el MLP y veremos si estos valores son mejorables \footnote{Para ver los valores en detalle acudir a los resultados adjuntos en formato HTML}.
+
+\chapter{Modelo Perceptrón Multicapa}
 
 ????? ????????????? ????????????? ????????????? ????????????? ????????????? 
 
-\section{?? ???? ???? ? ?? ??}
+\section{Perceptron Multicapa (MLP)}
 
 ????? ???????El objetivo es obtener una red tal que y?????? ????????????? ????????????? ????????????? ?????????????
+
+\section{Experimentación realizada}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %                                 CONCLUSIONS                                 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \chapter{Conclusiones}
+
+Hablar del tema rendimiento
+Comparar ambos modelos
 
 ????? ????????????? ????????????? ????????????? ????????????? ????????????? 
 

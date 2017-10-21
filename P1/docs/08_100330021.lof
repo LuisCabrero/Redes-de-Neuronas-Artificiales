@@ -2,5 +2,10 @@
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {2.1}{\ignorespaces Neurona ADALINE \cite {Adaline}\relax }}{3}{figure.caption.4}
+\contentsline {figure}{\numberline {2.2}{\ignorespaces Gr\IeC {\'a}fica Adaline 0.8 - 500\relax }}{6}{figure.caption.5}
+\contentsline {figure}{\numberline {2.3}{\ignorespaces Gr\IeC {\'a}fica Adaline 0.2 - 500\relax }}{6}{figure.caption.6}
+\contentsline {figure}{\numberline {2.4}{\ignorespaces Gr\IeC {\'a}fica Adaline 0.1 - 500\relax }}{7}{figure.caption.7}
+\contentsline {figure}{\numberline {2.5}{\ignorespaces Gr\IeC {\'a}fica Adaline 0.0001 - 20000\relax }}{7}{figure.caption.8}
+\contentsline {figure}{\numberline {2.6}{\ignorespaces Salidas obtenidas vs salidas deseadas para tasa de aprendizaje 0.0001\relax }}{8}{figure.caption.10}
 \addvspace {10\p@ }
 \addvspace {10\p@ }

@@ -20,6 +20,7 @@ class Adaline {
   var $array_errores_ent;		//Array para guardar los errores globales por cada ciclo.
   var $array_errores_val;		//Array para guardar los errores globales de validación por cada ciclo.  
   var $array_salidas_test;		//Array para guardar las salidas desnormalizadas en proceso de test.
+  var $array_salidas_d_test;	//Array para guardar las salidas deseadas en proceso de test.
   var $total_test;				//Número total de datos de test.
   var $sal_ent_desn;			//Array para ir almacenando las salidas desnormalizadas de entrenamiento.
   var $sal_ent_nor;				//Array para ir almacenando las salidas normalizadas de entrenamiento.
@@ -51,6 +52,7 @@ class Adaline {
 	$this->array_errores_ent = array();
 	$this->array_errores_val = array();
 	$this->array_salidas_test = array();
+	$this->array_salidas_d_test = array();
 
 	$this->sal_ent_desn = array();
 	$this->sal_ent_nor = array();
@@ -233,6 +235,8 @@ class Adaline {
 
 	$numero_errores = 0;
 
+	$this->patrones_test = 0;
+
 	while (($linea = fgetcsv($file, 1000, ";")) !== false) {
 
 		$numero_elementos = count($linea);
@@ -258,6 +262,9 @@ class Adaline {
 		$maxmin = fgetcsv($file2, 1000, ";");
 		$s_desn = $salida_obtenida*($maxmin[0] - $maxmin[1]) + $maxmin[1];
 		array_push($this->array_salidas_test, $s_desn);
+		$sDes_desn = $salida_deseada*($maxmin[0] - $maxmin[1]) + $maxmin[1];
+
+		array_push($this->array_salidas_d_test, $sDes_desn);
 
 		//Calculamos el error.
 		$error_test = $salida_deseada - $salida_obtenida;
@@ -407,92 +414,38 @@ class Adaline {
 
 		<html>
 			<head>
-			  <title>Errores producidos en proceso entrenamiento Adaline</title>
+			  <title>Datos Adaline</title>
 
 
 				<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-			    <script type="text/javascript">
+				<script type="text/javascript">
 			      google.charts.load("current", {"packages":["corechart"]});
 			      google.charts.setOnLoadCallback(drawChart);
 
 			      function drawChart() {
 			        var data = google.visualization.arrayToDataTable([
-			        ["Ciclo", "Error global"],';
+			          ["Cycle", "Training error", "Validation error"],';
 
 
 	for ($i=0; $i < $num_ciclos; $i++) { 
 		if($i == $num_ciclos -1){
-			$html .='[ '.$i.',      '.$this->array_errores_ent[$i].']';
+			$html .='[ '.$i.',      '.$this->array_errores_ent[$i].',       '.$this->array_errores_val[$i].']';
 		}else{
-			$html .='[ '.$i.',      '.$this->array_errores_ent[$i].'],';
+			$html .='[ '.$i.',      '.$this->array_errores_ent[$i].',       '.$this->array_errores_val[$i].'],';
 		}
 		
 	}
 
-	$maximo = 0;
-	foreach ($this->array_errores_ent as $error_ent) {
-		if($error_ent > $maximo){
-			$maximo = $error_ent;
-		}
-	}
-
-
-	$html .='
+	$html .= '
 			        ]);
 
 			        var options = {
-			          title: "Errores en aprendizaje por ciclo",
-			          hAxis: {title: "Ciclo", minValue: 0, maxValue: '.$num_ciclos.' },
-			          vAxis: {title: "Error global", minValue: 0, maxValue: '.$maximo.' },
-			          legend: "none"
+			          title: "Errores por ciclo",
+			          curveType: "function",
+			          legend: { position: "bottom" }
 			        };
 
-			        var chart = new google.visualization.ScatterChart(document.getElementById("chart_div"));
-
-			        chart.draw(data, options);
-			      }
-			    </script>';
-
-
-	$html .='	<script type="text/javascript">
-			      google.charts.load("current", {"packages":["corechart"]});
-			      google.charts.setOnLoadCallback(drawChart2);
-
-			      function drawChart2() {
-			        var data = google.visualization.arrayToDataTable([
-			        ["Ciclo", "Error global validación"],';
-
-
-					for ($i=0; $i < $num_ciclos; $i++) { 
-						if($i == $num_ciclos -1){
-							$html .='[ '.$i.',      '.$this->array_errores_val[$i].']';
-						}else{
-							$html .='[ '.$i.',      '.$this->array_errores_val[$i].'],';
-						}
-						
-					}
-
-					$maximo = 0;
-					foreach ($this->array_errores_val as $error_val) {
-						if($error_val > $maximo){
-							$maximo = $error_val;
-						}
-					}
-
-
-	$html .='
-			        ]);
-
-			        var options = {
-			          title: "Errores en validación por ciclo",
-			          hAxis: {title: "Ciclo", minValue: 0, maxValue: '.$num_ciclos.' },
-			          vAxis: {title: "Error global validación", minValue: 0, maxValue: '.$maximo.' },
-			          legend: "none",
-			          colors: ["#ff0000"]
-
-			        };
-
-			        var chart = new google.visualization.ScatterChart(document.getElementById("chart_div2"));
+			        var chart = new google.visualization.LineChart(document.getElementById("curve_chart"));
 
 			        chart.draw(data, options);
 			      }
@@ -504,9 +457,7 @@ class Adaline {
 
 				  <div style="margin:0 auto;"><h3>Error sobre conjunto de test: '.$this->error_global_test.'</h3></div>
 
-				 <div id="chart_div" style="width: 900px; height: 500px;"></div>
-
-				 <div id="chart_div2" style="width: 900px; height: 500px;"></div>
+				 <div id="curve_chart" style="width: 900px; height: 500px;"></div>
 
 
 				 <table class="tabla_adaline">
@@ -586,6 +537,103 @@ class Adaline {
 	fclose($resultado);
   }
 
+  // Método para mostrar los datos de test.
+  public function datostest($folder, $num_ciclos){
+
+  	//Creamos una carpeta para estos parámetros si no existe.
+  	if(!file_exists (dirname(__FILE__).'/'.$folder.'/'.$this->tasa_aprendizaje.' - '.$num_ciclos)){
+  		mkdir(dirname(__FILE__).'/'.$folder.'/'.$this->tasa_aprendizaje.' - '.$num_ciclos, 0755);
+  	}
+
+  	$resultado = fopen(dirname(__FILE__).'/'.$folder.'/'.$this->tasa_aprendizaje.' - '.$num_ciclos.'/testdata.html', "w");
+
+  	//Hallamos el error basándonos en las salidas sin normalizar.
+
+  	$error_sin_normalizar = 0;
+  	for ($i=0; $i < $this->total_test; $i++) { 
+  		$error = floatval($this->array_salidas_test[$i]) - floatval($this->array_salidas_d_test[$i]);
+  		$error_sin_normalizar += pow($error, 2);
+  	}
+  	$error_sin_normalizar = $error_sin_normalizar/$this->total_test;
+
+  	$html =
+	 '
+		<style>
+			.tabla_adaline{
+				width:80%;
+				margin:0 auto;
+			}
+			table, td, th {    
+			    border: 1px solid #ddd;
+			    text-align: left;
+			}
+
+			table {
+			    border-collapse: collapse;
+			    width: 100%;
+			}
+
+			th, td {
+			    padding: 15px;
+			}
+		</style>
+
+		<html>
+			<head>
+			  <title>Datos Test Adaline</title>
+
+
+				<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+				<script type="text/javascript">
+			      google.charts.load("current", {"packages":["corechart"]});
+			      google.charts.setOnLoadCallback(drawChart);
+
+			      function drawChart() {
+			        var data = google.visualization.arrayToDataTable([
+			          ["Pattern", "Salida obtenida", "Salida deseada"],';
+
+
+	for ($i=0; $i < $this->total_test; $i++) { 
+		if($i == $num_ciclos -1){
+			$html .='[ '.$i.',      '.$this->array_salidas_test[$i].',       '.$this->array_salidas_d_test[$i].']';
+		}else{
+			$html .='[ '.$i.',      '.$this->array_salidas_test[$i].',       '.$this->array_salidas_d_test[$i].'],';
+		}
+		
+	}
+
+	$html .= '
+			        ]);
+
+			        var options = {
+			          title: "Salidas por patrón",
+			          curveType: "function",
+			          legend: { position: "bottom" }
+			        };
+
+			        var chart = new google.visualization.LineChart(document.getElementById("curve_chart"));
+
+			        chart.draw(data, options);
+			      }
+			    </script>
+
+			</head>
+			<body>
+				 <div style="margin:0 auto;"><h1>Resultados test Adaline ('.$this->tasa_aprendizaje.','.$num_ciclos.')</h1></div>
+
+				  <div style="margin:0 auto;"><h3>Error sobre conjunto de test: '.$this->error_global_test.'</h3></div>
+				  <div style="margin:0 auto;"><h3>Error sin normalizar sobre conjunto de test: '.$error_sin_normalizar.'</h3></div>
+				 <div id="curve_chart" style="width: 900px; height: 500px;"></div>
+		 		 
+			</body>
+		</html>
+	';
+	
+	fwrite($resultado, $html);
+
+	fclose($resultado);
+  }
+
   // Método para mostrar los resultados del aprendizaje
   public function ejecutaradaline($num_ciclos){
   	for ($i=1; $i <= $num_ciclos; $i++) { 
@@ -595,7 +643,7 @@ class Adaline {
 		//Validación
 		$this->errorvalidacion('data/validacion.csv', $i);
 
-		$this->resultados('results', $i, $num_ciclos);
+		//$this->resultados('results', $i, $num_ciclos);
 
 		array_push($this->array_errores_ent, $this->error_global);
 		array_push($this->array_errores_val, $this->error_global_validacion);
@@ -604,6 +652,7 @@ class Adaline {
 	$this->errortest('data/test.csv');
 
 	$this->mostrarerrores('results', $num_ciclos);
+  	$this->datostest('results', $num_ciclos);
   }
 
 }

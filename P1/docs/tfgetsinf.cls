@@ -21,6 +21,9 @@
 
 \LoadClass{book}
 
+\usepackage{multirow}
+\usepackage{float}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Codificacio dels caracteres 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -120,7 +123,7 @@
 
 \addto\captionsspanish{%
      \renewcommand{\titulacioname}{Grado en Ingenier\'\i a Inform\'atica}
-     \renewcommand{\tfgname}{Trabajo fin de grado}
+     \renewcommand{\tfgname}{Redes de Neuronas Artificiales}
      \renewcommand{\authorname}{Autor}
      \renewcommand{\tutorname}{Tutor}
      \renewcommand{\coursename}{Curso}
