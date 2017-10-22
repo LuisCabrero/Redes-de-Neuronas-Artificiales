@@ -270,7 +270,7 @@ E = \frac{1}{N}* \sum_{p=1}^{N}(d^{p} - y^{p})^{2}
 \caption{Esquema MLP \cite{MLP}}\label{fig:esquema}
 \end{figure}
 
-\par Los pesos y el umbral (\ref{eq:ej6}) se expresan en forma matricial y dependen de la capa en la que se encuentran.
+\par Los pesos y el umbral (\ref{eq:ej6}) se expresan en forma matricial, e influyen en la activación de la neurona perteneciente a la capa siguiente. Las neuronas de entrada simplemente tienen su activación equivalente a la entrada que reciben, sin embargo, tanto las neuronas de la capa de salida (\ref{eq:ej8}) como las neuronas de las capas ocultas (\ref{eq:ej7}) necesitan computar los pesos y sus entradas sumándoles el umbral.
 
 \begin{equation}\label{eq:ej6}
 W^c = (w_{ij}^c) = \begin{pmatrix}
@@ -286,7 +286,15 @@ u_{n_{c}}^c
 \end{pmatrix}
 \end{equation}
 
-????? ???????El objetivo es obtener una red tal que y?????? ????????????? ????????????? ????????????? ?????????????
+\begin{equation}\label{eq:ej7}
+a_{i}^c = f(\sum_{j=1}^{n_{c-1}}w_{ji}^{c-1}*a_{j}^{c-1} + u_{i}^{c})
+\end{equation} 
+
+\begin{equation}\label{eq:ej8}
+y_{i} = a_{i}^c = f(\sum_{j=1}^{n_{c-1}}w_{ji}^{c-1}*a_{j}^{c-1} + u_{i}^{c})
+\end{equation} 
+
+\par Siendo $f$ la función de activación. Las funciones más utilizadas son la función sigmoidal ($f_{1}(x) = \frac{1}{1+e^{-x}}$) y la tangente hiperbólica ($f_{2}(x) = \frac{1-e^{-x}}{1+e^{-x}}$). El aprendizaje de la red se realiza de forma semejante que en Adaline, pero no entraremos en detalle en esta ocasión \cite{MLP}.
 
 \section{Experimentación realizada}
 

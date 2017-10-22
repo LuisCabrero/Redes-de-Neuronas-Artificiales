@@ -6,9 +6,9 @@ set.seed(1)
 
 #Leer ficheros de los tres ficheros (cuidado con el formato)
 
-trainSet <- read.csv("data/entrenamiento.csv",dec=",",sep=";",header = F)
-validSet <- read.csv( "data/validacion.csv",dec=",",sep=";",header = F)
-testSet  <- read.csv("data/test.csv",dec=",",sep=";",header = F)
+trainSet <- read.csv("data/entrenamiento.csv",dec=".",sep=";",header = F)
+validSet <- read.csv( "data/validacion.csv",dec=".",sep=";",header = F)
+testSet  <- read.csv("data/test.csv",dec=".",sep=";",header = F)
 
 
 #num de columna de salida

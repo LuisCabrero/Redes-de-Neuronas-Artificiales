@@ -24,6 +24,11 @@
 \usepackage{multirow}
 \usepackage{float}
 \usepackage{dsfont}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{epstopdf}
+\usepackage{tikz}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
