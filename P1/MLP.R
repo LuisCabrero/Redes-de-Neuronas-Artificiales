@@ -17,8 +17,8 @@ target <- ncol(trainSet)
 # Hay que ir configurando los parámetros de la red e ir probando
 #SELECCION DE LOS PARAMETROS DE LA RED
 topologia        <- c(50)   #una capa oculta de 50 neuronas. M?s capas ej: c(20,10) Para añadir más capas se introducen más parámetros
-razonAprendizaje <- 0.2
-ciclosMaximos    <- 1000
+razonAprendizaje <- 0.01
+ciclosMaximos    <- 10000
 
 #EJECUCION DEL APRENDIZAJE Y GENERACION DEL MODELO
 # en Rsnns se llama test a nuestro fichero de validaci?n
@@ -30,7 +30,7 @@ model <- mlp(x= trainSet[,-target],
              maxit=ciclosMaximos,  #Ciclos máximos
              learnFuncParams=c(razonAprendizaje),  #Parámetros de aprendizaje, solo pasamos la tasa.
              shufflePatterns = F  #Al ya estar aleatorizado se deja como está, si no lo estuviese se cambia.
-             #hiddenActFunc = "Act_TanH" Tangente hiperbólica. Ganas de experimentar. Si la sigmoide está bien no hace falta, pero para más nota vale.
+             #hiddenActFunc = "Act_TanH" #Tangente hiperbólica. Ganas de experimentar. Si la sigmoide está bien no hace falta, pero para más nota vale.
              )
 
 #GRAFICO DE LA EVOLUCION DEL ERROR 
@@ -57,12 +57,12 @@ outputs <- list(train=   c(predict(model,trainSet[,-target])),
 #GUARDAR RESULTADOS
 #Hay que ir renombrando los ficheros para ir realizando pruebas y que no se pisen.
 #Crear distintas carpetas para ir guardando los resultados en función de cada prueba.
-saveRDS(model,"results_mlp/nnet.rds")   ## para leeer usar readRDS(model, ")
-write.csv(errors,"results_mlp/finalErrors.csv",row.names=F)
-write.csv(iterativeErrors,"results_mlp/iterativeErrors.csv")
-write.csv(outputs$train,"results_mlp/trainOutputs.csv")
-write.csv(outputs$valid,"results_mlp/validOutputs.csv")
-write.csv(outputs$test,"results_mlp/testOutputs.csv")
+saveRDS(model,"/home/luis/Documentos/Redes-de-Neuronas-Artificiales/P1/results_mlp/nnet.rds")   ## para leeer usar readRDS(model, ")
+write.csv(errors,"/home/luis/Documentos/Redes-de-Neuronas-Artificiales/P1/results_mlp/finalErrors.csv",row.names=F)
+write.csv(iterativeErrors,"/home/luis/Documentos/Redes-de-Neuronas-Artificiales/P1/results_mlp/iterativeErrors.csv")
+write.csv(outputs$train,"/home/luis/Documentos/Redes-de-Neuronas-Artificiales/P1/results_mlp/trainOutputs.csv")
+write.csv(outputs$valid,"/home/luis/Documentos/Redes-de-Neuronas-Artificiales/P1/results_mlp/validOutputs.csv")
+write.csv(outputs$test,"/home/luis/Documentos/Redes-de-Neuronas-Artificiales/P1/results_mlp/testOutputs.csv")
 
 #plot de la salida de test
 #habría que desnormalizarlo para obtener la gráfica correctamente.

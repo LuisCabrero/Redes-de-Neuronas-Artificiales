@@ -10,4 +10,8 @@
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {3.1}{\ignorespaces Red Perceptr\IeC {\'o}n multicapa \cite {MLP}\relax }}{9}{figure.caption.11}
 \contentsline {figure}{\numberline {3.2}{\ignorespaces Esquema MLP \cite {MLP}\relax }}{10}{figure.caption.12}
+\contentsline {figure}{\numberline {3.3}{\ignorespaces Sobreaprendizaje en MLP \cite {MLP}\relax }}{11}{figure.caption.13}
+\contentsline {figure}{\numberline {3.4}{\ignorespaces Gr\IeC {\'a}fica MLP 0.8 - 50 ocultas - 10000 ciclos ($f_{a}(x) = \frac {1}{1+e^{-x}}$)\relax }}{11}{figure.caption.14}
+\contentsline {figure}{\numberline {3.5}{\ignorespaces Gr\IeC {\'a}fica MLP 0.8 - 50 ocultas - 10000 ciclos ($f_{a}(x) = \frac {1-e^{-x}}{1+e^{-x}}$)\relax }}{12}{figure.caption.15}
+\contentsline {figure}{\numberline {3.6}{\ignorespaces Gr\IeC {\'a}fica MLP 0.8 - 50 ocultas - 10000 ciclos ($f_{a}(x) = \frac {1}{1+e^{-x}}$)\relax }}{12}{figure.caption.16}
 \addvspace {10\p@ }

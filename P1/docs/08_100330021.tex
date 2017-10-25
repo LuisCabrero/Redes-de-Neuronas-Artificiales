@@ -298,6 +298,49 @@ y_{i} = a_{i}^c = f(\sum_{j=1}^{n_{c-1}}w_{ji}^{c-1}*a_{j}^{c-1} + u_{i}^{c})
 
 \section{Experimentación realizada}
 
+\par En cuanto a la experimentación realizada se ha prestado especial atención en conseguir una capacidad de generalización adecuada. Esto es: no nos interesa conseguir que la red sea capaz de estimar valores del conjunto de entrenamiento pero que cuando entren datos de un conjunto nuevo, no sea capaz de generalizarlos. Esta situación es conocida como \textbf{sobreaprendizaje}. La siguiente figura (\ref{fig:sobreaprendizaje}) tomada de las transparencias de los profesores de la asignatura ilustra muy bien este comportamiento no deseado. Aun así trataremos de ver una situación de sobreaprendizaje en la experimentación para tratar de explicar el motivo de este comportamiento.
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.5]{sobreaprendizaje}
+\caption{Sobreaprendizaje en MLP \cite{MLP}}\label{fig:sobreaprendizaje}
+\end{figure}
+
+\par Esta situación se puede evitar renunciando a cierta capacidad de generalización sobre el conjunto de entrenamiento, si esto nos va a llevar a una mejor capacidad de generalización sobre otros conjuntos de datos como pudieran ser test o validación. Esto nos aboca a dos posibles situaciones: estabilizar los errores de entrenamiento y test (el aprendizaje ha terminado con éxito) o bien que el error de entrenamiento se estabiliza y el error de test se dispara (se ha producido sobreaprendizaje y el modelo no generaliza bien los datos). Si inicializamos un modelo MLP con demasiadas neuronas ocultas o pesos, o incluso demasiados ciclos, el modelo en su aprendizaje será capaz de generalizar con mucha exactitud el conjunto de entrenamiento. Sin embargo existe la posibilidad de que al presentar al modelo datos de otro conjunto, su capacidad de generalización resulte en fracaso (\ref{fig:sobreaprendizaje}). 
+
+\par \underline{\textbf{Experimentaciones}}
+
+\par \textbf{$\gamma = 0.8$, $ciclos = 10000$ y $n_{ocultas} = 50$ ($f_{a}(x) = \frac{1}{1+e^{-x}}$)}
+
+\par Con una tasa de 0.8, bastante elevada, 50 neuronas en la capa oculta y 10000 ciclos (\ref{fig:500810000sig}), lo que tenemos es una clara situación de sobreaprendizaje. El modelo es capaz de generalizar bien el conjunto de entrenamiento con un error de 0.00215141436100276 mientras que en test se produce un error de 0.00305097518407372. Este experimento se ha realizado utilizando la función de activación sigmoidal. Es de suponer que si incrementamos el número de capas ocultas el sobreaprendizaje se acentuaría y la gráfica sería más evidente.
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.5]{500810000sig}
+\caption{Gráfica MLP 0.8 - 50 ocultas - 10000 ciclos ($f_{a}(x) = \frac{1}{1+e^{-x}}$)}\label{fig:500810000sig}
+\end{figure}
+
+\par \textbf{$\gamma = 0.8$, $ciclos = 10000$ y $n_{ocultas} = 50$ ($f_{a}(x) = \frac{1-e^{-x}}{1+e^{-x}}$)}
+
+\par Con una tasa de 0.8, bastante elevada, 50 neuronas en la capa oculta y 10000 ciclos (\ref{fig:500810000tan}), lo que tenemos es una clara situación de sobreaprendizaje. El modelo es capaz de generalizar bien el conjunto de entrenamiento con un error de 0.00429123031163413 mientras que en test se produce un error de 0.00604587325351324. Este experimento se ha realizado utilizando la función de activación tangente hiperbólica. A simple vista vemos la diferencia entre las dos gráficas (\ref{fig:500810000tan} y \ref{fig:500810000sig}), si nos damos cuenta, a parte de que el error producido es prácticamente el doble utilizando la tangente hiperbólica, esta segunda función presenta un comportamiento bastante inestable, al necesitar un mínimo de 3000 ciclos para comenzar su estabilización, mientras que la sigmoidal entra en esta fase a partir del ciclo 700. Podemos afirmar que en este caso la sigmoidal genera mejor modelo que la tangente hiperbólica.
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.5]{500810000tan}
+\caption{Gráfica MLP 0.8 - 50 ocultas - 10000 ciclos ($f_{a}(x) = \frac{1-e^{-x}}{1+e^{-x}}$)}\label{fig:500810000tan}
+\end{figure}
+
+\par \textbf{$\gamma = 0.8$, $ciclos = 10000$ y $n_{ocultas} = 50$ ($f_{a}(x) = \frac{1}{1+e^{-x}}$)}
+
+\par Con una tasa de 0.8, bastante elevada, 50 neuronas en la capa oculta y 10000 ciclos (\ref{fig:500810000sig}), lo que tenemos es una clara situación de sobreaprendizaje. El modelo es capaz de generalizar bien el conjunto de entrenamiento con un error de 0.00215141436100276 mientras que en test se produce un error de 0.00305097518407372. Este experimento se ha realizado utilizando la función de activación sigmoidal.
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.5]{500810000sig}
+\caption{Gráfica MLP 0.8 - 50 ocultas - 10000 ciclos ($f_{a}(x) = \frac{1}{1+e^{-x}}$)}\label{fig:500810000sig}
+\end{figure}
+
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %                                 CONCLUSIONS                                 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

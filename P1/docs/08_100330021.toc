@@ -15,5 +15,5 @@
 \contentsline {chapter}{\numberline {3}Modelo Perceptr\IeC {\'o}n Multicapa}{9}{chapter.3}
 \contentsline {section}{\numberline {3.1}Perceptron Multicapa (MLP)}{9}{section.3.1}
 \contentsline {section}{\numberline {3.2}Experimentaci\IeC {\'o}n realizada}{10}{section.3.2}
-\contentsline {chapter}{\numberline {4}Conclusiones}{11}{chapter.4}
-\contentsline {chapter}{Bibliograf\'{\i }a}{13}{chapter*.13}
+\contentsline {chapter}{\numberline {4}Conclusiones}{13}{chapter.4}
+\contentsline {chapter}{Bibliograf\'{\i }a}{15}{chapter*.17}
