@@ -1,0 +1,2 @@
+# Definimos en primer lugar los directorios comunes a ignorar para las subidas a git
+/P1/results/*

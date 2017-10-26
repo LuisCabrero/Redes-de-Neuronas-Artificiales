@@ -18,7 +18,7 @@ target <- ncol(trainSet)
 #SELECCION DE LOS PARAMETROS DE LA RED
 topologia        <- c(50)   #una capa oculta de 50 neuronas. M?s capas ej: c(20,10) Para añadir más capas se introducen más parámetros
 razonAprendizaje <- 0.01
-ciclosMaximos    <- 10000
+ciclosMaximos    <- 100000
 
 #EJECUCION DEL APRENDIZAJE Y GENERACION DEL MODELO
 # en Rsnns se llama test a nuestro fichero de validaci?n
