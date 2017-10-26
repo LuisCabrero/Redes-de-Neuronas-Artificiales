@@ -13,5 +13,11 @@
 \contentsline {figure}{\numberline {3.3}{\ignorespaces Sobreaprendizaje en MLP \cite {MLP}\relax }}{11}{figure.caption.13}
 \contentsline {figure}{\numberline {3.4}{\ignorespaces Gr\IeC {\'a}fica MLP 0.8 - 50 ocultas - 10000 ciclos ($f_{a}(x) = \frac {1}{1+e^{-x}}$)\relax }}{11}{figure.caption.14}
 \contentsline {figure}{\numberline {3.5}{\ignorespaces Gr\IeC {\'a}fica MLP 0.8 - 50 ocultas - 10000 ciclos ($f_{a}(x) = \frac {1-e^{-x}}{1+e^{-x}}$)\relax }}{12}{figure.caption.15}
-\contentsline {figure}{\numberline {3.6}{\ignorespaces Gr\IeC {\'a}fica MLP 0.8 - 50 ocultas - 10000 ciclos ($f_{a}(x) = \frac {1}{1+e^{-x}}$)\relax }}{12}{figure.caption.16}
+\contentsline {figure}{\numberline {3.6}{\ignorespaces Gr\IeC {\'a}fica MLP 0.2 - 50,50 ocultas - 6000 ciclos ($f_{a}(x) = \frac {1}{1+e^{-x}}$)\relax }}{12}{figure.caption.16}
+\contentsline {figure}{\numberline {3.7}{\ignorespaces Gr\IeC {\'a}fica MLP 0.2 - 50,50 ocultas - 6000 ciclos ($f_{a}(x) = \frac {1-e^{-x}}{1+e^{-x}}$)\relax }}{13}{figure.caption.17}
+\contentsline {figure}{\numberline {3.8}{\ignorespaces Gr\IeC {\'a}fica MLP 0.1 - 100,50 ocultas - 2000 ciclos ($f_{a}(x) = \frac {1}{1+e^{-x}}$)\relax }}{13}{figure.caption.18}
+\contentsline {figure}{\numberline {3.9}{\ignorespaces Gr\IeC {\'a}fica MLP 0.1 - 100,50 ocultas - 2000 ciclos ($f_{a}(x) = \frac {1-e^{-x}}{1+e^{-x}}$)\relax }}{14}{figure.caption.19}
+\contentsline {figure}{\numberline {3.10}{\ignorespaces Gr\IeC {\'a}fica MLP 0.0001 - 100,50,25 ocultas - 40000 ciclos ($f_{a}(x) = \frac {1}{1+e^{-x}}$)\relax }}{14}{figure.caption.20}
+\contentsline {figure}{\numberline {3.11}{\ignorespaces Gr\IeC {\'a}fica MLP 0.0001 - 100,50,25 ocultas - 40000 ciclos ($f_{a}(x) = \frac {1-e^{-x}}{1+e^{-x}}$)\relax }}{15}{figure.caption.21}
+\contentsline {figure}{\numberline {3.12}{\ignorespaces Salidas obtenidas vs salidas deseadas para tasa de aprendizaje 0.0001 neuronas: 100, 50, 25\relax }}{15}{figure.caption.23}
 \addvspace {10\p@ }

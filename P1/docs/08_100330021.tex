@@ -15,7 +15,7 @@
 %                                                                             %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\documentclass[11pt,spanish,listoffigures,listoftables]{tfgetsinf}
+\documentclass[11pt,spanish,listoffigures,listoftables]{workluis}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %                     CODIFICACIO DEL FITXER FONT                             %
@@ -330,30 +330,112 @@ y_{i} = a_{i}^c = f(\sum_{j=1}^{n_{c-1}}w_{ji}^{c-1}*a_{j}^{c-1} + u_{i}^{c})
 \caption{Gráfica MLP 0.8 - 50 ocultas - 10000 ciclos ($f_{a}(x) = \frac{1-e^{-x}}{1+e^{-x}}$)}\label{fig:500810000tan}
 \end{figure}
 
-\par \textbf{$\gamma = 0.8$, $ciclos = 10000$ y $n_{ocultas} = 50$ ($f_{a}(x) = \frac{1}{1+e^{-x}}$)}
+\par \textbf{$\gamma = 0.2$, $ciclos = 6000$ y $n_{ocultas} = 50, 50$ ($f_{a}(x) = \frac{1}{1+e^{-x}}$)}
 
-\par Con una tasa de 0.8, bastante elevada, 50 neuronas en la capa oculta y 10000 ciclos (\ref{fig:500810000sig}), lo que tenemos es una clara situación de sobreaprendizaje. El modelo es capaz de generalizar bien el conjunto de entrenamiento con un error de 0.00215141436100276 mientras que en test se produce un error de 0.00305097518407372. Este experimento se ha realizado utilizando la función de activación sigmoidal.
+\par Con una tasa de 0.2, 50 neuronas en dos capas ocultas y 6000 ciclos (\ref{fig:5050026000sig}), lo que tenemos es sobreaprendizaje de nuevo. El modelo es capaz de generalizar bien el conjunto de entrenamiento con un error de 0.00283018784738848 mientras que en test se produce un error de 0.00431462177153583. Este experimento se ha realizado utilizando la función de activación sigmoidal.
 
 \begin{figure}[H]
 \centering
-\includegraphics[scale=0.5]{500810000sig}
-\caption{Gráfica MLP 0.8 - 50 ocultas - 10000 ciclos ($f_{a}(x) = \frac{1}{1+e^{-x}}$)}\label{fig:500810000sig}
+\includegraphics[scale=0.5]{5050026000sig}
+\caption{Gráfica MLP 0.2 - 50,50 ocultas - 6000 ciclos ($f_{a}(x) = \frac{1}{1+e^{-x}}$)}\label{fig:5050026000sig}
 \end{figure}
 
+\par \textbf{$\gamma = 0.2$, $ciclos = 6000$ y $n_{ocultas} = 50, 50$ ($f_{a}(x) = \frac{1-e^{-x}}{1+e^{-x}}$)}
+
+\par Con una tasa de 0.2, 50 neuronas en dos capas ocultas y 6000 ciclos (\ref{fig:500810000tan}), lo que tenemos es sobreaprendizaje más evidente que utilizando la función sigmoidal. El modelo es capaz de generalizar bien el conjunto de entrenamiento con un error de 0.000889548028478484 mientras que en test se produce un error de 0.00346949202753306. Este experimento se ha realizado utilizando la función de activación tangente hiperbólica. Resulta evidente que no es adecuada la utilización de esta función.
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.5]{500810000tan}
+\caption{Gráfica MLP 0.2 - 50,50 ocultas - 6000 ciclos ($f_{a}(x) = \frac{1-e^{-x}}{1+e^{-x}}$)}\label{fig:500810000tan}
+\end{figure}
+
+\par \textbf{$\gamma = 0.1$, $ciclos = 2000$ y $n_{ocultas} = 100, 50$ ($f_{a}(x) = \frac{1}{1+e^{-x}}$)}
+
+\par Con una tasa de 0.1, 50 y 100 neuronas en dos capas ocultas y 2000 ciclos (\ref{fig:10050012000sig}), tenemos un buen modelo. El modelo es capaz de generalizar bien el conjunto de entrenamiento con un error de 0.00415175928712051 mientras que en test se produce un error de 0.00448553303982486. Utilizando la función sigmoidal, vemos que hemos renunciado a cierta capacidad de generalización sobre el conjunto de entrenamiento, a cambio de mejorar la generalización sobre otros conjuntos.
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.5]{10050012000sig}
+\caption{Gráfica MLP 0.1 - 100,50 ocultas - 2000 ciclos ($f_{a}(x) = \frac{1}{1+e^{-x}}$)}\label{fig:10050012000sig}
+\end{figure}
+
+\par \textbf{$\gamma = 0.1$, $ciclos = 2000$ y $n_{ocultas} = 100, 50$ ($f_{a}(x) = \frac{1-e^{-x}}{1+e^{-x}}$)}
+
+\par Con una tasa de 0.1, 50 y 100 neuronas en dos capas ocultas y 2000 ciclos (\ref{fig:10050012000tan}), utilizando la función tangente hiperbólica vemos que el error de test se dispara y si aumentásemos los ciclos tendríamos que el error de test diverge. Por tanto no es adecuado este modelo.
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.5]{10050012000tan}
+\caption{Gráfica MLP 0.1 - 100,50 ocultas - 2000 ciclos ($f_{a}(x) = \frac{1-e^{-x}}{1+e^{-x}}$)}\label{fig:10050012000tan}
+\end{figure}
+
+\par \textbf{$\gamma = 0.0001$, $ciclos = 40000$ y $n_{ocultas} = 100, 50, 25$ ($f_{a}(x) = \frac{1}{1+e^{-x}}$)}
+
+\par Con una tasa de 0.0001, 100, 50 y 25 neuronas en tres capas ocultas y 40000 ciclos (\ref{fig:10050250000140000sig}), generaliza el conjunto de entrenamiento con un error de 0.0381546433606143, y el conjunto de test con un error de 0.039593033458852. Se ve que el modelo no es en absoluto apropiado puesto que el error es demasiado elevado y hay demasiada diferencia entre ambos errores.
+
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.5]{10050250000140000sig}
+\caption{Gráfica MLP 0.0001 - 100,50,25 ocultas - 40000 ciclos ($f_{a}(x) = \frac{1}{1+e^{-x}}$)}\label{fig:10050250000140000sig}
+\end{figure}
+
+\par \textbf{$\gamma = 0.0001$, $ciclos = 40000$ y $n_{ocultas} = 100, 50, 25$ ($f_{a}(x) = \frac{1-e^{-x}}{1+e^{-x}}$)}
+
+\par Con una tasa de 0.0001, 100, 50 y 25 neuronas en tres capas ocultas y 40000 ciclos (\ref{fig:10050250000140000tan}), utilizando la función tangente hiperbólica tenemos un error sobre el conjunto de entrenamiento de 0.00528260390284608
+, un error sobre el conjunto de test de 0.00569856426934457. Vemos que los errores son semejantes. Comparando en este caso ambas funciones, vemos que en este caso particular, la función de activación tangente hiperbólica genera mejor modelo que la sigmoidal.
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.5]{10050250000140000tan}
+\caption{Gráfica MLP 0.0001 - 100,50,25 ocultas - 40000 ciclos ($f_{a}(x) = \frac{1-e^{-x}}{1+e^{-x}}$)}\label{fig:10050250000140000tan}
+\end{figure}
+
+\section{Resumen experimentación Perceptrón Multicapa}
+
+\begin{table}[H]
+\centering
+\caption{Resumen experimentación MLP}
+\label{tb:tb2}
+\resizebox{15cm}{!} {
+\begin{tabular}{lllll}
+\hline
+\multicolumn{1}{|l|}{Tasa de aprendizaje} & Error entrenamiento & Error validación    & Error test        \\ \hline \hline
+0.8 50 ocultas sigmoidal                  & 0.00215141436100276  & 0.00517340674087032 & 0.00305097518407372  \\
+0.8 50 ocultas tangente hiperbólica       & 0.00429123031163413  & 0.0052114219011533  & 0.00604587325351324  \\
+0.2 50, 50 ocultas sigmoidal              & 0.00283018784738848  & 0.00485646757920353 & 0.00431462177153583  \\
+0.2 50, 50 ocultas tangente hiperbólica   & 0.000889548028478484 & 0.00553734379737086 & 0.00346949202753306  \\
+0.1 100, 50 ocultas sigmoidal             & 0.00415175928712051  & 0.0050566079914164  & 0.00448553303982486  \\
+0.1 100, 50 ocultas tangente hiperbólica  & 0.00131125349800932  & 0.00502077763421073 & 0.00533692446637476  \\
+0.0001 100, 50, 25 ocultas sigmoidal             & 0.0381546433606143  & 0.0426178103593746  & 0.039593033458852  \\
+0.0001 100, 50, 25 ocultas tangente hiperbólica  & 0.00528260390284608 & 0.00663522559427817 & 0.00569856426934457 \\ \hline
+\end{tabular}
+}
+\end{table}
+
+\par En la tabla \ref{tb:tb2} se observa claramente que el mejor modelo es el último considerado, puesto que a pesar de que presenta un error mayor que el primero, es capaz de mantener la diferencia entre los errores muy baja. Esto significa que si siguiésemos presentando conjuntos diferentes de datos sería capaz de generalizarlos correctamente. Por ello se considera que es el mejor modelo. Las salidas obtenidas vs las salidas deseadas las podemos apreciar en la gráfica \ref{fig:bestmlp}.
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.5]{bestmlp}
+\caption{Salidas obtenidas vs salidas deseadas para tasa de aprendizaje 0.0001 neuronas: 100, 50, 25}\label{fig:bestmlp}
+\end{figure}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%                                 CONCLUSIONS                                 %
+%                                 CONCLUSIONES                                %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \chapter{Conclusiones}
 
-Hablar del tema rendimiento
-Comparar ambos modelos
+\par Analizados ambos modelos, estamos en disposición de valorar objetivamente cual de ellos da mejor resultado para el problema que teníamos que resolver: para ello veamos los dos modelos elegidos para cada tipo, y también la tabla de resultados de cada uno de los dos modelos. La diferencia entre ambos modelos es que en Adaline teníamos la posibilidad de modificar ciclos y tasa de aprendizaje mientras que en Perceptrón Multicapa hemos visto que además se pueden añadir capas de neuronas ocultas para hacer el modelo más complejo. El error de test que obtenemos en el mejor modelo escogido por Adaline es de 0.019147481314295 mientras que el error de test que obtenemos en el mejor modelo escogido MLP es de 0.00569856426934457. Como vemos resulta evidente que el error mejora significativamente en un factor de $\frac{1}{4}$ aproximadamente. Consideramos entonces que una red MLP aproxima mejor y es capaz de generalizar mejor en este caso concreto, aunque hay que tener cautela porque es fácil dejarse llevar y añadir las suficientes capas para que MLP aproxime exactamente el conjunto de entrenamiento, que como ya hemos visto en \ref{fig:10050012000tan} no nos lleva más que a una red que posteriormente fallará en la generalización de otros conjuntos de datos.
 
-????? ????????????? ????????????? ????????????? ????????????? ????????????? 
+\par Es importante resaltar que aunque parezca que la diferencia es mínima en cuanto se "desnormalizan" los datos vemos que algunas salidas tanto en \ref{fig:bestmlp} como en \ref{fig:bestadaline} presentan errores de una magnitud bastante importante, y que en estos casos nuestras redes fallan en su generalización.
+
+\par En cuanto a la práctica en general, pienso que ha habido problemas de rendimiento tanto en el script en R como en mi programa en PHP debido a que el proceso de aprendizaje si los ciclos son muy elevados he llegado a ver ejecuciones de veinte minutos. Lo cual ha provocado tener que invertir más tiempo en la práctica. Sería bueno plantearse mejorar el rendimiento de estos programas aunque se entiende que no es el objetivo principal.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%                                BIBLIOGRAFIA                                 %
+%                                BIBLIOGRAFÍA                                 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{thebibliography}{10}
