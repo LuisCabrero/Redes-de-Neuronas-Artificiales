@@ -6,9 +6,9 @@ set.seed(1)
 
 #Leer ficheros de los tres ficheros (cuidado con el formato)
 #ATENCION: Si se va a probar se tienen que cambiar las rutas, corresponden a mi ordenador !!
-trainSet <- read.csv("/home/luis/Documentos/Redes-de-Neuronas-Artificiales/P1/data/entrenamiento.csv",dec=".",sep=";",header = F)
-validSet <- read.csv( "/home/luis/Documentos/Redes-de-Neuronas-Artificiales/P1/data/validacion.csv",dec=".",sep=";",header = F)
-testSet  <- read.csv("/home/luis/Documentos/Redes-de-Neuronas-Artificiales/P1/data/test.csv",dec=".",sep=";",header = F)
+trainSet <- read.csv("/home/luis/Descargas/Entrenamiento.csv",dec=",",sep=";",header = F)
+validSet <- read.csv("/home/luis/Descargas/Validacion.csv",dec=",",sep=";",header = F)
+testSet  <- read.csv("/home/luis/Descargas/Test.csv",dec=",",sep=";",header = F)
 
 
 #num de columna de salida
@@ -16,10 +16,10 @@ target <- ncol(trainSet)
 
 # Hay que ir configurando los parámetros de la red e ir probando
 #SELECCION DE LOS PARAMETROS DE LA RED
-topologia        <- c(100, 50, 25)   #una capa oculta de 50 neuronas. M?s capas ej: c(20,10) Para añadir más capas se introducen más parámetros
-razonAprendizaje <- 0.0001
+topologia        <- c(5)   #una capa oculta de 50 neuronas. M?s capas ej: c(20,10) Para añadir más capas se introducen más parámetros
+razonAprendizaje <- 0.2
 
-ciclosMaximos    <- 40000
+ciclosMaximos    <- 1000
 
 #EJECUCION DEL APRENDIZAJE Y GENERACION DEL MODELO
 # en Rsnns se llama test a nuestro fichero de validaci?n
@@ -58,12 +58,12 @@ outputs <- list(train=   c(predict(model,trainSet[,-target])),
 #GUARDAR RESULTADOS
 #Hay que ir renombrando los ficheros para ir realizando pruebas y que no se pisen.
 #Crear distintas carpetas para ir guardando los resultados en función de cada prueba.
-saveRDS(model,"/home/luis/Documentos/Redes-de-Neuronas-Artificiales/P1/results_mlp/nnet.rds")   ## para leeer usar readRDS(model, ")
-write.csv(errors,"/home/luis/Documentos/Redes-de-Neuronas-Artificiales/P1/results_mlp/finalErrors.csv",row.names=F)
-write.csv(iterativeErrors,"/home/luis/Documentos/Redes-de-Neuronas-Artificiales/P1/results_mlp/iterativeErrors.csv")
-write.csv(outputs$train,"/home/luis/Documentos/Redes-de-Neuronas-Artificiales/P1/results_mlp/trainOutputs.csv")
-write.csv(outputs$valid,"/home/luis/Documentos/Redes-de-Neuronas-Artificiales/P1/results_mlp/validOutputs.csv")
-write.csv(outputs$test,"/home/luis/Documentos/Redes-de-Neuronas-Artificiales/P1/results_mlp/testOutputs.csv")
+saveRDS(model,"/home/luis/Documentos/Redes-de-Neuronas-Artificiales/P1/nnet.rds")   ## para leeer usar readRDS(model, ")
+write.csv(errors,"/home/luis/Documentos/Redes-de-Neuronas-Artificiales/P1/finalErrors.csv",row.names=F)
+write.csv(iterativeErrors,"/home/luis/Documentos/Redes-de-Neuronas-Artificiales/iterativeErrors.csv")
+write.csv(outputs$train,"/home/luis/Documentos/Redes-de-Neuronas-Artificiales/trainOutputs.csv")
+write.csv(outputs$valid,"/home/luis/Documentos/Redes-de-Neuronas-Artificiales/validOutputs.csv")
+write.csv(outputs$test,"/home/luis/Documentos/Redes-de-Neuronas-Artificiales/testOutputs.csv")
 
 #plot de la salida de test
 #habría que desnormalizarlo para obtener la gráfica correctamente.
