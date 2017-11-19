@@ -87,7 +87,7 @@ MSEtest <-sum((testTarget - testPred)^2)/nrow(testSet)
 # transforma las tres columnas reales en la clase 1,2,3,4 segun el maximo de los cuatro valores. 
 
 trainPredClass<-as.factor(apply(trainPred,1,which.max))  
-testPredClass<-as.factor(apply(testPred,1,which.max)) 
+testPredClass<-as.factor(apply(testPred,1,which.max))
 
 #GUARDADO DE RESULTADOS
 #MODELO
