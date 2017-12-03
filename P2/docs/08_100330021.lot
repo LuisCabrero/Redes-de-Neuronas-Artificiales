@@ -1,7 +1,8 @@
 \select@language {spanish}
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {2.1}{\ignorespaces Resumen experimentaci\IeC {\'o}n Adaline\relax }}{8}{table.caption.9}
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {3.1}{\ignorespaces Resumen experimentaci\IeC {\'o}n MLP\relax }}{15}{table.caption.22}
+\contentsline {table}{\numberline {3.1}{\ignorespaces Resumen experimentaci\IeC {\'o}n Adaline\relax }}{10}{table.caption.9}
+\addvspace {10\p@ }
+\contentsline {table}{\numberline {4.1}{\ignorespaces Resumen experimentaci\IeC {\'o}n MLP\relax }}{17}{table.caption.22}
 \addvspace {10\p@ }
