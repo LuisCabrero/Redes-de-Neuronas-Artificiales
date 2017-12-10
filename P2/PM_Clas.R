@@ -8,7 +8,7 @@ set.seed(1)
 # los ficheros se deber?an llamar Train1.csv, Test1.csv, Train2.csv, Test2.csv, Train3.csv, Test3.csv
 # se asigna a fold 1, 2 o 3
 
-fold <- 2
+fold <- 1
 # formato csv. Campos separados por comas y n?meros con . como separador decimal
 trainSet <- read.csv(paste("/home/luis/Documentos/Redes-de-Neuronas-Artificiales/P2/data/Train",fold,".csv",sep=""),dec=".",sep=",",header = F)
 testSet  <- read.csv(paste("/home/luis/Documentos/Redes-de-Neuronas-Artificiales/P2/data/Test", fold,".csv",sep=""),dec=".",sep=",",header = F)
