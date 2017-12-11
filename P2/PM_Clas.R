@@ -10,8 +10,8 @@ set.seed(1)
 
 fold <- 1
 # formato csv. Campos separados por comas y n?meros con . como separador decimal
-trainSet <- read.csv(paste("/home/luis/Documentos/Redes-de-Neuronas-Artificiales/P2/data/Train",fold,".csv",sep=""),dec=".",sep=",",header = F)
-testSet  <- read.csv(paste("/home/luis/Documentos/Redes-de-Neuronas-Artificiales/P2/data/Test", fold,".csv",sep=""),dec=".",sep=",",header = F)
+trainSet <- read.csv(paste("/home/luis/Documentos/Redes-de-Neuronas-Artificiales/P2/data/Train",fold,".csv",sep=""),dec=",",sep=";",header = F)
+testSet  <- read.csv(paste("/home/luis/Documentos/Redes-de-Neuronas-Artificiales/P2/data/Test", fold,".csv",sep=""),dec=",",sep=";",header = F)
 
 #SELECCION DE LA SALIDA. Num de columna del target
 nTarget <- ncol(trainSet)
