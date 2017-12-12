@@ -26,14 +26,12 @@ testTarget <-  decodeClassLabels(testSet[,nTarget])
 trainInput <- as.matrix(trainInput)
 testInput  <- as.matrix(testInput )
 
-
 #SELECCION DE LOS PARAMETROS
 topologia        <- c(10,10,5)
 razonAprendizaje <- 0.1
 ciclosMaximos    <- 100
 ## asignar nombre de fichero seg?n los par?metros
 fileID <- paste("fX",fold,"_topX",paste(topologia,collapse="-"),"_ra",razonAprendizaje,"_CMX",ciclosMaximos,".csv",sep="")
-
 
 #EJECUCION DEL APRENDIZAJE Y GENERACION DEL MODELO
 model <- mlp(x= trainInput,
@@ -50,7 +48,6 @@ model <- mlp(x= trainInput,
 
 plotIterativeError(model)
 #fileID
-
 
 #GENERAR LAS PREDICCIONES en bruto (valores reales)
 trainPred <- predict(model,trainInput)
