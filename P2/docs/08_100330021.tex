@@ -97,7 +97,24 @@
 
 \chapter{Preparación de los datos}
 
-\par En este capítulo se va a explicar en primer lugar el modelo Adaline, se explicará la implementación que se ha llevado a cabo en PHP y el formato que se ha elegido para devolver las salidas del modelo. También se expermientará con distintos ciclos de aprendizaje y distintas razones de aprendizaje, y se verá el comportamiento de la red en todos los casos posibles, para ello se representará cada posible situación con un experimento para abordar todos los casos posibles.
+\section{Clasificación de los datos}
+
+\par En este capítulo se va a explicar la preparación de los datos que se ha llevado a cabo para poder posteriormente aplicar los diferentes modelos.
+
+\par Lo primero que se hace con los datos es separarlos en cuatro hojas, cada una de ellas correspondiente con cada una de las clases existentes: bus, van, saab y opel. Posteriormente lo que se hace es formar tres conjuntos de datos: P1, P2 y P3, que serán otras tres hojas de datos. En cada uno de los tres conjuntos de datos se introducen una tercera parte de los datos de cada una de las clases.
+
+\section{Preparación de los conjuntos de entrenamiento y test}
+
+\par Una vez tenemos los datos originales repartidos en los tres conjuntos de datos, lo que debemos hacer es distribuir estos conjuntos para formar 3 parejas de conjuntos de entrenamiento y test. El proceso para formar estos ficheros es ir copiando los datos de los conjuntos P1, P2 y P3, en distintas combinaciones para poder formar los conjuntos.
+
+\section{Normalización de los conjuntos de entrenamiento y test}
+
+\par Cuando se dispone de los conjuntos de entrenamiento y test lo que se debe hacer es normalizar los datos en función de los valores máximo y mínimo del conjunto original. Para ello se aplica la siguiente fórmula:
+\begin{equation}\label{eq:ej}
+Valor_{normalizado} = \frac{V_{original} - Valor_{min}}{Valor_{max} - Valor_{min}}
+\end{equation}
+
+\par Una vez hemos normalizado todos los datos de \textbf{todos} los conjuntos de entrenamiento y test, debemos desordenar los patrones de entrenamiento para presentárselos a nuestros modelos. Esto lo conseguimos añadiendo una columna aleatoria y ordenando posteriormente por esa columna.
 
 \chapter{Modelo Adaline}
 
