@@ -2,8 +2,6 @@ library(RSNNS)
 #RSNNS::getSnnsRFunctionTable()   nos da todos los parámetros de snns
 set.seed(1)
 
-
-
 #CARGA DE LOS DATOS
 # los ficheros se deber?an llamar Train1.csv, Test1.csv, Train2.csv, Test2.csv, Train3.csv, Test3.csv
 # se asigna a fold 1, 2 o 3
@@ -30,9 +28,9 @@ testInput  <- as.matrix(testInput )
 
 
 #SELECCION DE LOS PARAMETROS
-topologia        <- c(10)
-razonAprendizaje <- 0.05
-ciclosMaximos    <- 5000
+topologia        <- c(10,10,5)
+razonAprendizaje <- 0.1
+ciclosMaximos    <- 100
 ## asignar nombre de fichero seg?n los par?metros
 fileID <- paste("fX",fold,"_topX",paste(topologia,collapse="-"),"_ra",razonAprendizaje,"_CMX",ciclosMaximos,".csv",sep="")
 
@@ -74,20 +72,15 @@ accuracies
 iterativeErrors <- data.frame(MSETrain= (model$IterativeFitError/nrow(trainSet)),
                      MSETest= (model$IterativeTestError/nrow(testSet)))
 
-
 # calcular errores finales MSE
 MSEtrain <-sum((trainTarget - trainPred)^2)/nrow(trainSet)
 MSEtest <-sum((testTarget - testPred)^2)/nrow(testSet)
-
 
 ####calcular la CLASE de salida
 # transforma las tres columnas reales en la clase 1,2,3,4 segun el maximo de los cuatro valores. 
 
 trainPredClass<-as.factor(apply(trainPred,1,which.max))  
 testPredClass<-as.factor(apply(testPred,1,which.max)) 
-
-
-
 
 #GUARDADO DE RESULTADOS
 #MODELO
@@ -100,4 +93,3 @@ write.csv(testPredClass,   paste("/home/luis/Documentos/Redes-de-Neuronas-Artifi
 # matrices de confusi?n
 write.csv(trainCm,        paste("/home/luis/Documentos/Redes-de-Neuronas-Artificiales/P2/results/trainCm_",fileID,sep=""))
 write.csv(testCm,         paste("/home/luis/Documentos/Redes-de-Neuronas-Artificiales/P2/results/testCm_",fileID,sep=""))
-
