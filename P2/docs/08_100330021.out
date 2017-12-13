@@ -9,14 +9,17 @@
 \BOOKMARK [1][-]{section.2.1}{Clasificaci\363n de los datos}{chapter.2}% 9
 \BOOKMARK [1][-]{section.2.2}{Preparaci\363n de los conjuntos de entrenamiento y test}{chapter.2}% 10
 \BOOKMARK [1][-]{section.2.3}{Normalizaci\363n de los conjuntos de entrenamiento y test}{chapter.2}% 11
-\BOOKMARK [0][-]{chapter.3}{Modelo Adaline}{}% 12
-\BOOKMARK [1][-]{section.3.1}{ADALINE: ADAptive LInear NEuron}{chapter.3}% 13
-\BOOKMARK [1][-]{section.3.2}{Implementaci\363n del modelo}{chapter.3}% 14
-\BOOKMARK [1][-]{section.3.3}{Experimentaci\363n realizada}{chapter.3}% 15
-\BOOKMARK [1][-]{section.3.4}{Resumen experimentaci\363n Adaline}{chapter.3}% 16
-\BOOKMARK [0][-]{chapter.4}{Modelo Perceptr\363n Multicapa}{}% 17
-\BOOKMARK [1][-]{section.4.1}{Perceptron Multicapa \(MLP\)}{chapter.4}% 18
-\BOOKMARK [1][-]{section.4.2}{Experimentaci\363n realizada}{chapter.4}% 19
-\BOOKMARK [1][-]{section.4.3}{Resumen experimentaci\363n Perceptr\363n Multicapa}{chapter.4}% 20
-\BOOKMARK [0][-]{chapter.5}{Conclusiones}{}% 21
-\BOOKMARK [0][-]{chapter*.24}{Bibliograf\355a}{}% 22
+\BOOKMARK [0][-]{chapter.3}{Perceptr\363n Multicapa}{}% 12
+\BOOKMARK [1][-]{section.3.1}{Perceptron Multicapa \(MLP\)}{chapter.3}% 13
+\BOOKMARK [1][-]{section.3.2}{Experimentaci\363n realizada}{chapter.3}% 14
+\BOOKMARK [0][-]{chapter.4}{Modelo Adaline}{}% 15
+\BOOKMARK [1][-]{section.4.1}{ADALINE: ADAptive LInear NEuron}{chapter.4}% 16
+\BOOKMARK [1][-]{section.4.2}{Implementaci\363n del modelo}{chapter.4}% 17
+\BOOKMARK [1][-]{section.4.3}{Experimentaci\363n realizada}{chapter.4}% 18
+\BOOKMARK [1][-]{section.4.4}{Resumen experimentaci\363n Adaline}{chapter.4}% 19
+\BOOKMARK [0][-]{chapter.5}{Modelo Perceptr\363n Multicapa}{}% 20
+\BOOKMARK [1][-]{section.5.1}{Perceptron Multicapa \(MLP\)}{chapter.5}% 21
+\BOOKMARK [1][-]{section.5.2}{Experimentaci\363n realizada}{chapter.5}% 22
+\BOOKMARK [1][-]{section.5.3}{Resumen experimentaci\363n Perceptr\363n Multicapa}{chapter.5}% 23
+\BOOKMARK [0][-]{chapter.6}{Conclusiones}{}% 24
+\BOOKMARK [0][-]{chapter*.26}{Bibliograf\355a}{}% 25
