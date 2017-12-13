@@ -118,11 +118,11 @@ Valor_{normalizado} = \frac{V_{original} - Valor_{min}}{Valor_{max} - Valor_{min
 
 \chapter{Perceptrón Multicapa}
 
-\par En este capítulo se va a explicar en primer lugar el modelo Perceptrón Multicapa, que sirve para solucionar problemas de clasificación, es decir, estableciendo una correspondencia entre un conjunto de datos y un conjunto de clases determinadas. Para poder afrontar el problema necesitamos conocer el número de clases. Si el número de clases es desconocido entonces es necesario utilizar redes de neuronas no supervisadas.
+\par En este capítulo se va a explicar en primer lugar el modelo Perceptrón Multicapa, que sirve para solucionar problemas de clasificación, es decir, estableciendo una correspondencia entre un conjunto de datos y un conjunto de clases determinadas. Para poder afrontar el problema necesitamos conocer el número de clases. Si el número de clases es desconocido entonces es necesario utilizar redes de neuronas no supervisadas, que serán abordadas en los próximos capítulos.
 
 \section{Perceptron Multicapa (MLP)}
 
-\par Es una red de neuronas artificiales formada por múltiples capas (\ref{fig:mlp}). A diferencia del modelo Adaline, resuelve problemas que no son linealmente separables. Además, se ha demostrado que es un aproximador universal, es decir,  cualquier función contínua en el espacio $\mathbb{R}^n$ puede aproximarse con este modelo. 
+\par Es una red de neuronas artificiales formada por múltiples capas (\ref{fig:mlp}) que resuelve problemas que no son linealmente separables. Además, se ha demostrado que es un aproximador universal, es decir,  cualquier función contínua en el espacio $\mathbb{R}^n$ puede aproximarse con este modelo. 
 
 \begin{figure}[H]
 \centering
@@ -164,11 +164,23 @@ a_{i}^c = f(\sum_{j=1}^{n_{c-1}}w_{ji}^{c-1}*a_{j}^{c-1} + u_{i}^{c})
 y_{i} = a_{i}^c = f(\sum_{j=1}^{n_{c-1}}w_{ji}^{c-1}*a_{j}^{c-1} + u_{i}^{c})
 \end{equation} 
 
-\par Siendo $f$ la función de activación. Las funciones más utilizadas son la función sigmoidal ($f_{1}(x) = \frac{1}{1+e^{-x}}$) y la tangente hiperbólica ($f_{2}(x) = \frac{1-e^{-x}}{1+e^{-x}}$). El aprendizaje de la red se realiza de forma semejante que en Adaline, pero no entraremos en detalle en esta ocasión \cite{MLP}.
+\par Siendo $f$ la función de activación. Las funciones más utilizadas son la función sigmoidal ($f_{1}(x) = \frac{1}{1+e^{-x}}$) y la tangente hiperbólica ($f_{2}(x) = \frac{1-e^{-x}}{1+e^{-x}}$). El aprendizaje de la red se realiza de forma semejante que en Adaline \cite{MLP}.
 
 \section{Experimentación realizada}
 
-\par En cuanto a la experimentación realizada se ha prestado especial atención en conseguir una capacidad de generalización adecuada. Esto es: no nos interesa conseguir que la red sea capaz de estimar valores del conjunto de entrenamiento pero que cuando entren datos de un conjunto nuevo, no sea capaz de generalizarlos. Esta situación es conocida como \textbf{sobreaprendizaje}. La siguiente figura (\ref{fig:sobreaprendizaje}) tomada de las transparencias de los profesores de la asignatura ilustra muy bien este comportamiento no deseado. Aun así trataremos de ver una situación de sobreaprendizaje en la experimentación para tratar de explicar el motivo de este comportamiento.
+\par En cuanto a la experimentación realizada se ha prestado especial atención en conseguir una capacidad de generalización adecuada. Esto es: no nos interesa conseguir que la red sea capaz de estimar valores del conjunto de entrenamiento pero que cuando entren datos de un conjunto nuevo, no sea capaz de generalizarlos. Esta situación es conocida como \textbf{sobreaprendizaje}. Para cada uno de los experimentos realizados, será de especial interés observar la matriz de confusión para ver las predicciones que hace el modelo frente a los valores reales.
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
