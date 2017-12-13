@@ -22,12 +22,12 @@ testInput <-  testSet[,-nTarget]
 trainTarget <- decodeClassLabels(trainSet[,nTarget])
 testTarget <-  decodeClassLabels(testSet[,nTarget])
 
-# transformar las entradas de dataframe a matrix para mlp: 
+# transformar las entradas de dataframe a matrix para mlp:
 trainInput <- as.matrix(trainInput)
 testInput  <- as.matrix(testInput )
 
 #SELECCION DE LOS PARAMETROS
-topologia        <- c(10,10,5)
+topologia        <- c(100,50)
 razonAprendizaje <- 0.1
 ciclosMaximos    <- 100
 ## asignar nombre de fichero seg?n los par?metros
@@ -76,7 +76,7 @@ MSEtest <-sum((testTarget - testPred)^2)/nrow(testSet)
 ####calcular la CLASE de salida
 # transforma las tres columnas reales en la clase 1,2,3,4 segun el maximo de los cuatro valores. 
 
-trainPredClass<-as.factor(apply(trainPred,1,which.max))  
+trainPredClass<-as.factor(apply(trainPred,1,which.max))
 testPredClass<-as.factor(apply(testPred,1,which.max)) 
 
 #GUARDADO DE RESULTADOS
