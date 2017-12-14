@@ -4,7 +4,7 @@
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {3.1}{\ignorespaces Red Perceptr\IeC {\'o}n multicapa \cite {MLP}\relax }}{5}{figure.caption.4}
 \contentsline {figure}{\numberline {3.2}{\ignorespaces Esquema MLP \cite {MLP}\relax }}{6}{figure.caption.5}
-\contentsline {figure}{\numberline {3.3}{\ignorespaces A really Awesome Image\relax }}{7}{figure.caption.7}
-\contentsline {figure}{\numberline {3.4}{\ignorespaces A really Awesome Image\relax }}{7}{figure.caption.7}
-\contentsline {figure}{\numberline {3.5}{\ignorespaces A really Awesome Image\relax }}{7}{figure.caption.7}
+\contentsline {figure}{\numberline {3.3}{\ignorespaces MLP $\gamma = 0.1$, $neuronas = 100$ y $ciclos = 10000$ pareja 1\relax }}{7}{figure.caption.7}
+\contentsline {figure}{\numberline {3.4}{\ignorespaces MLP $\gamma = 0.1$, $neuronas = 100$ y $ciclos = 10000$ pareja 2\relax }}{7}{figure.caption.8}
+\contentsline {figure}{\numberline {3.5}{\ignorespaces MLP $\gamma = 0.1$, $neuronas = 100$ y $ciclos = 10000$ pareja 3\relax }}{8}{figure.caption.9}
 \addvspace {10\p@ }

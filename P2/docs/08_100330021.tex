@@ -205,22 +205,28 @@ y_{i} = a_{i}^c = f(\sum_{j=1}^{n_{c-1}}w_{ji}^{c-1}*a_{j}^{c-1} + u_{i}^{c})
 3                            & 0.783595113438045    & 0.825622775800712 \\
 Media                        & 0.81928667333        & 0.59865165167     \\ \hline
 \end{tabular}
-\end{table} 
+\end{table}
 
-\begin{figure}[!htb]
-\minipage{0.32\textwidth}
-  \includegraphics[width=\linewidth]{0.1-100-1.bmp}
-  \caption{A really Awesome Image}\label{fig:fig1}
-\endminipage\hfill
-\minipage{0.32\textwidth}
-  \includegraphics[width=\linewidth]{0.1-100-2.bmp}
-  \caption{A really Awesome Image}\label{fig:fig2}
-\endminipage\hfill
-\minipage{0.32\textwidth}%
-  \includegraphics[width=\linewidth]{0.1-100-3.bmp}
-  \caption{A really Awesome Image}\label{fig:fig3}
-\endminipage
-\end{figure}
+\begin{figure}[H]
+\centering
+\includegraphics[scale=5]{011001}
+\caption{MLP $\gamma = 0.1$, $neuronas = 100$ y $ciclos = 10000$ pareja 1}
+\end{figure} 
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=5]{011002}
+\caption{MLP $\gamma = 0.1$, $neuronas = 100$ y $ciclos = 10000$ pareja 2}
+\end{figure} 
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=5]{011003}
+\caption{MLP $\gamma = 0.1$, $neuronas = 100$ y $ciclos = 10000$ pareja 3}
+\end{figure} 
+
+\par Como se puede apreciar en las figuras, los resultados son bastante diferentes, la pareja 2 y 3 se aproxima bastante bien pero la primera pareja presenta resultados muy diferentes. La media del porcentaje de acierto es bastante bueno para entrenamiento pero no muy buena para test. Observando las matrices de confusión, la predicción no es muy buena para varias clases.
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %                                 CONCLUSIONES                                %
