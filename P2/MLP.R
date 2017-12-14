@@ -27,8 +27,8 @@ trainInput <- as.matrix(trainInput)
 testInput  <- as.matrix(testInput )
 
 #SELECCION DE LOS PARAMETROS
-topologia        <- c(100,50)
-razonAprendizaje <- 0.1
+topologia        <- c(10,10,5)
+razonAprendizaje <- 0.01
 ciclosMaximos    <- 1000
 ## asignar nombre de fichero seg?n los par?metros
 fileID <- paste("fX",fold,"_topX",paste(topologia,collapse="-"),"_ra",razonAprendizaje,"_CMX",ciclosMaximos,".csv",sep="")

@@ -267,8 +267,47 @@ Media                        & 0.63856284666        & 0.56304258825     \\ \hlin
 \caption{MLP $\gamma = 0.1$, $neuronas = 100,50$ y $ciclos = 10000$ pareja 3}
 \end{figure} 
 
-\par Como se puede apreciar en las figuras, los resultados son bastante diferentes, la pareja 2 y 3 se aproxima bastante bien pero la primera pareja presenta resultados muy diferentes. La media del porcentaje de acierto es bastante bueno para entrenamiento pero no muy buena para test. Observando las matrices de confusión, la predicción no es muy buena para varias clases.
+\par En comparación con el primer experimento realizado, la diferencia entre el porcentaje de acierto de entrenamiento y test ha disminuido. Aun así, la primera pareja de datos sigue presentando un comportamiento diferente al de las otras dos parejas. Según lo observado en la matriz de confusión se producen menos fallos a la hora de predecir, por tanto considero que es un mejor experimento que el anterior. A pesar de que la media de acierto en el caso de entrenamiento es menor, en caso de test es mayor, se sacrifica acierto en entrenamiento para saber generalizar mejor conjuntos nuevos.
 
+%   EXPERIMENTO 3    %
+
+\par \textbf{$\gamma = 0.01$, $neuronas = 10,10,5$ y $ciclos = 1000$}
+
+\par Con una tasa de 0.01, 10 neuronas, 10 neuronas y 5 neuronas distribuidas en tres capas ocultas y 10000 ciclos tenemos los siguientes porcentajes de acierto:
+
+\begin{table}[H]
+\centering
+\caption{MLP $\gamma = 0.01$, $neuronas = 10,10,5$ y $ciclos = 1000$}
+\label{tb:tb3}
+\begin{tabular}{lllll}
+\hline
+\multicolumn{1}{|l|}{Pareja} & Porcentaje de acierto entrenamiento & Porcentaje de acierto test  \\ \hline \hline
+1                            & 0.263537906137184    & 0.246575342465753 \\
+2                            & 0.253054101221641    & 0.267399267399267 \\
+3                            & 0.253054101221641    & 0.259786476868327 \\
+Media                        & 0.25654870286        & 0.25792036224     \\ \hline
+\end{tabular}
+\end{table}
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.5]{001101051}
+\caption{MLP $\gamma = 0.01$, $neuronas = 10,10,5$ y $ciclos = 1000$ pareja 1}
+\end{figure} 
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.5]{001101052}
+\caption{MLP $\gamma = 0.01$, $neuronas = 10,10,5$ y $ciclos = 1000$ pareja 2}
+\end{figure} 
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.5]{001101053}
+\caption{MLP $\gamma = 0.01$, $neuronas = 10,10,5$ y $ciclos = 1000$ pareja 3}
+\end{figure} 
+
+\par Como vemos, el resultado en este experimento es que las tres parejas tienen un comportamiento muy similar, el porcentaje de acierto tanto en test como en entrenamiento es muy parecido entre ellas, aunque es demasiado bajo como para considerarlo un buen experimento.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %                                 CONCLUSIONES                                %
