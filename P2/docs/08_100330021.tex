@@ -191,7 +191,21 @@ y_{i} = a_{i}^c = f(\sum_{j=1}^{n_{c-1}}w_{ji}^{c-1}*a_{j}^{c-1} + u_{i}^{c})
 
 \par \textbf{$\gamma = 0.1$, $neuronas = 100$ y $ciclos = 10000$}
 
-\par Con una tasa de 0.1 y 10000 ciclos la red "no aprende" (\ref{fig:8500}) dado que comienza cometiendo un error y en el ciclo inmediatamente posterior el error aumenta, tendencia que continúa hasta que el error se estabiliza en un valor elevado, por tanto considero de poco interés este experimento. El error obtenido sobre el conjunto de test es de 0.49219936325144.
+\par Con una tasa de 0.1, 100 neuronas en una capa oculta y 10000 ciclos tenemos los siguientes porcentajes de acierto:
+
+\begin{table}[H]
+\centering
+\caption{MLP $\gamma = 0.1$, $neuronas = 100$ y $ciclos = 10000$}
+\label{tb:tb1}
+\begin{tabular}{lllll}
+\hline
+\multicolumn{1}{|l|}{Pareja} & Porcentaje de acierto entrenamiento & Porcentaje de acierto test  \\ \hline \hline
+1                            & 0.913357400722022    & 0.215753424657534 \\
+2                            & 0.760907504363002    & 0.754578754578755 \\
+3                            & 0.783595113438045    & 0.825622775800712 \\
+Media                        & 0.81928667333        & 0.59865165167     \\ \hline
+\end{tabular}
+\end{table} 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %                                 CONCLUSIONES                                %
