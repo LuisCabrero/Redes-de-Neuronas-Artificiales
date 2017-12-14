@@ -95,6 +95,10 @@
 %                         CAPITOLS (tants com calga)                          %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                           PREPARACIÓN DE LOS DATOS                          %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \chapter{Preparación de los datos}
 
 \section{Clasificación de los datos}
@@ -115,6 +119,10 @@ Valor_{normalizado} = \frac{V_{original} - Valor_{min}}{Valor_{max} - Valor_{min
 \end{equation}
 
 \par Una vez hemos normalizado todos los datos de \textbf{todos} los conjuntos de entrenamiento y test, debemos desordenar los patrones de entrenamiento para presentárselos a nuestros modelos. Esto lo conseguimos añadiendo una columna aleatoria y ordenando posteriormente por esa columna.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                           PERCEPTRÓN MULTICAPA MLP                          %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \chapter{Perceptrón Multicapa}
 
@@ -309,6 +317,130 @@ Media                        & 0.25654870286        & 0.25792036224     \\ \hlin
 
 \par Como vemos, el resultado en este experimento es que las tres parejas tienen un comportamiento muy similar, el porcentaje de acierto tanto en test como en entrenamiento es muy parecido entre ellas, aunque es demasiado bajo como para considerarlo un buen experimento.
 
+%   EXPERIMENTO 4    %
+
+\par \textbf{$\gamma = 0.1$, $neuronas = 100,50,25$ y $ciclos = 1000$}
+
+\par Con una tasa de 0.1, 100 neuronas, 50 neuronas y 25 neuronas distribuidas en tres capas ocultas y 10000 ciclos tenemos los siguientes porcentajes de acierto:
+
+\begin{table}[H]
+\centering
+\caption{MLP $\gamma = 0.1$, $neuronas = 100,50,25$ y $ciclos = 1000$}
+\label{tb:tb4}
+\begin{tabular}{lllll}
+\hline
+\multicolumn{1}{|l|}{Pareja} & Porcentaje de acierto entrenamiento & Porcentaje de acierto test  \\ \hline \hline
+1                            & 0.465703971119134    & 0.414383561643836 \\
+2                            & 0.56195462478185     & 0.582417582417582 \\
+3                            & 0.363001745200698    & 0.298932384341637 \\
+Media                        & 0.46355344703        & 0.43191117613     \\ \hline
+\end{tabular}
+\end{table}
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.5]{0110050251}
+\caption{MLP $\gamma = 0.1$, $neuronas = 100,50,25$ y $ciclos = 1000$ pareja 1}
+\end{figure} 
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.5]{0110050252}
+\caption{MLP $\gamma = 0.1$, $neuronas = 100,50,25$ y $ciclos = 1000$ pareja 2}
+\end{figure} 
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.5]{0110050253}
+\caption{MLP $\gamma = 0.1$, $neuronas = 100,50,25$ y $ciclos = 1000$ pareja 3}
+\end{figure} 
+
+\par El resultado observado es, de nuevo, que para la primera pareja de datos de entrenamiento y test el error del conjunto de test es más elevado que el de entrenamiento. El porcentaje de acierto es moderado pero estable relativamente.
+
+%   EXPERIMENTO 5    %
+
+\par \textbf{$\gamma = 0.1$, $neuronas = 100,50,25,12$ y $ciclos = 1000$}
+
+\par Con una tasa de 0.1, 100 neuronas, 50 neuronas y 25 neuronas distribuidas en tres capas ocultas y 10000 ciclos tenemos los siguientes porcentajes de acierto:
+
+\begin{table}[H]
+\centering
+\caption{MLP $\gamma = 0.1$, $neuronas = 100,50,25,12$ y $ciclos = 1000$}
+\label{tb:tb5}
+\begin{tabular}{lllll}
+\hline
+\multicolumn{1}{|l|}{Pareja} & Porcentaje de acierto entrenamiento & Porcentaje de acierto test  \\ \hline \hline
+1                            & 0.263537906137184    & 0.246575342465753 \\
+2                            & 0.253054101221641    & 0.267399267399267 \\
+3                            & 0.253054101221641    & 0.259786476868327 \\
+Media                        & 0.25654870286        & 0.25792036224     \\ \hline
+\end{tabular}
+\end{table}
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.5]{011005025121}
+\caption{MLP $\gamma = 0.1$, $neuronas = 100,50,25,12$ y $ciclos = 1000$ pareja 1}
+\end{figure} 
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.5]{011005025122}
+\caption{MLP $\gamma = 0.1$, $neuronas = 100,50,25,12$ y $ciclos = 1000$ pareja 2}
+\end{figure} 
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.5]{011005025123}
+\caption{MLP $\gamma = 0.1$, $neuronas = 100,50,25,12$ y $ciclos = 1000$ pareja 3}
+\end{figure} 
+
+\par Como vemos, el presente experimento presenta tasas de acierto bajas pero estables. Observando la matriz de confusión, se clasifican todos los patrones como uno de ellos, y por tanto el porcentaje de acierto es aproximadamente 1/4. Este experimento no es apropiado.
+
+%   EXPERIMENTO 6    %
+
+\par \textbf{$\gamma = 0.8$, $neuronas = 100$ y $ciclos = 1000$}
+
+\par Con una tasa de 0.8, 100 neuronas en una capa oculta y 10000 ciclos tenemos los siguientes porcentajes de acierto:
+
+\begin{table}[H]
+\centering
+\caption{MLP $\gamma = 0.8$, $neuronas = 100$ y $ciclos = 1000$}
+\label{tb:tb6}
+\begin{tabular}{lllll}
+\hline
+\multicolumn{1}{|l|}{Pareja} & Porcentaje de acierto entrenamiento & Porcentaje de acierto test  \\ \hline \hline
+1                            & 0.846570397111913    & 0.424657534246575 \\
+2                            & 0.478184991273996    & 0.47985347985348  \\
+3                            & 0.696335078534031    & 0.651245551601424 \\
+Media                        & 0.6736968223         & 0.5185855219      \\ \hline
+\end{tabular}
+\end{table}
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.5]{081001}
+\caption{MLP $\gamma = 0.8$, $neuronas = 100$ y $ciclos = 1000$ pareja 1}
+\end{figure} 
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.5]{081002}
+\caption{MLP $\gamma = 0.8$, $neuronas = 100$ y $ciclos = 1000$ pareja 2}
+\end{figure} 
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.5]{081003}
+\caption{MLP $\gamma = 0.8$, $neuronas = 100$ y $ciclos = 1000$ pareja 3}
+\end{figure} 
+
+\par Observando la matriz de confusión vemos que las predicciones se aproximan bastante bien a los valores reales, y además los porcentajes de aciertos son buenos. A pesar de todo el segundo experimento sigue ofreciendo mejores resultados. 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                                      LVQ                                    %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %                                 CONCLUSIONES                                %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -333,12 +465,6 @@ Media                        & 0.25654870286        & 0.25792036224     \\ \hlin
    \newblock Knowledge Extraction based on Evolutionary Learning. 
    \newblock Obtenido de
    \url{http://sci2s.ugr.es/keel/dataset.php?cod=68}.
-
-\bibitem{Adaline}
-   Primeros modelos computacionales, 
-   \newblock Inés M. Galván y José Mª Valls.
-   \newblock Obtenido de
-   \url{http://ocw.uc3m.es/ingenieria-informatica/redes-de-neuronas-artificiales/transparencias/material-de-clase.-tema-2/view}.
 
 \bibitem{MLP}
    Peceptrón Multicapa, 

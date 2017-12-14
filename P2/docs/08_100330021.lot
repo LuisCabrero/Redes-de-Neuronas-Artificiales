@@ -5,4 +5,7 @@
 \contentsline {table}{\numberline {3.1}{\ignorespaces MLP $\gamma = 0.1$, $neuronas = 100$ y $ciclos = 10000$\relax }}{7}{table.caption.6}
 \contentsline {table}{\numberline {3.2}{\ignorespaces MLP $\gamma = 0.1$, $neuronas = 100,50$ y $ciclos = 1000$\relax }}{8}{table.caption.10}
 \contentsline {table}{\numberline {3.3}{\ignorespaces MLP $\gamma = 0.01$, $neuronas = 10,10,5$ y $ciclos = 1000$\relax }}{9}{table.caption.14}
+\contentsline {table}{\numberline {3.4}{\ignorespaces MLP $\gamma = 0.1$, $neuronas = 100,50,25$ y $ciclos = 1000$\relax }}{10}{table.caption.18}
+\contentsline {table}{\numberline {3.5}{\ignorespaces MLP $\gamma = 0.1$, $neuronas = 100,50,25,12$ y $ciclos = 1000$\relax }}{11}{table.caption.22}
+\contentsline {table}{\numberline {3.6}{\ignorespaces MLP $\gamma = 0.8$, $neuronas = 100$ y $ciclos = 1000$\relax }}{12}{table.caption.26}
 \addvspace {10\p@ }
