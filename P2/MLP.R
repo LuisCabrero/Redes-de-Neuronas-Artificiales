@@ -6,7 +6,7 @@ set.seed(1)
 # los ficheros se deber?an llamar Train1.csv, Test1.csv, Train2.csv, Test2.csv, Train3.csv, Test3.csv
 # se asigna a fold 1, 2 o 3
 
-fold <- 1
+fold <- 3
 # formato csv. Campos separados por comas y n?meros con . como separador decimal
 trainSet <- read.csv(paste("/home/luis/Documentos/Redes-de-Neuronas-Artificiales/P2/data/Train",fold,".csv",sep=""),dec=",",sep=";",header = F)
 testSet  <- read.csv(paste("/home/luis/Documentos/Redes-de-Neuronas-Artificiales/P2/data/Test", fold,".csv",sep=""),dec=",",sep=";",header = F)
@@ -27,9 +27,9 @@ trainInput <- as.matrix(trainInput)
 testInput  <- as.matrix(testInput )
 
 #SELECCION DE LOS PARAMETROS
-topologia        <- c(100)
+topologia        <- c(100,50)
 razonAprendizaje <- 0.1
-ciclosMaximos    <- 10000
+ciclosMaximos    <- 1000
 ## asignar nombre de fichero seg?n los par?metros
 fileID <- paste("fX",fold,"_topX",paste(topologia,collapse="-"),"_ra",razonAprendizaje,"_CMX",ciclosMaximos,".csv",sep="")
 

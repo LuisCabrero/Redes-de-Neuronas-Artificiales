@@ -189,6 +189,8 @@ y_{i} = a_{i}^c = f(\sum_{j=1}^{n_{c-1}}w_{ji}^{c-1}*a_{j}^{c-1} + u_{i}^{c})
 
 \par \underline{\textbf{Experimentaciones}}
 
+%   EXPERIMENTO 1    %
+
 \par \textbf{$\gamma = 0.1$, $neuronas = 100$ y $ciclos = 10000$}
 
 \par Con una tasa de 0.1, 100 neuronas en una capa oculta y 10000 ciclos tenemos los siguientes porcentajes de acierto:
@@ -197,6 +199,46 @@ y_{i} = a_{i}^c = f(\sum_{j=1}^{n_{c-1}}w_{ji}^{c-1}*a_{j}^{c-1} + u_{i}^{c})
 \centering
 \caption{MLP $\gamma = 0.1$, $neuronas = 100$ y $ciclos = 10000$}
 \label{tb:tb1}
+\begin{tabular}{lllll}
+\hline
+\multicolumn{1}{|l|}{Pareja} & Porcentaje de acierto entrenamiento & Porcentaje de acierto test  \\ \hline \hline
+1                            & 0.913357400722022    & 0.215753424657534 \\
+2                            & 0.760907504363002    & 0.754578754578755 \\
+3                            & 0.783595113438045    & 0.825622775800712 \\
+Media                        & 0.81928667333        & 0.59865165167     \\ \hline
+\end{tabular}
+\end{table}
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=5]{011001}
+\caption{MLP $\gamma = 0.1$, $neuronas = 100$ y $ciclos = 10000$ pareja 1}
+\end{figure} 
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=5]{011002}
+\caption{MLP $\gamma = 0.1$, $neuronas = 100$ y $ciclos = 10000$ pareja 2}
+\end{figure} 
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=5]{011003}
+\caption{MLP $\gamma = 0.1$, $neuronas = 100$ y $ciclos = 10000$ pareja 3}
+\end{figure} 
+
+\par Como se puede apreciar en las figuras, los resultados son bastante diferentes, la pareja 2 y 3 se aproxima bastante bien pero la primera pareja presenta resultados muy diferentes. La media del porcentaje de acierto es bastante bueno para entrenamiento pero no muy buena para test. Observando las matrices de confusión, la predicción no es muy buena para varias clases.
+
+%   EXPERIMENTO 2    %
+
+\par \textbf{$\gamma = 0.1$, $neuronas = 100,50$ y $ciclos = 10000$}
+
+\par Con una tasa de 0.1, 100 neuronas y 50 neuronas distribuidas en dos capas ocultas y 10000 ciclos tenemos los siguientes porcentajes de acierto:
+
+\begin{table}[H]
+\centering
+\caption{MLP $\gamma = 0.1$, $neuronas = 100,50$ y $ciclos = 10000$}
+\label{tb:tb2}
 \begin{tabular}{lllll}
 \hline
 \multicolumn{1}{|l|}{Pareja} & Porcentaje de acierto entrenamiento & Porcentaje de acierto test  \\ \hline \hline
