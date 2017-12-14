@@ -28,8 +28,8 @@ testInput  <- as.matrix(testInput )
 
 #SELECCION DE LOS PARAMETROS
 topologia        <- c(100)
-razonAprendizaje <- 0.8
-ciclosMaximos    <- 100
+razonAprendizaje <- 0.1
+ciclosMaximos    <- 10000
 ## asignar nombre de fichero seg?n los par?metros
 fileID <- paste("fX",fold,"_topX",paste(topologia,collapse="-"),"_ra",razonAprendizaje,"_CMX",ciclosMaximos,".csv",sep="")
 

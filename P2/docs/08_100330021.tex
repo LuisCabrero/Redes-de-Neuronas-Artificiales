@@ -166,9 +166,32 @@ y_{i} = a_{i}^c = f(\sum_{j=1}^{n_{c-1}}w_{ji}^{c-1}*a_{j}^{c-1} + u_{i}^{c})
 
 \par Siendo $f$ la función de activación. Las funciones más utilizadas son la función sigmoidal ($f_{1}(x) = \frac{1}{1+e^{-x}}$) y la tangente hiperbólica ($f_{2}(x) = \frac{1-e^{-x}}{1+e^{-x}}$). El aprendizaje de la red se realiza de forma semejante que en Adaline \cite{MLP}.
 
+\section{Script en RSNNS}
+
+\par Para realizar la experimentación se proporciona un script que realiza los siguientes pasos:
+
+\begin{itemize}
+\item Se cargan dos ficheros de entrenamiento y test que forman una pareja. Posteriormente se cargan los ficheros correspondientes a las otras dos parejas, teniendo de esta manera la validación cruzada.
+\item Se codifican las cuatro clases (bus, van, saab y opel) en 4 números.
+\item Se seleccionan los parámetros: razón de aprendizaje, topología de la red y ciclos.
+\item Se ejecuta el aprendizaje y se selecciona el modelo.
+\item Se muestra en un gráfico la evolución del error (SSE) según avanzan los ciclos.
+\item Se generan matrices de confusión que muestran los valores predichos frente a los reales.
+\item Se halla el porcentaje de acierto.
+\item Se expresa en una tabla los errores por ciclo.
+\item Se calcula el error final MSE.
+\item Se guardan los resultados en ficheros.
+\end{itemize}
+
 \section{Experimentación realizada}
 
 \par En cuanto a la experimentación realizada se ha prestado especial atención en conseguir una capacidad de generalización adecuada. Esto es: no nos interesa conseguir que la red sea capaz de estimar valores del conjunto de entrenamiento pero que cuando entren datos de un conjunto nuevo, no sea capaz de generalizarlos. Esta situación es conocida como \textbf{sobreaprendizaje}. Para cada uno de los experimentos realizados, será de especial interés observar la matriz de confusión para ver las predicciones que hace el modelo frente a los valores reales.
+
+\par \underline{\textbf{Experimentaciones}}
+
+\par \textbf{$\gamma = 0.1$, $neuronas = 100$ y $ciclos = 10000$}
+
+\par Con una tasa de 0.1 y 10000 ciclos la red "no aprende" (\ref{fig:8500}) dado que comienza cometiendo un error y en el ciclo inmediatamente posterior el error aumenta, tendencia que continúa hasta que el error se estabiliza en un valor elevado, por tanto considero de poco interés este experimento. El error obtenido sobre el conjunto de test es de 0.49219936325144.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %                                 CONCLUSIONES                                %
