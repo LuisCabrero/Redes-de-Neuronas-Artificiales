@@ -30,6 +30,8 @@
 \usepackage{epstopdf}
 \usepackage{tikz}
 \usepackage{graphicx}
+\usepackage[demo]{graphicx}
+\usepackage{babel,blindtext}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
