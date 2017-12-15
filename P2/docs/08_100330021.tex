@@ -443,11 +443,27 @@ Media                        & 0.6736968223         & 0.5185855219      \\ \hlin
 
 \chapter{Learning Vector Quantization}
 
-\par En este capítulo se va a explicar en primer lugar el algotitmo LVQ, una versión supervisada del método de Kohonen, clasificando por vecindad. El número de clases sobre las que se clasifica, es conocido de antemano.
+\par En este capítulo se va a explicar en primer lugar el algotitmo LVQ, una versión supervisada del método de Kohonen en la que se conoce de antemano el número de clases, clasificando por vecindad.
 
 \section{Learning Vector Quantization (LVQ)}
 
-\par Es una red de neuronas artificiales formada por múltiples capas (\ref{fig:mlp}) que resuelve problemas que no son linealmente separables. Además, se ha demostrado que es un aproximador universal, es decir,  cualquier función contínua en el espacio $\mathbb{R}^n$ puede aproximarse con este modelo. 
+\par Es un algoritmo supervisado de clasificación basado en prototipos. Inicialmente los prototipos se distribuyen aleatoriamente por el espacio de entrada, y una vez que la red se entrene, se obtiene la solución al problema de clasificación que consiste en la colocación final de los prototipos.
+
+\par El entrenamiento de la red se lleva a cabo de tal forma que inicialmente la distribución aleatoria de los prototipos es alterada por la introducción de los ejemplos de entrenamiento.
+
+\par Para realizar la clasificación de un patrón del conjunto de test, se introduce el ejemplo, se calcula su distancia a todos los prototipos y por último se etiqueta con la clase del prototipo más cercano.
+
+\section{Experimentación realizada}
+
+\par En cuanto a la experimentación realizada se ha prestado especial atención en conseguir una capacidad de generalización adecuada. Esto es: no nos interesa conseguir que la red sea capaz de estimar valores del conjunto de entrenamiento pero que cuando entren datos de un conjunto nuevo, no sea capaz de generalizarlos. Esta situación es conocida como \textbf{sobreaprendizaje}. Para cada uno de los experimentos realizados, será de especial interés observar la matriz de confusión para ver las predicciones que hace el modelo frente a los valores reales.
+
+\par \underline{\textbf{Experimentaciones}}
+
+
+
+
+
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %                         Mapas autoorganizados de Kohonen                    %
@@ -501,6 +517,14 @@ Media                        & 0.6736968223         & 0.5185855219      \\ \hlin
    \newblock Inés M. Galván y José Mª Valls.
    \newblock Obtenido de
    \url{http://ocw.uc3m.es/ingenieria-informatica/redes-de-neuronas-artificiales/transparencias/material-de-clase.-tema-3/view}.
+
+\bibitem{LVQ}
+   Learning Vector Quantization, 
+   \newblock Inés M. Galván y José Mª Valls.
+   \newblock Obtenido de
+   \url{http://ocw.uc3m.es/ingenieria-informatica/redes-de-neuronas/transparencias/LVQ.pdf/view}.
+
+   
 
 \end{thebibliography}
 \cleardoublepage

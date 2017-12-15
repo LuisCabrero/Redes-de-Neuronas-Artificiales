@@ -15,5 +15,11 @@
 \contentsline {section}{\numberline {3.1}Perceptron Multicapa (MLP)}{5}{section.3.1}
 \contentsline {section}{\numberline {3.2}Script en RSNNS}{6}{section.3.2}
 \contentsline {section}{\numberline {3.3}Experimentaci\IeC {\'o}n realizada}{7}{section.3.3}
-\contentsline {chapter}{\numberline {4}Conclusiones}{15}{chapter.4}
-\contentsline {chapter}{Bibliograf\'{\i }a}{17}{chapter*.30}
+\contentsline {chapter}{\numberline {4}Learning Vector Quantization}{15}{chapter.4}
+\contentsline {section}{\numberline {4.1}Learning Vector Quantization (LVQ)}{15}{section.4.1}
+\contentsline {section}{\numberline {4.2}Experimentaci\IeC {\'o}n realizada}{15}{section.4.2}
+\contentsline {chapter}{\numberline {5}Mapas autoorganizados de Kohonen}{17}{chapter.5}
+\contentsline {section}{\numberline {5.1}Learning Vector Quantization (LVQ)}{17}{section.5.1}
+\contentsline {section}{\numberline {5.2}Experimentaci\IeC {\'o}n realizada}{17}{section.5.2}
+\contentsline {chapter}{\numberline {6}Conclusiones}{19}{chapter.6}
+\contentsline {chapter}{Bibliograf\'{\i }a}{21}{chapter*.30}
