@@ -21,5 +21,5 @@
 \contentsline {chapter}{\numberline {5}Mapas autoorganizados de Kohonen}{27}{chapter.5}
 \contentsline {section}{\numberline {5.1}Kohonen (SOM)}{27}{section.5.1}
 \contentsline {section}{\numberline {5.2}Experimentaci\IeC {\'o}n realizada}{27}{section.5.2}
-\contentsline {chapter}{\numberline {6}Conclusiones}{29}{chapter.6}
-\contentsline {chapter}{Bibliograf\'{\i }a}{31}{chapter*.52}
+\contentsline {chapter}{\numberline {6}Conclusiones}{31}{chapter.6}
+\contentsline {chapter}{Bibliograf\'{\i }a}{33}{chapter*.57}
