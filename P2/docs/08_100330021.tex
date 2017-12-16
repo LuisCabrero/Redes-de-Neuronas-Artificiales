@@ -687,41 +687,47 @@ Media                        & 0.7089         		 \\ \hline
 
 \par \textbf{Tamaño del mapa $x=1 y=10$}
 
-\par Con un mapa con coordenada x igual a 1 y coordenada y igual a 10, tenemos un mapa unidimensional y obtenemos los siguientes resultados:
+\par Con un mapa con coordenada x igual a 1 y coordenada y igual a 10, tenemos un mapa unidimensional con 10 neuronas en la capa oculta y obtenemos los siguientes resultados:
 
 \begin{table}[H]
 \centering
-\caption{LVQ $20 prototipos$}
-\label{tb:tb21}
+\caption{SOM $x=1 y=10$}
+\label{tb:tb31}
 \begin{tabular}{lllll}
 \hline
 \multicolumn{1}{|l|}{Pareja} & Porcentaje de acierto \\ \hline \hline
-1                            & 0.2397			     \\
-2                            & 0.2466			     \\
-3                            & 0.2432			     \\
-Media                        & 0.24316666666         \\ \hline
+1                            & 0.43493150684932	     \\
+2                            & 0.51282051282051		 \\
+3                            & 0.50177935943061      \\
+Media                        & 0.48317712636         \\ \hline
 \end{tabular}
 \end{table}
 
-\begin{figure}[H]
-\centering
-\includegraphics[scale=0.5]{lvq20p1}
-\caption{LVQ $20 prototipos$ pareja 1}
-\end{figure} 
+\par Viendo que el porcentaje de acierto es muy bajo, no veremos en detalle los mapas devueltos por los programas de monitorización del software utilizado.
 
-\begin{figure}[H]
-\centering
-\includegraphics[scale=0.5]{lvq20p2}
-\caption{LVQ $20 prototipos$ pareja 2}
-\end{figure} 
+%   EXPERIMENTO 2    %
 
-\begin{figure}[H]
-\centering
-\includegraphics[scale=0.5]{lvq20p3}
-\caption{LVQ $20 prototipos$ pareja 3}
-\end{figure} 
+\par \textbf{Tamaño del mapa $x=10 y=1$}
 
-\par Como se puede apreciar en las figuras, al haber solo 20 prototipos, hay pocos prototipos por clase y la distancia entre ellos es bastante grande, el porcentaje de acierto está en torno al 24\%, que es un porcentaje de acierto en test bastante bajo. No se considera un buen modelo para clasificar correctamente.
+\par Con un mapa con coordenada x igual a 10 y coordenada y igual a 1, tenemos un mapa unidimensional con 10 neuronas en la capa oculta y obtenemos los siguientes resultados:
+
+\begin{table}[H]
+\centering
+\caption{SOM $x=10 y=1$}
+\label{tb:tb32}
+\begin{tabular}{lllll}
+\hline
+\multicolumn{1}{|l|}{Pareja} & Porcentaje de acierto \\ \hline \hline
+1                            & 0.38356164383562	     \\
+2                            & 0.51648351648352		 \\
+3                            & 0.51245551601423      \\
+Media                        & 0.47083355877         \\ \hline
+\end{tabular}
+\end{table}
+
+\par De nuevo, viendo este segundo mapa unidimensional, el porcentaje de acierto es muy bajo por lo que no nos detendremos en un estudio más a fondo.
+
+
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
