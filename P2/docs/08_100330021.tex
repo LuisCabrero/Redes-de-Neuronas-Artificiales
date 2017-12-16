@@ -498,9 +498,87 @@ Media                        & 0.24316666666         \\ \hline
 \caption{LVQ $20 prototipos$ pareja 3}
 \end{figure} 
 
-\par Como se puede apreciar en las figuras, los resultados son bastante diferentes, la pareja 2 y 3 se aproxima bastante bien pero la primera pareja presenta resultados muy diferentes. La media del porcentaje de acierto es bastante bueno para entrenamiento pero no muy buena para test. Observando las matrices de confusión, la predicción no es muy buena para varias clases.
+\par Como se puede apreciar en las figuras, al haber solo 20 prototipos, hay pocos prototipos por clase y la distancia entre ellos es bastante grande, el porcentaje de acierto está en torno al 24\%, que es un porcentaje de acierto en test bastante bajo. No se considera un buen modelo para clasificar correctamente.
 
+%   EXPERIMENTO 2    %
 
+\par \textbf{$50 prototipos$}
+
+\par Escogiendo 50 prototipos el resultado que obtenemos es el siguiente:
+
+\begin{table}[H]
+\centering
+\caption{LVQ $50 prototipos$}
+\label{tb:tb22}
+\begin{tabular}{lllll}
+\hline
+\multicolumn{1}{|l|}{Pareja} & Porcentaje de acierto \\ \hline \hline
+1                            & 0.3938			     \\
+2                            & 0.6747			     \\
+3                            & 0.6575			     \\
+Media                        & 0.57533333333         \\ \hline
+\end{tabular}
+\end{table}
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.5]{lvq50p1}
+\caption{LVQ $50 prototipos$ pareja 1}
+\end{figure} 
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.5]{lvq50p2}
+\caption{LVQ $50 prototipos$ pareja 2}
+\end{figure} 
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.5]{lvq50p3}
+\caption{LVQ $50 prototipos$ pareja 3}
+\end{figure} 
+
+\par Como se puede apreciar en las figuras, con 50 prototipos, la distribución de dichos prototipos para cada una de las tres parejas es muy diferente. No hay muchos prototipos por clase, y el porcentaje de acierto en test es significativamente mejor que en el caso anterior en el cual teníamos solo 20 prototipos, ya que ahora alcanzamos el 57\%.
+
+%   EXPERIMENTO 2    %
+
+\par \textbf{$100 prototipos$}
+
+\par Escogiendo 100 prototipos el resultado que obtenemos es el siguiente:
+
+\begin{table}[H]
+\centering
+\caption{LVQ $50 prototipos$}
+\label{tb:tb22}
+\begin{tabular}{lllll}
+\hline
+\multicolumn{1}{|l|}{Pareja} & Porcentaje de acierto \\ \hline \hline
+1                            & 0.3938			     \\
+2                            & 0.6747			     \\
+3                            & 0.6575			     \\
+Media                        & 0.57533333333         \\ \hline
+\end{tabular}
+\end{table}
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.5]{lvq50p1}
+\caption{LVQ $50 prototipos$ pareja 1}
+\end{figure} 
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.5]{lvq50p2}
+\caption{LVQ $50 prototipos$ pareja 2}
+\end{figure} 
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.5]{lvq50p3}
+\caption{LVQ $50 prototipos$ pareja 3}
+\end{figure} 
+
+\par Como se puede apreciar en las figuras, con 50 prototipos, la distribución de dichos prototipos para cada una de las tres parejas es muy diferente. No hay muchos prototipos por clase, y el porcentaje de acierto en test es significativamente mejor que en el caso anterior en el cual teníamos solo 20 prototipos, ya que ahora alcanzamos el 57\%.
 
 
 
