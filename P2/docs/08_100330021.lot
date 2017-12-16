@@ -9,5 +9,6 @@
 \contentsline {table}{\numberline {3.5}{\ignorespaces MLP $\gamma = 0.1$, $neuronas = 100,50,25,12$ y $ciclos = 1000$\relax }}{11}{table.caption.22}
 \contentsline {table}{\numberline {3.6}{\ignorespaces MLP $\gamma = 0.8$, $neuronas = 100$ y $ciclos = 1000$\relax }}{12}{table.caption.26}
 \addvspace {10\p@ }
+\contentsline {table}{\numberline {4.1}{\ignorespaces LVQ $20 prototipos$\relax }}{15}{table.caption.30}
 \addvspace {10\p@ }
 \addvspace {10\p@ }

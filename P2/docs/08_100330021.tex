@@ -457,33 +457,6 @@ Media                        & 0.6736968223         & 0.5185855219      \\ \hlin
 
 \par En cuanto a la experimentación realizada se ha probado con distintos números de prototipos, escogiendo números proporcionales al número de clases existentes. Se atenderá al porcentaje de acierto realizando la media entre las tres hojas de la validación cruzada y se escogerá el mejor experimento.
 
-\par \underline{\textbf{Experimentaciones}}
-
-
-
-
-
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%                         Mapas autoorganizados de Kohonen                    %
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\chapter{Mapas autoorganizados de Kohonen}
-
-\par En este capítulo se va a explicar en primer lugar el algotitmo LVQ, una versión supervisada del método de Kohonen en la que se conoce de antemano el número de clases, clasificando por vecindad.
-
-\section{Learning Vector Quantization (LVQ)}
-
-\par Es un algoritmo supervisado de clasificación basado en prototipos. Inicialmente los prototipos se distribuyen aleatoriamente por el espacio de entrada, y una vez que la red se entrene, se obtiene la solución al problema de clasificación que consiste en la colocación final de los prototipos.
-
-\par El entrenamiento de la red se lleva a cabo de tal forma que inicialmente la distribución aleatoria de los prototipos es alterada por la introducción de los ejemplos de entrenamiento.
-
-\par Para realizar la clasificación de un patrón del conjunto de test, se introduce el ejemplo, se calcula su distancia a todos los prototipos y por último se etiqueta con la clase del prototipo más cercano.
-
-\section{Experimentación realizada}
-
-\par En cuanto a la experimentación realizada se ha prestado especial atención en conseguir una capacidad de generalización adecuada. Esto es: no nos interesa conseguir que la red sea capaz de estimar valores del conjunto de entrenamiento pero que cuando entren datos de un conjunto nuevo, no sea capaz de generalizarlos. Esta situación es conocida como \textbf{sobreaprendizaje}. Para cada uno de los experimentos realizados, será de especial interés observar la matriz de confusión para ver las predicciones que hace el modelo frente a los valores reales.
 
 \par \underline{\textbf{Experimentaciones}}
 
@@ -499,33 +472,47 @@ Media                        & 0.6736968223         & 0.5185855219      \\ \hlin
 \label{tb:tb21}
 \begin{tabular}{lllll}
 \hline
-\multicolumn{1}{|l|}{Pareja} & Porcentaje de acierto entrenamiento & Porcentaje de acierto test  \\ \hline \hline
-1                            & 0.913357400722022    & 0.215753424657534 \\
-2                            & 0.760907504363002    & 0.754578754578755 \\
-3                            & 0.783595113438045    & 0.825622775800712 \\
-Media                        & 0.81928667333        & 0.59865165167     \\ \hline
+\multicolumn{1}{|l|}{Pareja} & Porcentaje de acierto \\ \hline \hline
+1                            & 0.2397			     \\
+2                            & 0.2466			     \\
+3                            & 0.2432			     \\
+Media                        & 0.24316666666         \\ \hline
 \end{tabular}
 \end{table}
 
 \begin{figure}[H]
 \centering
-\includegraphics[scale=5]{011001}
-\caption{MLP $\gamma = 0.1$, $neuronas = 100$ y $ciclos = 10000$ pareja 1}
+\includegraphics[scale=0.5]{lvq20p1}
+\caption{LVQ $20 prototipos$ pareja 1}
 \end{figure} 
 
 \begin{figure}[H]
 \centering
-\includegraphics[scale=5]{011002}
-\caption{MLP $\gamma = 0.1$, $neuronas = 100$ y $ciclos = 10000$ pareja 2}
+\includegraphics[scale=0.5]{lvq20p2}
+\caption{LVQ $20 prototipos$ pareja 2}
 \end{figure} 
 
 \begin{figure}[H]
 \centering
-\includegraphics[scale=5]{011003}
-\caption{MLP $\gamma = 0.1$, $neuronas = 100$ y $ciclos = 10000$ pareja 3}
+\includegraphics[scale=0.5]{lvq20p3}
+\caption{LVQ $20 prototipos$ pareja 3}
 \end{figure} 
 
 \par Como se puede apreciar en las figuras, los resultados son bastante diferentes, la pareja 2 y 3 se aproxima bastante bien pero la primera pareja presenta resultados muy diferentes. La media del porcentaje de acierto es bastante bueno para entrenamiento pero no muy buena para test. Observando las matrices de confusión, la predicción no es muy buena para varias clases.
+
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                         Mapas autoorganizados de Kohonen                    %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\chapter{Mapas autoorganizados de Kohonen}
+
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %                                 CONCLUSIONES                                %
