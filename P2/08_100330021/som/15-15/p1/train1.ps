@@ -1,0 +1,212 @@
+%!PS-Adobe-3.0 EPSF-3.0
+%%BoundingBox: 0 0 1000 847
+%%Title: 15-15/p1/Trained1_2Cal.cod
+%%Creator: umat V1.0
+%%CreationDate: Sat Dec 16 18:38:52 2017
+%%Pages: 0
+%%DocumentFonts: Helvetica
+%%DocumentNeededFonts: Helvetica
+%%EndComments
+%
+% PS header for umat - SOM to PS converter
+% Version 1.0 Tue Feb 28 1995
+% Author: Jussi Hynninen <hynde@nucleus.hut.fi>
+100 dict begin
+
+% predefine variables
+/yoff 0 def /xoff 0 def /xstep 0 def /ystep 0 def /y 0 def /radius 0 def
+/doborder false def
+% default font
+/fontname /Helvetica def
+% font size relative to radius
+/fontsize 1.0 def
+
+% default black and white tresholds
+/bt 0.0 def /wt 1.0 def
+
+% labelpallon sade suhteessa hexan sateeseen
+/ballrad 0.2 def
+
+% newline function. Moves the y coordinate to the next line
+/NL 
+{ /yoff yoff ystep sub def % next row
+  /y y 1 add def % add y by one
+  } bind def
+
+% start of line (for hexagonal lattice) - moves the current position in 
+% x direction to the correct place of the line
+/XSH
+{ xoff 
+  y 4 mod
+  dup 3 eq {pop 1} if
+  xstep 2 div mul
+  add
+  yoff moveto % move to start of line
+} bind def
+
+% start of line (for rectangular lattice) - moves the current position in 
+% x direction to the correct place of the line
+/XSR { xoff yoff moveto } bind def
+
+% set label color. If block is light -> label is black and same for dark block
+/sbc { .5 gt {0} {1} ifelse setgray } bind def
+
+% set gray level
+/G { 
+  100 div dup bt le {pop 0}
+  { dup wt ge {pop 1} {bt sub wt bt sub div} ifelse
+  } ifelse
+} bind def
+
+% unlabelled node
+/LN { 
+  gsave
+  G sbc
+  currentpoint radius ballrad mul 0 360 arc fill 
+  grestore
+  xstep 2 mul 0 rmoveto
+} bind def
+
+%select font
+/selfont {
+  fontname findfont radius fontsize mul scalefont setfont
+} bind def
+
+% print single label
+
+/LAB { 
+  gsave
+  G sbc
+  dup %duplicate string  
+  stringwidth
+  pop fontsize radius mul -0.25 mul exch
+  -2 div exch
+  rmoveto
+  show
+  grestore
+  xstep 2 mul 0 rmoveto
+} bind def
+
+% print multiple labels on one unit
+/ML {
+  gsave
+  G sbc
+  /numlabs exch def %number of labels
+  numlabs
+  2 div 
+  0.25 sub
+  radius fontsize mul mul neg
+  0 exch rmoveto
+  1 1 numlabs {
+    pop
+    gsave
+    dup %duplicate string  
+    stringwidth
+    pop 
+    -2 div 0
+    rmoveto
+    show
+    grestore
+    0 fontsize radius mul rmoveto
+  } for 
+  grestore
+  xstep 2 mul 0 rmoveto
+} bind def
+
+% print hexagon
+/H { 
+  gsave
+  G dup setgray %duplicate gray level
+  currentpoint translate
+  newpath 0 radius moveto
+  5 {60 rotate 0 radius lineto} repeat
+  closepath
+  doborder { gsave fill grestore sbc stroke}
+           { fill pop } ifelse
+  grestore  
+  xstep 0 rmoveto
+} bind def
+
+% print rectangle
+/R {
+  gsave
+  G dup setgray %duplicate gray level
+  currentpoint translate
+  newpath
+  xstep 0.5 mul dup moveto
+  xstep neg 0 rlineto
+  0 xstep neg rlineto
+  xstep 0 rlineto
+  closepath
+  doborder { gsave fill grestore sbc stroke}
+           { fill pop } ifelse
+  grestore  
+  xstep 0 rmoveto
+} bind def
+
+1 setlinewidth
+
+% End of umat PS header
+% Start image
+
+
+/radius 19.245008 def
+/xstep 33.333332 def
+/ystep 28.867512 def
+%%IncludeFont: Helvetica
+/fontname /Helvetica def
+selfont
+/doborder false def
+/wt 1.000000 def /bt 0.000000 def
+/y 0 def
+/xoff 16.666666 def
+/yoff 827.535339 def
+XSH 91 H 92 H 89 H 86 H 82 H 73 H 73 H 64 H 75 H 72 H 85 H 82 H 91 H 89 H 94 H 93 H 95 H 96 H 95 H 94 H 91 H 88 H 87 H 85 H 78 H 71 H 64 H 57 H 57 H NL
+XSH 90 H 99 H 87 H 99 H 79 H 96 H 73 H 94 H 77 H 96 H 88 H 94 H 93 H 96 H 95 H 98 H 95 H 99 H 91 H 98 H 82 H 96 H 70 H 88 H 51 H 83 H 37 H 84 H 29 H NL
+XSH 90 H 89 H 88 H 78 H 78 H 66 H 72 H 69 H 84 H 83 H 89 H 87 H 92 H 91 H 94 H 93 H 94 H 91 H 91 H 85 H 83 H 77 H 73 H 66 H 62 H 58 H 53 H 48 H 48 H NL
+XSH 95 H 85 H 97 H 77 H 98 H 70 H 96 H 71 H 97 H 86 H 95 H 90 H 95 H 92 H 96 H 90 H 97 H 84 H 95 H 73 H 91 H 60 H 87 H 44 H 81 H 22 H 68 H 12 H 67 H NL
+XSH 91 H 91 H 87 H 81 H 79 H 70 H 70 H 68 H 83 H 84 H 86 H 86 H 89 H 88 H 91 H 90 H 90 H 87 H 86 H 81 H 77 H 72 H 66 H 60 H 52 H 44 H 46 H 48 H 48 H NL
+XSH 79 H 90 H 72 H 91 H 66 H 94 H 65 H 96 H 82 H 96 H 85 H 95 H 87 H 94 H 86 H 93 H 81 H 93 H 73 H 94 H 62 H 92 H 40 H 83 H 20 H 79 H 16 H 71 H 23 H NL
+XSH 79 H 83 H 79 H 75 H 72 H 69 H 83 H 85 H 86 H 87 H 87 H 88 H 88 H 87 H 87 H 85 H 83 H 79 H 76 H 69 H 65 H 50 H 45 H 40 H 40 H 40 H 48 H 55 H 55 H NL
+XSH 78 H 64 H 83 H 63 H 88 H 67 H 94 H 81 H 95 H 83 H 95 H 82 H 92 H 80 H 90 H 72 H 86 H 64 H 86 H 52 H 85 H 23 H 76 H 4 H 67 H 15 H 78 H 36 H 83 H NL
+XSH 78 H 88 H 79 H 81 H 80 H 79 H 82 H 83 H 86 H 87 H 87 H 86 H 86 H 86 H 83 H 80 H 79 H 77 H 72 H 66 H 59 H 40 H 36 H 31 H 41 H 51 H 56 H 61 H 63 H NL
+XSH 64 H 78 H 67 H 85 H 73 H 91 H 81 H 95 H 84 H 96 H 80 H 94 H 75 H 90 H 68 H 88 H 60 H 83 H 44 H 79 H 8 H 70 H 0 H 71 H 20 H 72 H 39 H 82 H 63 H NL
+XSH 78 H 90 H 86 H 86 H 86 H 85 H 86 H 86 H 85 H 83 H 83 H 82 H 80 H 79 H 76 H 72 H 67 H 61 H 52 H 30 H 31 H 31 H 42 H 51 H 61 H 70 H 76 H 84 H 84 H NL
+XSH 82 H 76 H 86 H 80 H 90 H 85 H 91 H 83 H 95 H 78 H 95 H 72 H 92 H 67 H 90 H 56 H 86 H 43 H 84 H 18 H 89 H 12 H 83 H 32 H 83 H 51 H 85 H 65 H 84 H NL
+XSH 85 H 95 H 88 H 93 H 90 H 89 H 87 H 83 H 83 H 82 H 80 H 78 H 77 H 76 H 72 H 68 H 64 H 59 H 51 H 35 H 31 H 24 H 46 H 51 H 64 H 71 H 77 H 83 H 83 H NL
+XSH 85 H 91 H 86 H 91 H 84 H 90 H 80 H 90 H 77 H 94 H 70 H 94 H 63 H 89 H 51 H 85 H 44 H 87 H 29 H 94 H 27 H 97 H 42 H 94 H 57 H 89 H 67 H 86 H 74 H NL
+XSH 87 H 95 H 89 H 91 H 87 H 86 H 84 H 82 H 80 H 75 H 72 H 70 H 68 H 65 H 63 H 62 H 53 H 43 H 38 H 33 H 38 H 39 H 60 H 66 H 74 H 81 H 84 H 91 H 84 H NL
+XSH 87 H 83 H 87 H 82 H 88 H 80 H 88 H 76 H 88 H 65 H 90 H 53 H 85 H 47 H 85 H 41 H 82 H 32 H 91 H 33 H 97 H 37 H 96 H 54 H 91 H 67 H 90 H 71 H 84 H NL
+XSH 87 H 97 H 87 H 94 H 85 H 89 H 82 H 83 H 79 H 72 H 68 H 63 H 63 H 64 H 62 H 59 H 56 H 53 H 49 H 44 H 41 H 37 H 52 H 56 H 71 H 79 H 81 H 84 H 84 H NL
+XSH 82 H 86 H 77 H 83 H 73 H 81 H 68 H 81 H 55 H 79 H 45 H 81 H 44 H 81 H 41 H 85 H 43 H 92 H 40 H 96 H 37 H 96 H 48 H 93 H 64 H 87 H 70 H 89 H 80 H NL
+XSH 85 H 93 H 85 H 90 H 82 H 85 H 75 H 71 H 67 H 63 H 63 H 62 H 62 H 62 H 61 H 61 H 55 H 49 H 46 H 41 H 49 H 48 H 69 H 72 H 81 H 85 H 87 H 94 H 90 H NL
+XSH 85 H 78 H 87 H 73 H 83 H 67 H 80 H 54 H 80 H 48 H 80 H 41 H 78 H 41 H 81 H 44 H 84 H 39 H 90 H 43 H 96 H 50 H 97 H 67 H 96 H 77 H 93 H 81 H 90 H NL
+XSH 85 H 94 H 87 H 88 H 84 H 84 H 77 H 73 H 69 H 65 H 61 H 57 H 60 H 62 H 63 H 64 H 60 H 56 H 58 H 53 H 52 H 47 H 65 H 65 H 77 H 82 H 86 H 90 H 90 H NL
+XSH 84 H 90 H 78 H 91 H 73 H 90 H 63 H 89 H 57 H 89 H 53 H 88 H 56 H 90 H 54 H 89 H 53 H 95 H 59 H 93 H 51 H 95 H 64 H 96 H 73 H 93 H 78 H 90 H 82 H NL
+XSH 87 H 87 H 85 H 82 H 78 H 74 H 71 H 68 H 67 H 61 H 62 H 61 H 63 H 60 H 64 H 63 H 64 H 62 H 60 H 46 H 62 H 60 H 73 H 74 H 82 H 86 H 88 H 94 H 92 H NL
+XSH 92 H 81 H 93 H 78 H 93 H 71 H 96 H 66 H 97 H 66 H 94 H 64 H 93 H 66 H 92 H 66 H 95 H 66 H 95 H 58 H 89 H 65 H 95 H 72 H 96 H 78 H 94 H 84 H 92 H NL
+XSH 89 H 89 H 86 H 83 H 80 H 75 H 73 H 69 H 72 H 68 H 70 H 59 H 67 H 63 H 70 H 61 H 70 H 63 H 67 H 54 H 61 H 52 H 70 H 67 H 81 H 80 H 91 H 92 H 92 H NL
+XSH 85 H 94 H 80 H 94 H 75 H 96 H 71 H 98 H 75 H 96 H 72 H 89 H 71 H 94 H 75 H 88 H 74 H 90 H 69 H 87 H 64 H 90 H 72 H 97 H 81 H 98 H 89 H 98 H 91 H NL
+XSH 85 H 83 H 81 H 78 H 77 H 71 H 75 H 72 H 75 H 65 H 74 H 58 H 75 H 67 H 75 H 60 H 75 H 57 H 69 H 49 H 68 H 60 H 79 H 76 H 89 H 89 H 93 H 93 H 93 H NL
+XSH 97 H 84 H 97 H 80 H 97 H 76 H 96 H 79 H 96 H 76 H 92 H 77 H 84 H 79 H 91 H 75 H 88 H 76 H 84 H 70 H 82 H 72 H 91 H 81 H 98 H 90 H 99 H 92 H 100 H NL
+XSH 92 H 87 H 85 H 78 H 79 H 75 H 75 H 74 H 76 H 70 H 73 H 66 H 71 H 61 H 71 H 63 H 69 H 61 H 69 H 51 H 61 H 51 H 70 H 69 H 83 H 86 H 90 H 91 H 92 H NL
+/y 0 def
+/xoff 16.666666 def
+/yoff 827.535339 def
+XSH (van) 91 LAB (van) 89 LAB (van) 82 LAB (van) 73 LAB (van) 75 LAB (bus) 85 LAB (bus) 91 LAB (bus) 94 LAB (van) 95 LAB (van) 95 LAB (van) 91 LAB (van) 87 LAB 78 LN 64 LN 57 LN NL NL
+XSH (opel) 90 LAB (van) 88 LAB (van) 78 LAB (opel) 72 LAB (bus) 84 LAB (bus) 89 LAB (bus) 92 LAB (van) 94 LAB (van) 94 LAB (van) 91 LAB (van) 83 LAB 73 LN 62 LN 53 LN 48 LN NL NL
+XSH (van) 91 LAB (van) 87 LAB 79 LN (opel) 70 LAB (bus) 83 LAB (bus) 86 LAB (bus) 89 LAB (bus) 91 LAB (van) 90 LAB 86 LN 77 LN 66 LN 52 LN 46 LN 48 LN NL NL
+XSH (van) 79 LAB (van) 79 LAB (saab) 72 LAB (bus) 83 LAB (bus) 86 LAB (bus) 87 LAB (bus) 88 LAB (van) 87 LAB (van) 83 LAB (van) 76 LAB 65 LN 45 LN (saab) 40 LAB (saab) 48 LAB (bus) 55 LAB NL NL
+XSH (van) 78 LAB (opel) 79 LAB 80 LN (van) 82 LAB (bus) 86 LAB 87 LN (saab) 86 LAB (opel) 83 LAB (van) 79 LAB 72 LN (opel) 59 LAB (opel) 36 LAB 41 LN (opel) 56 LAB (saab) 63 LAB NL NL
+XSH (opel) 78 LAB (van) 86 LAB (bus) 86 LAB (bus) 86 LAB (bus) 85 LAB 83 LN (bus) 80 LAB (saab) 76 LAB 67 LN 52 LN (opel) 31 LAB (saab) 42 LAB (saab) 61 LAB (opel) 76 LAB (saab) 84 LAB NL NL
+XSH (bus) 85 LAB (opel) 88 LAB (bus) 90 LAB (bus) 87 LAB (bus) 83 LAB (bus) 80 LAB (bus) 77 LAB (opel) 72 LAB (saab) 64 LAB 51 LN 31 LN 46 LN 64 LN (saab) 77 LAB (opel) 83 LAB NL NL
+XSH (bus) 87 LAB 89 LN (bus) 87 LAB (bus) 84 LAB (saab) 80 LAB 72 LN (bus) 68 LAB (bus) 63 LAB (saab) 53 LAB 38 LN 38 LN 60 LN (bus) 74 LAB (saab) 84 LAB (opel) 84 LAB NL NL
+XSH (bus) 87 LAB (opel) 87 LAB 85 LN (saab) 82 LAB (bus) 79 LAB (saab) 68 LAB (bus) 63 LAB 62 LN (saab) 56 LAB 49 LN (bus) 41 LAB 52 LN 71 LN (saab) 81 LAB (opel) 84 LAB NL NL
+XSH (bus) 85 LAB (saab) 85 LAB (bus) 82 LAB 75 LN 67 LN (saab) 63 LAB 62 LN (bus) 61 LAB (bus) 55 LAB (saab) 46 LAB (saab) 49 LAB (saab) 69 LAB (saab) 81 LAB (saab) 87 LAB (saab) 90 LAB NL NL
+XSH (bus) 85 LAB 87 LN (opel) 84 LAB (opel) 77 LAB (opel) 69 LAB 61 LN 60 LN 63 LN (bus) 60 LAB 58 LN (bus) 52 LAB 65 LN (saab) 77 LAB (opel) 86 LAB (saab) 90 LAB NL NL
+XSH (bus) 87 LAB (bus) 85 LAB (saab) 78 LAB (saab) 71 LAB (saab) 67 LAB (bus) 62 LAB 63 LN (bus) 64 LAB (opel) 64 LAB 60 LN (saab) 62 LAB (opel) 73 LAB (opel) 82 LAB (saab) 88 LAB (opel) 92 LAB NL NL
+XSH (van) 89 LAB (bus) 86 LAB (bus) 80 LAB (saab) 73 LAB (saab) 72 LAB (bus) 70 LAB (saab) 67 LAB (saab) 70 LAB 70 LN (saab) 67 LAB (bus) 61 LAB (saab) 70 LAB (opel) 81 LAB 91 LN (saab) 92 LAB NL NL
+XSH 85 LN (opel) 81 LAB 77 LN (bus) 75 LAB (bus) 75 LAB (saab) 74 LAB (bus) 75 LAB (saab) 75 LAB (saab) 75 LAB (opel) 69 LAB (opel) 68 LAB (bus) 79 LAB (opel) 89 LAB (opel) 93 LAB (saab) 93 LAB NL NL
+XSH (van) 92 LAB 85 LN 79 LN (bus) 75 LAB (opel) 76 LAB (saab) 73 LAB (saab) 71 LAB (saab) 71 LAB (bus) 69 LAB (opel) 69 LAB (saab) 61 LAB (opel) 70 LAB (opel) 83 LAB (saab) 90 LAB (opel) 92 LAB NL NL
+end
+% end of EPS object
