@@ -1,7 +1,7 @@
 \select@language {spanish}
 \contentsline {chapter}{\'{I}ndice general}{\es@scroman {iii}}{section*.1}
 \contentsline {chapter}{\'{I}ndice de figuras}{\es@scroman {v}}{section*.2}
-\contentsline {chapter}{\'Indice de tablas}{\es@scroman {v}}{section*.3}
+\contentsline {chapter}{\'Indice de tablas}{\es@scroman {vi}}{section*.3}
 \noindent \hrulefill \par 
 \contentsline {chapter}{\numberline {1}Introducci\'on}{1}{chapter.1}
 \contentsline {section}{\numberline {1.1}Motivaci\'on}{1}{section.1.1}
@@ -18,6 +18,6 @@
 \contentsline {chapter}{\numberline {4}Learning Vector Quantization}{15}{chapter.4}
 \contentsline {section}{\numberline {4.1}Learning Vector Quantization (LVQ)}{15}{section.4.1}
 \contentsline {section}{\numberline {4.2}Experimentaci\IeC {\'o}n realizada}{15}{section.4.2}
-\contentsline {chapter}{\numberline {5}Mapas autoorganizados de Kohonen}{21}{chapter.5}
-\contentsline {chapter}{\numberline {6}Conclusiones}{23}{chapter.6}
-\contentsline {chapter}{Bibliograf\'{\i }a}{25}{chapter*.38}
+\contentsline {chapter}{\numberline {5}Mapas autoorganizados de Kohonen}{27}{chapter.5}
+\contentsline {chapter}{\numberline {6}Conclusiones}{29}{chapter.6}
+\contentsline {chapter}{Bibliograf\'{\i }a}{31}{chapter*.50}

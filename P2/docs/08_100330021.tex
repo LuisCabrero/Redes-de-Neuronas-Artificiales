@@ -540,7 +540,7 @@ Media                        & 0.57533333333         \\ \hline
 
 \par Como se puede apreciar en las figuras, con 50 prototipos, la distribución de dichos prototipos para cada una de las tres parejas es muy diferente. No hay muchos prototipos por clase, y el porcentaje de acierto en test es significativamente mejor que en el caso anterior en el cual teníamos solo 20 prototipos, ya que ahora alcanzamos el 57\%.
 
-%   EXPERIMENTO 2    %
+%   EXPERIMENTO 3    %
 
 \par \textbf{$100 prototipos$}
 
@@ -548,38 +548,117 @@ Media                        & 0.57533333333         \\ \hline
 
 \begin{table}[H]
 \centering
-\caption{LVQ $50 prototipos$}
-\label{tb:tb22}
+\caption{LVQ $100 prototipos$}
+\label{tb:tb23}
 \begin{tabular}{lllll}
 \hline
 \multicolumn{1}{|l|}{Pareja} & Porcentaje de acierto \\ \hline \hline
-1                            & 0.3938			     \\
-2                            & 0.6747			     \\
-3                            & 0.6575			     \\
-Media                        & 0.57533333333         \\ \hline
+1                            & 0.4760			     \\
+2                            & 0.7808			     \\
+3                            & 0.7534			     \\
+Media                        & 0.67006666666         \\ \hline
 \end{tabular}
 \end{table}
 
 \begin{figure}[H]
 \centering
-\includegraphics[scale=0.5]{lvq50p1}
-\caption{LVQ $50 prototipos$ pareja 1}
+\includegraphics[scale=0.5]{lvq100p1}
+\caption{LVQ $100 prototipos$ pareja 1}
 \end{figure} 
 
 \begin{figure}[H]
 \centering
-\includegraphics[scale=0.5]{lvq50p2}
-\caption{LVQ $50 prototipos$ pareja 2}
+\includegraphics[scale=0.5]{lvq100p2}
+\caption{LVQ $100 prototipos$ pareja 2}
 \end{figure} 
 
 \begin{figure}[H]
 \centering
-\includegraphics[scale=0.5]{lvq50p3}
-\caption{LVQ $50 prototipos$ pareja 3}
+\includegraphics[scale=0.5]{lvq100p3}
+\caption{LVQ $100 prototipos$ pareja 3}
 \end{figure} 
 
-\par Como se puede apreciar en las figuras, con 50 prototipos, la distribución de dichos prototipos para cada una de las tres parejas es muy diferente. No hay muchos prototipos por clase, y el porcentaje de acierto en test es significativamente mejor que en el caso anterior en el cual teníamos solo 20 prototipos, ya que ahora alcanzamos el 57\%.
+\par Utilizando 100 prototipos se aprecia en las figuras que la distribución de los prototipos se asemeja bastante en el caso de las parejas 2 y 3, sin embargo es diferente para la primera pareja. Se observa que se produce gran concentración de prototipos en los tres casos, y el porcentaje de acierto ya asciende a 57\%, un 10\% más que utilizando la mitad de prototipos.
 
+%   EXPERIMENTO 4    %
+
+\par \textbf{$180 prototipos$}
+
+\par Escogiendo 180 prototipos el resultado que obtenemos es el siguiente:
+
+\begin{table}[H]
+\centering
+\caption{LVQ $180 prototipos$}
+\label{tb:tb24}
+\begin{tabular}{lllll}
+\hline
+\multicolumn{1}{|l|}{Pareja} & Porcentaje de acierto \\ \hline \hline
+1                            & 0.4623			     \\
+2                            & 0.8630			     \\
+3                            & 0.8082			     \\
+Media                        & 0.71116666666         \\ \hline
+\end{tabular}
+\end{table}
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.5]{lvq180p1}
+\caption{LVQ $180 prototipos$ pareja 1}
+\end{figure} 
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.5]{lvq180p2}
+\caption{LVQ $180 prototipos$ pareja 2}
+\end{figure} 
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.5]{lvq180p3}
+\caption{LVQ $180 prototipos$ pareja 3}
+\end{figure} 
+
+\par Se puede apreciar utilizando 180 prototipos que la distribución de los prototipos en el espacio de entrada de la primera pareja es inversa a la distribución que se aprecia para la primera pareja de 100 prototipos. Sin embargo el porcentaje de acierto se eleva ya al 71\%, un poco mayor que en el caso de 100 prototipos. Vuelve a suceder lo mismo, la distribución en el caso de la primera pareja es bastante diferente a la distribución apreciada en las otras dos parejas.
+
+%   EXPERIMENTO 5    %
+
+\par \textbf{$196 prototipos$}
+
+\par Escogiendo 196 prototipos el resultado que obtenemos es el siguiente:
+
+\begin{table}[H]
+\centering
+\caption{LVQ $196 prototipos$}
+\label{tb:tb25}
+\begin{tabular}{lllll}
+\hline
+\multicolumn{1}{|l|}{Pareja} & Porcentaje de acierto \\ \hline \hline
+1                            & 0.4623			     \\
+2                            & 0.8185			     \\
+3                            & 0.8459			     \\
+Media                        & 0.7089         		 \\ \hline
+\end{tabular}
+\end{table}
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.5]{lvq196p1}
+\caption{LVQ $196 prototipos$ pareja 1}
+\end{figure} 
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.5]{lvq196p2}
+\caption{LVQ $196 prototipos$ pareja 2}
+\end{figure} 
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.5]{lvq196p3}
+\caption{LVQ $196 prototipos$ pareja 3}
+\end{figure} 
+
+\par Utilizando 196 prototipos la situación es bastante semejante al caso de 180, pero se empeora ligeramente el porcentaje de acierto, ahora es de 70,8\%, por tanto la idea es probar un número de prototipos entre 180 y 196 para ver si se mejora el porcentaje de acierto obtenido en 180.
 
 
 
