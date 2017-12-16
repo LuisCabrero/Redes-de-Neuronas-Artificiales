@@ -21,7 +21,7 @@ echo "Evaluando los resultados..."
 echo "Calibrado del mapa"
 ./vcal -din data/Train1.csv -cin $xdim-$ydim/p1/Trained1_2.cod -cout $xdim-$ydim/p1/Trained1_2Cal.cod
 echo "Monitorización"
-./visual -din data/Test1.csv -cin $xdim-$ydim/p1/Trained1_2.cod -dout $xdim-$ydim/p1/Train1Visual.txt
+./visual -din data/Test1.csv -cin $xdim-$ydim/p1/Trained1_2Cal.cod -dout $xdim-$ydim/p1/Train1Visual.txt
 ./sammon -cin $xdim-$ydim/p1/Trained1_2.cod -cout $xdim-$ydim/p1/train1.sam -rlen 100 -ps
 ./umat -cin $xdim-$ydim/p1/Trained1_2Cal.cod > $xdim-$ydim/p1/train1.ps
 
@@ -37,7 +37,7 @@ echo "Evaluando los resultados..."
 echo "Calibrado del mapa"
 ./vcal -din data/Train2.csv -cin $xdim-$ydim/p2/Trained2_2.cod -cout $xdim-$ydim/p2/Trained2_2Cal.cod
 echo "Monitorización"
-./visual -din data/Test2.csv -cin $xdim-$ydim/p2/Trained2_2.cod -dout $xdim-$ydim/p2/Train2Visual.txt
+./visual -din data/Test2.csv -cin $xdim-$ydim/p2/Trained2_2Cal.cod -dout $xdim-$ydim/p2/Train2Visual.txt
 ./sammon -cin $xdim-$ydim/p2/Trained2_2.cod -cout $xdim-$ydim/p2/train2.sam -rlen 100 -ps
 ./umat -cin $xdim-$ydim/p2/Trained2_2Cal.cod > $xdim-$ydim/p2/train2.ps
 
@@ -53,6 +53,6 @@ echo "Evaluando los resultados..."
 echo "Calibrado del mapa"
 ./vcal -din data/Train3.csv -cin $xdim-$ydim/p3/Trained3_2.cod -cout $xdim-$ydim/p3/Trained3_2Cal.cod
 echo "Monitorización"
-./visual -din data/Test3.csv -cin $xdim-$ydim/p3/Trained3_2.cod -dout $xdim-$ydim/p3/Train3Visual.txt
+./visual -din data/Test3.csv -cin $xdim-$ydim/p3/Trained3_2Cal.cod -dout $xdim-$ydim/p3/Train3Visual.txt
 ./sammon -cin $xdim-$ydim/p3/Trained3_2.cod -cout $xdim-$ydim/p3/train3.sam -rlen 100 -ps
 ./umat -cin $xdim-$ydim/p3/Trained3_2Cal.cod > $xdim-$ydim/p3/train3.ps
