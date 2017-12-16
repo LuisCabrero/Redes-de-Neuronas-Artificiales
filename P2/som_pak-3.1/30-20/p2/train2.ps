@@ -1,0 +1,227 @@
+%!PS-Adobe-3.0 EPSF-3.0
+%%BoundingBox: 0 0 1000 568
+%%Title: 30-20/p2/Trained2_2Cal.cod
+%%Creator: umat V1.0
+%%CreationDate: Sat Dec 16 18:47:09 2017
+%%Pages: 0
+%%DocumentFonts: Helvetica
+%%DocumentNeededFonts: Helvetica
+%%EndComments
+%
+% PS header for umat - SOM to PS converter
+% Version 1.0 Tue Feb 28 1995
+% Author: Jussi Hynninen <hynde@nucleus.hut.fi>
+100 dict begin
+
+% predefine variables
+/yoff 0 def /xoff 0 def /xstep 0 def /ystep 0 def /y 0 def /radius 0 def
+/doborder false def
+% default font
+/fontname /Helvetica def
+% font size relative to radius
+/fontsize 1.0 def
+
+% default black and white tresholds
+/bt 0.0 def /wt 1.0 def
+
+% labelpallon sade suhteessa hexan sateeseen
+/ballrad 0.2 def
+
+% newline function. Moves the y coordinate to the next line
+/NL 
+{ /yoff yoff ystep sub def % next row
+  /y y 1 add def % add y by one
+  } bind def
+
+% start of line (for hexagonal lattice) - moves the current position in 
+% x direction to the correct place of the line
+/XSH
+{ xoff 
+  y 4 mod
+  dup 3 eq {pop 1} if
+  xstep 2 div mul
+  add
+  yoff moveto % move to start of line
+} bind def
+
+% start of line (for rectangular lattice) - moves the current position in 
+% x direction to the correct place of the line
+/XSR { xoff yoff moveto } bind def
+
+% set label color. If block is light -> label is black and same for dark block
+/sbc { .5 gt {0} {1} ifelse setgray } bind def
+
+% set gray level
+/G { 
+  100 div dup bt le {pop 0}
+  { dup wt ge {pop 1} {bt sub wt bt sub div} ifelse
+  } ifelse
+} bind def
+
+% unlabelled node
+/LN { 
+  gsave
+  G sbc
+  currentpoint radius ballrad mul 0 360 arc fill 
+  grestore
+  xstep 2 mul 0 rmoveto
+} bind def
+
+%select font
+/selfont {
+  fontname findfont radius fontsize mul scalefont setfont
+} bind def
+
+% print single label
+
+/LAB { 
+  gsave
+  G sbc
+  dup %duplicate string  
+  stringwidth
+  pop fontsize radius mul -0.25 mul exch
+  -2 div exch
+  rmoveto
+  show
+  grestore
+  xstep 2 mul 0 rmoveto
+} bind def
+
+% print multiple labels on one unit
+/ML {
+  gsave
+  G sbc
+  /numlabs exch def %number of labels
+  numlabs
+  2 div 
+  0.25 sub
+  radius fontsize mul mul neg
+  0 exch rmoveto
+  1 1 numlabs {
+    pop
+    gsave
+    dup %duplicate string  
+    stringwidth
+    pop 
+    -2 div 0
+    rmoveto
+    show
+    grestore
+    0 fontsize radius mul rmoveto
+  } for 
+  grestore
+  xstep 2 mul 0 rmoveto
+} bind def
+
+% print hexagon
+/H { 
+  gsave
+  G dup setgray %duplicate gray level
+  currentpoint translate
+  newpath 0 radius moveto
+  5 {60 rotate 0 radius lineto} repeat
+  closepath
+  doborder { gsave fill grestore sbc stroke}
+           { fill pop } ifelse
+  grestore  
+  xstep 0 rmoveto
+} bind def
+
+% print rectangle
+/R {
+  gsave
+  G dup setgray %duplicate gray level
+  currentpoint translate
+  newpath
+  xstep 0.5 mul dup moveto
+  xstep neg 0 rlineto
+  0 xstep neg rlineto
+  xstep 0 rlineto
+  closepath
+  doborder { gsave fill grestore sbc stroke}
+           { fill pop } ifelse
+  grestore  
+  xstep 0 rmoveto
+} bind def
+
+1 setlinewidth
+
+% End of umat PS header
+% Start image
+
+
+/radius 9.622504 def
+/xstep 16.666666 def
+/ystep 14.433756 def
+%%IncludeFont: Helvetica
+/fontname /Helvetica def
+selfont
+/doborder false def
+/wt 1.000000 def /bt 0.000000 def
+/y 0 def
+/xoff 8.333333 def
+/yoff 558.105225 def
+XSH 90 H 89 H 90 H 85 H 86 H 77 H 77 H 63 H 73 H 67 H 75 H 69 H 74 H 70 H 76 H 71 H 77 H 71 H 77 H 66 H 74 H 66 H 75 H 65 H 75 H 69 H 78 H 73 H 80 H 72 H 77 H 72 H 75 H 67 H 70 H 66 H 69 H 60 H 69 H 62 H 68 H 61 H 66 H 61 H 68 H 51 H 60 H 41 H 68 H 64 H 65 H 61 H 75 H 77 H 81 H 85 H 86 H 87 H 87 H NL
+XSH 90 H 94 H 90 H 94 H 87 H 90 H 77 H 87 H 80 H 88 H 82 H 88 H 79 H 91 H 82 H 90 H 83 H 89 H 82 H 86 H 82 H 84 H 84 H 82 H 88 H 82 H 88 H 87 H 87 H 87 H 82 H 92 H 77 H 91 H 73 H 95 H 71 H 91 H 76 H 88 H 75 H 88 H 72 H 90 H 75 H 77 H 69 H 74 H 71 H 91 H 66 H 93 H 72 H 92 H 73 H 89 H 80 H 94 H 79 H NL
+XSH 90 H 88 H 89 H 81 H 84 H 67 H 76 H 66 H 80 H 70 H 80 H 66 H 81 H 72 H 81 H 72 H 81 H 70 H 81 H 67 H 82 H 68 H 83 H 69 H 82 H 68 H 84 H 72 H 83 H 68 H 80 H 68 H 75 H 63 H 73 H 64 H 74 H 64 H 73 H 61 H 72 H 58 H 72 H 64 H 69 H 45 H 65 H 44 H 67 H 58 H 67 H 67 H 75 H 78 H 83 H 92 H 83 H 86 H 82 H NL
+XSH 93 H 89 H 92 H 86 H 92 H 79 H 89 H 75 H 90 H 80 H 88 H 79 H 86 H 82 H 89 H 81 H 91 H 80 H 91 H 80 H 87 H 82 H 86 H 85 H 83 H 87 H 82 H 88 H 84 H 81 H 87 H 78 H 91 H 73 H 91 H 73 H 92 H 77 H 89 H 71 H 92 H 69 H 91 H 71 H 93 H 62 H 83 H 62 H 80 H 62 H 88 H 59 H 89 H 68 H 89 H 72 H 81 H 67 H 82 H NL
+XSH 93 H 94 H 88 H 85 H 85 H 73 H 76 H 64 H 76 H 71 H 77 H 69 H 79 H 69 H 81 H 71 H 79 H 70 H 79 H 71 H 80 H 69 H 84 H 71 H 83 H 70 H 82 H 70 H 83 H 65 H 79 H 64 H 75 H 63 H 73 H 63 H 73 H 67 H 72 H 58 H 68 H 59 H 65 H 61 H 66 H 54 H 59 H 45 H 56 H 44 H 60 H 55 H 74 H 77 H 79 H 81 H 81 H 87 H 82 H NL
+XSH 84 H 88 H 80 H 88 H 74 H 87 H 70 H 88 H 78 H 88 H 75 H 88 H 79 H 86 H 79 H 89 H 78 H 89 H 79 H 89 H 80 H 86 H 85 H 83 H 86 H 82 H 86 H 83 H 82 H 82 H 77 H 87 H 72 H 91 H 73 H 91 H 72 H 95 H 65 H 94 H 65 H 94 H 61 H 96 H 61 H 92 H 55 H 88 H 50 H 88 H 59 H 89 H 70 H 91 H 69 H 87 H 74 H 88 H 73 H NL
+XSH 84 H 89 H 82 H 79 H 77 H 69 H 72 H 73 H 75 H 68 H 75 H 74 H 77 H 69 H 78 H 70 H 77 H 71 H 79 H 72 H 81 H 75 H 84 H 71 H 82 H 70 H 82 H 66 H 79 H 60 H 74 H 59 H 72 H 65 H 70 H 62 H 68 H 60 H 63 H 59 H 63 H 55 H 61 H 60 H 60 H 48 H 54 H 40 H 56 H 53 H 63 H 67 H 73 H 76 H 81 H 87 H 84 H 86 H 83 H NL
+XSH 82 H 75 H 83 H 71 H 85 H 70 H 85 H 72 H 85 H 71 H 86 H 76 H 85 H 75 H 83 H 76 H 86 H 76 H 89 H 79 H 88 H 82 H 87 H 86 H 81 H 85 H 81 H 82 H 81 H 77 H 81 H 71 H 88 H 73 H 90 H 67 H 94 H 63 H 96 H 58 H 97 H 61 H 95 H 56 H 94 H 54 H 91 H 53 H 85 H 59 H 87 H 60 H 87 H 63 H 86 H 68 H 81 H 69 H 83 H NL
+XSH 82 H 93 H 83 H 85 H 81 H 77 H 74 H 72 H 73 H 73 H 74 H 74 H 75 H 73 H 75 H 69 H 76 H 69 H 76 H 75 H 81 H 76 H 84 H 78 H 82 H 70 H 81 H 67 H 80 H 60 H 75 H 53 H 69 H 61 H 69 H 59 H 63 H 57 H 62 H 55 H 60 H 61 H 61 H 50 H 57 H 58 H 56 H 47 H 51 H 46 H 56 H 54 H 65 H 70 H 75 H 80 H 81 H 89 H 79 H NL
+XSH 76 H 82 H 72 H 84 H 71 H 84 H 72 H 84 H 74 H 84 H 74 H 85 H 74 H 84 H 75 H 81 H 75 H 83 H 77 H 89 H 82 H 88 H 87 H 85 H 83 H 81 H 82 H 82 H 78 H 79 H 73 H 79 H 67 H 91 H 65 H 93 H 57 H 96 H 61 H 95 H 57 H 95 H 50 H 96 H 56 H 94 H 47 H 91 H 49 H 88 H 52 H 87 H 61 H 86 H 65 H 84 H 67 H 79 H 69 H NL
+XSH 82 H 88 H 84 H 83 H 81 H 79 H 77 H 75 H 75 H 72 H 75 H 75 H 75 H 73 H 75 H 69 H 76 H 69 H 81 H 80 H 83 H 80 H 84 H 75 H 80 H 67 H 79 H 64 H 73 H 54 H 68 H 47 H 65 H 58 H 62 H 51 H 60 H 62 H 62 H 51 H 56 H 55 H 56 H 57 H 57 H 48 H 51 H 49 H 50 H 49 H 61 H 63 H 69 H 75 H 78 H 82 H 80 H 90 H 77 H NL
+XSH 84 H 78 H 86 H 78 H 89 H 78 H 89 H 75 H 86 H 73 H 85 H 76 H 86 H 75 H 85 H 76 H 81 H 77 H 82 H 82 H 85 H 83 H 85 H 82 H 84 H 79 H 80 H 78 H 81 H 67 H 82 H 62 H 82 H 62 H 90 H 59 H 91 H 58 H 96 H 51 H 99 H 50 H 96 H 52 H 95 H 51 H 92 H 53 H 90 H 50 H 88 H 58 H 85 H 63 H 84 H 63 H 81 H 66 H 77 H NL
+XSH 85 H 92 H 87 H 87 H 85 H 83 H 81 H 76 H 78 H 74 H 76 H 76 H 76 H 74 H 76 H 75 H 77 H 69 H 78 H 76 H 82 H 81 H 82 H 78 H 80 H 71 H 77 H 64 H 73 H 52 H 68 H 49 H 62 H 47 H 61 H 54 H 59 H 50 H 58 H 55 H 54 H 49 H 54 H 57 H 56 H 55 H 53 H 50 H 52 H 46 H 54 H 57 H 63 H 67 H 72 H 76 H 79 H 84 H 77 H NL
+XSH 85 H 89 H 83 H 88 H 83 H 91 H 79 H 92 H 79 H 90 H 77 H 90 H 76 H 90 H 78 H 87 H 78 H 82 H 80 H 82 H 80 H 84 H 81 H 83 H 76 H 81 H 74 H 79 H 69 H 76 H 68 H 74 H 61 H 82 H 60 H 89 H 59 H 89 H 59 H 95 H 52 H 98 H 51 H 96 H 55 H 96 H 50 H 93 H 46 H 91 H 52 H 90 H 52 H 81 H 58 H 81 H 65 H 81 H 69 H NL
+XSH 89 H 91 H 88 H 85 H 84 H 78 H 79 H 77 H 78 H 72 H 78 H 75 H 77 H 77 H 78 H 75 H 79 H 74 H 80 H 77 H 80 H 80 H 80 H 72 H 74 H 67 H 71 H 59 H 66 H 51 H 66 H 40 H 63 H 46 H 62 H 52 H 59 H 50 H 56 H 48 H 53 H 49 H 59 H 61 H 58 H 50 H 50 H 46 H 50 H 52 H 55 H 57 H 69 H 74 H 77 H 83 H 82 H 90 H 81 H NL
+XSH 92 H 87 H 92 H 88 H 90 H 82 H 89 H 78 H 93 H 76 H 93 H 78 H 92 H 78 H 93 H 79 H 90 H 80 H 86 H 80 H 85 H 79 H 84 H 72 H 84 H 73 H 79 H 67 H 79 H 63 H 80 H 65 H 71 H 64 H 77 H 64 H 84 H 59 H 89 H 53 H 93 H 54 H 96 H 56 H 97 H 47 H 94 H 42 H 92 H 47 H 90 H 53 H 91 H 63 H 88 H 67 H 83 H 69 H 81 H NL
+XSH 92 H 93 H 91 H 91 H 88 H 80 H 81 H 74 H 76 H 75 H 76 H 76 H 77 H 74 H 79 H 78 H 80 H 77 H 80 H 76 H 79 H 77 H 78 H 73 H 74 H 72 H 73 H 59 H 69 H 54 H 66 H 51 H 62 H 40 H 64 H 45 H 62 H 47 H 55 H 44 H 53 H 49 H 52 H 50 H 54 H 52 H 49 H 45 H 48 H 51 H 54 H 58 H 62 H 67 H 73 H 78 H 81 H 85 H 81 H NL
+XSH 88 H 92 H 85 H 88 H 80 H 89 H 74 H 87 H 73 H 90 H 74 H 93 H 74 H 94 H 80 H 92 H 80 H 91 H 80 H 89 H 78 H 90 H 77 H 88 H 76 H 87 H 66 H 83 H 72 H 75 H 69 H 74 H 60 H 75 H 63 H 78 H 59 H 84 H 51 H 88 H 53 H 92 H 46 H 95 H 37 H 87 H 33 H 87 H 42 H 88 H 46 H 85 H 55 H 84 H 63 H 84 H 67 H 82 H 74 H NL
+XSH 89 H 91 H 86 H 85 H 82 H 75 H 74 H 74 H 75 H 77 H 76 H 75 H 80 H 81 H 80 H 78 H 80 H 77 H 80 H 74 H 78 H 76 H 77 H 72 H 74 H 61 H 68 H 66 H 69 H 52 H 67 H 40 H 65 H 42 H 63 H 41 H 57 H 39 H 50 H 46 H 49 H 41 H 44 H 41 H 45 H 48 H 51 H 54 H 54 H 54 H 62 H 67 H 71 H 75 H 78 H 82 H 82 H 92 H 85 H NL
+XSH 89 H 83 H 90 H 79 H 86 H 72 H 85 H 72 H 86 H 71 H 88 H 74 H 90 H 79 H 93 H 77 H 92 H 79 H 91 H 79 H 90 H 78 H 91 H 74 H 91 H 73 H 85 H 70 H 88 H 65 H 81 H 64 H 70 H 72 H 65 H 63 H 74 H 55 H 81 H 49 H 91 H 40 H 92 H 34 H 92 H 37 H 90 H 45 H 89 H 46 H 87 H 56 H 85 H 63 H 85 H 71 H 87 H 77 H 85 H NL
+XSH 89 H 94 H 87 H 87 H 83 H 80 H 77 H 74 H 75 H 75 H 78 H 80 H 80 H 79 H 80 H 79 H 82 H 80 H 81 H 77 H 79 H 74 H 78 H 72 H 74 H 71 H 72 H 58 H 70 H 61 H 66 H 51 H 64 H 48 H 61 H 32 H 58 H 33 H 45 H 31 H 43 H 37 H 38 H 36 H 41 H 44 H 50 H 56 H 56 H 55 H 61 H 64 H 69 H 73 H 78 H 82 H 84 H 88 H 82 H NL
+XSH 81 H 87 H 76 H 86 H 72 H 86 H 70 H 84 H 70 H 84 H 75 H 87 H 76 H 88 H 80 H 91 H 84 H 92 H 82 H 91 H 78 H 92 H 79 H 91 H 75 H 93 H 68 H 88 H 69 H 88 H 67 H 82 H 63 H 81 H 57 H 71 H 53 H 76 H 35 H 88 H 37 H 91 H 31 H 92 H 39 H 93 H 44 H 87 H 48 H 90 H 58 H 88 H 65 H 87 H 71 H 85 H 71 H 82 H 72 H NL
+XSH 81 H 89 H 82 H 83 H 81 H 78 H 77 H 76 H 79 H 80 H 80 H 81 H 83 H 83 H 82 H 82 H 83 H 79 H 81 H 73 H 80 H 75 H 77 H 68 H 74 H 64 H 69 H 60 H 69 H 59 H 63 H 46 H 60 H 42 H 53 H 29 H 44 H 14 H 38 H 33 H 35 H 31 H 41 H 45 H 47 H 49 H 57 H 60 H 62 H 65 H 68 H 71 H 75 H 78 H 81 H 83 H 82 H 91 H 72 H NL
+XSH 81 H 71 H 82 H 72 H 84 H 72 H 85 H 74 H 86 H 78 H 85 H 79 H 86 H 84 H 89 H 82 H 89 H 81 H 88 H 80 H 89 H 81 H 90 H 76 H 89 H 74 H 89 H 71 H 88 H 68 H 89 H 59 H 85 H 57 H 81 H 49 H 73 H 35 H 74 H 42 H 85 H 32 H 90 H 38 H 91 H 45 H 94 H 55 H 92 H 57 H 90 H 63 H 88 H 65 H 83 H 68 H 83 H 61 H 71 H NL
+XSH 81 H 91 H 80 H 89 H 82 H 84 H 81 H 79 H 80 H 81 H 82 H 83 H 83 H 83 H 83 H 81 H 82 H 82 H 81 H 77 H 80 H 75 H 79 H 71 H 75 H 67 H 73 H 61 H 68 H 57 H 64 H 49 H 55 H 45 H 52 H 35 H 48 H 15 H 43 H 21 H 41 H 24 H 36 H 36 H 48 H 52 H 55 H 58 H 60 H 63 H 66 H 70 H 72 H 74 H 78 H 82 H 72 H 77 H 61 H NL
+XSH 69 H 78 H 71 H 80 H 73 H 84 H 74 H 86 H 78 H 85 H 81 H 87 H 84 H 86 H 82 H 86 H 83 H 87 H 79 H 85 H 80 H 84 H 77 H 89 H 75 H 89 H 71 H 89 H 65 H 91 H 60 H 89 H 51 H 91 H 47 H 86 H 47 H 67 H 51 H 67 H 40 H 79 H 37 H 89 H 45 H 88 H 43 H 84 H 53 H 88 H 60 H 86 H 61 H 84 H 51 H 68 H 32 H 56 H 38 H NL
+XSH 78 H 92 H 80 H 90 H 82 H 83 H 83 H 85 H 84 H 84 H 85 H 85 H 84 H 84 H 83 H 82 H 82 H 79 H 80 H 80 H 80 H 72 H 77 H 69 H 76 H 63 H 70 H 54 H 62 H 52 H 58 H 40 H 53 H 41 H 48 H 35 H 41 H 20 H 41 H 10 H 33 H 20 H 41 H 46 H 49 H 50 H 64 H 67 H 69 H 70 H 71 H 72 H 68 H 65 H 65 H 65 H 56 H 82 H 38 H NL
+XSH 78 H 75 H 81 H 76 H 81 H 77 H 83 H 81 H 87 H 84 H 87 H 85 H 84 H 83 H 86 H 81 H 84 H 79 H 83 H 81 H 82 H 80 H 80 H 78 H 83 H 77 H 83 H 69 H 85 H 60 H 90 H 56 H 84 H 56 H 85 H 49 H 85 H 31 H 86 H 32 H 75 H 26 H 85 H 35 H 85 H 49 H 88 H 62 H 86 H 67 H 89 H 55 H 81 H 34 H 68 H 20 H 56 H 19 H 38 H NL
+XSH 84 H 95 H 85 H 93 H 87 H 90 H 85 H 85 H 85 H 87 H 86 H 87 H 85 H 84 H 83 H 83 H 82 H 82 H 82 H 82 H 82 H 79 H 80 H 69 H 78 H 66 H 73 H 54 H 64 H 46 H 61 H 48 H 55 H 40 H 50 H 34 H 43 H 17 H 33 H 21 H 30 H 4 H 36 H 30 H 61 H 60 H 62 H 63 H 68 H 71 H 69 H 57 H 56 H 52 H 52 H 52 H 52 H 64 H 38 H NL
+XSH 84 H 85 H 85 H 88 H 85 H 87 H 84 H 84 H 85 H 86 H 85 H 88 H 83 H 84 H 82 H 85 H 82 H 83 H 81 H 83 H 83 H 82 H 80 H 79 H 80 H 80 H 70 H 80 H 60 H 85 H 61 H 86 H 53 H 86 H 45 H 88 H 37 H 80 H 36 H 83 H 29 H 73 H 41 H 84 H 61 H 90 H 61 H 89 H 64 H 85 H 51 H 85 H 21 H 69 H 3 H 52 H 13 H 51 H 13 H NL
+XSH 89 H 95 H 89 H 93 H 90 H 90 H 89 H 88 H 87 H 86 H 86 H 87 H 84 H 84 H 84 H 84 H 83 H 82 H 83 H 83 H 83 H 75 H 79 H 68 H 75 H 55 H 68 H 43 H 61 H 47 H 59 H 40 H 54 H 32 H 44 H 26 H 33 H 17 H 34 H 14 H 37 H 16 H 52 H 50 H 61 H 60 H 63 H 66 H 65 H 59 H 55 H 27 H 31 H 34 H 43 H 62 H 50 H 64 H 48 H NL
+XSH 91 H 89 H 89 H 88 H 90 H 90 H 89 H 91 H 88 H 88 H 88 H 85 H 89 H 85 H 86 H 83 H 85 H 84 H 85 H 85 H 83 H 83 H 80 H 81 H 76 H 74 H 74 H 67 H 75 H 63 H 84 H 57 H 84 H 54 H 80 H 43 H 83 H 29 H 87 H 32 H 82 H 44 H 72 H 54 H 89 H 57 H 90 H 58 H 86 H 45 H 80 H 11 H 79 H 6 H 71 H 10 H 49 H 10 H 48 H NL
+XSH 94 H 97 H 94 H 96 H 94 H 94 H 91 H 90 H 90 H 86 H 88 H 86 H 87 H 86 H 86 H 84 H 85 H 84 H 85 H 84 H 85 H 82 H 82 H 73 H 77 H 61 H 72 H 46 H 69 H 39 H 64 H 41 H 56 H 37 H 47 H 21 H 36 H 12 H 33 H 20 H 39 H 27 H 44 H 27 H 55 H 52 H 61 H 62 H 60 H 53 H 49 H 26 H 24 H 22 H 31 H 39 H 44 H 62 H 48 H NL
+XSH 94 H 95 H 94 H 94 H 94 H 92 H 93 H 91 H 90 H 90 H 88 H 91 H 87 H 91 H 86 H 89 H 86 H 86 H 87 H 87 H 86 H 84 H 83 H 81 H 79 H 75 H 71 H 71 H 73 H 65 H 68 H 75 H 54 H 84 H 39 H 84 H 29 H 84 H 38 H 83 H 45 H 82 H 45 H 82 H 56 H 92 H 59 H 92 H 47 H 89 H 23 H 86 H 2 H 76 H 5 H 67 H 20 H 59 H 22 H NL
+XSH 97 H 98 H 96 H 96 H 95 H 93 H 93 H 88 H 90 H 86 H 89 H 86 H 87 H 85 H 87 H 85 H 86 H 85 H 87 H 84 H 85 H 79 H 82 H 69 H 77 H 51 H 71 H 48 H 64 H 33 H 62 H 28 H 48 H 22 H 41 H 11 H 34 H 21 H 42 H 27 H 47 H 26 H 49 H 38 H 59 H 56 H 58 H 50 H 49 H 29 H 26 H 5 H 18 H 26 H 40 H 53 H 56 H 65 H 61 H NL
+XSH 98 H 97 H 98 H 96 H 96 H 96 H 93 H 94 H 92 H 90 H 93 H 90 H 93 H 87 H 94 H 89 H 92 H 89 H 89 H 89 H 89 H 87 H 87 H 83 H 84 H 78 H 72 H 78 H 69 H 63 H 71 H 55 H 74 H 43 H 81 H 43 H 70 H 39 H 84 H 46 H 83 H 49 H 79 H 54 H 85 H 62 H 93 H 55 H 92 H 35 H 90 H 15 H 86 H 10 H 82 H 22 H 69 H 24 H 61 H NL
+XSH 99 H 99 H 98 H 98 H 97 H 96 H 96 H 91 H 92 H 85 H 90 H 86 H 88 H 84 H 88 H 87 H 89 H 86 H 89 H 86 H 89 H 81 H 87 H 75 H 83 H 64 H 75 H 51 H 70 H 33 H 60 H 26 H 54 H 16 H 39 H 23 H 37 H 6 H 39 H 28 H 46 H 30 H 51 H 32 H 58 H 46 H 63 H 50 H 53 H 30 H 33 H 8 H 14 H 1 H 36 H 37 H 46 H 56 H 56 H NL
+XSH 99 H 100 H 98 H 99 H 98 H 97 H 96 H 94 H 92 H 93 H 89 H 95 H 87 H 94 H 88 H 96 H 89 H 94 H 91 H 92 H 91 H 87 H 89 H 84 H 84 H 79 H 81 H 71 H 76 H 58 H 61 H 67 H 53 H 65 H 36 H 88 H 31 H 77 H 38 H 92 H 47 H 85 H 53 H 81 H 62 H 86 H 64 H 87 H 41 H 90 H 21 H 88 H 13 H 88 H 35 H 92 H 32 H 76 H 19 H NL
+XSH 99 H 98 H 98 H 98 H 97 H 94 H 94 H 87 H 90 H 83 H 87 H 84 H 86 H 85 H 88 H 89 H 89 H 88 H 90 H 87 H 87 H 79 H 81 H 70 H 74 H 60 H 65 H 47 H 52 H 18 H 40 H 19 H 36 H 0 H 27 H 19 H 25 H 13 H 38 H 37 H 42 H 36 H 47 H 41 H 55 H 49 H 56 H 27 H 34 H 10 H 15 H 0 H 18 H 23 H 35 H 34 H 39 H 43 H 31 H NL
+/y 0 def
+/xoff 8.333333 def
+/yoff 558.105225 def
+XSH (van) 90 LAB (van) 90 LAB (van) 86 LAB (opel) 77 LAB (van) 73 LAB (van) 75 LAB (van) 74 LAB (van) 76 LAB (saab) 77 LAB (opel) 77 LAB (opel) 74 LAB (saab) 75 LAB (bus) 75 LAB (saab) 78 LAB (bus) 80 LAB (opel) 77 LAB (bus) 75 LAB (bus) 70 LAB (bus) 69 LAB (opel) 69 LAB (saab) 68 LAB (bus) 66 LAB (saab) 68 LAB 60 LN (bus) 68 LAB (saab) 65 LAB 75 LN 81 LN 86 LN (saab) 87 LAB NL NL
+XSH (van) 90 LAB (opel) 89 LAB 84 LN (saab) 76 LAB 80 LN (van) 80 LAB (opel) 81 LAB (van) 81 LAB 81 LN 81 LN 82 LN 83 LN (saab) 82 LAB (bus) 84 LAB 83 LN (bus) 80 LAB 75 LN 73 LN 74 LN (opel) 73 LAB 72 LN (bus) 72 LAB 69 LN (opel) 65 LAB 67 LN 67 LN 75 LN 83 LN 83 LN (saab) 82 LAB NL NL
+XSH (van) 93 LAB 88 LN 85 LN (van) 76 LAB 76 LN 77 LN (van) 79 LAB (opel) 81 LAB (van) 79 LAB (van) 79 LAB 80 LN (saab) 84 LAB 83 LN 82 LN 83 LN (saab) 79 LAB (saab) 75 LAB (saab) 73 LAB 73 LN (bus) 72 LAB 68 LN 65 LN 66 LN 59 LN (opel) 56 LAB 60 LN (opel) 74 LAB (saab) 79 LAB (opel) 81 LAB (opel) 82 LAB NL NL
+XSH 84 LN (van) 82 LAB (opel) 77 LAB (van) 72 LAB 75 LN (saab) 75 LAB 77 LN (van) 78 LAB (van) 77 LAB (bus) 79 LAB (opel) 81 LAB (bus) 84 LAB 82 LN 82 LN 79 LN 74 LN 72 LN (saab) 70 LAB 68 LN 63 LN 63 LN (saab) 61 LAB 60 LN 54 LN 56 LN 63 LN 73 LN 81 LN 84 LN 83 LN NL NL
+XSH (saab) 82 LAB 83 LN (van) 81 LAB (van) 74 LAB (van) 73 LAB (van) 74 LAB (van) 75 LAB 75 LN (bus) 76 LAB (van) 76 LAB (van) 81 LAB 84 LN (opel) 82 LAB 81 LN (saab) 80 LAB (opel) 75 LAB 69 LN (opel) 69 LAB 63 LN 62 LN (bus) 60 LAB 61 LN (bus) 57 LAB 56 LN 51 LN (opel) 56 LAB 65 LN (opel) 75 LAB (saab) 81 LAB 79 LN NL NL
+XSH (opel) 82 LAB 84 LN 81 LN (saab) 77 LAB (opel) 75 LAB 75 LN (opel) 75 LAB 75 LN (van) 76 LAB 81 LN (van) 83 LAB (bus) 84 LAB (opel) 80 LAB (bus) 79 LAB (saab) 73 LAB 68 LN (opel) 65 LAB (saab) 62 LAB (opel) 60 LAB (opel) 62 LAB (opel) 56 LAB (opel) 56 LAB 57 LN 51 LN 50 LN 61 LN (opel) 69 LAB 78 LN 80 LN (saab) 77 LAB NL NL
+XSH (van) 85 LAB (opel) 87 LAB (van) 85 LAB 81 LN (van) 78 LAB 76 LN (van) 76 LAB 76 LN (van) 77 LAB (van) 78 LAB (bus) 82 LAB (bus) 82 LAB (van) 80 LAB (saab) 77 LAB (bus) 73 LAB (saab) 68 LAB (opel) 62 LAB 61 LN (saab) 59 LAB 58 LN 54 LN (saab) 54 LAB 56 LN (opel) 53 LAB 52 LN 54 LN (opel) 63 LAB 72 LN (opel) 79 LAB (saab) 77 LAB NL NL
+XSH 89 LN 88 LN (saab) 84 LAB 79 LN (van) 78 LAB (van) 78 LAB (saab) 77 LAB 78 LN (van) 79 LAB (bus) 80 LAB 80 LN (bus) 80 LAB (van) 74 LAB (van) 71 LAB 66 LN (opel) 66 LAB (bus) 63 LAB 62 LN (saab) 59 LAB (saab) 56 LAB 53 LN 59 LN 58 LN 50 LN 50 LN 55 LN (saab) 69 LAB 77 LN 82 LN (opel) 81 LAB NL NL
+XSH (saab) 92 LAB (van) 91 LAB (opel) 88 LAB 81 LN 76 LN (van) 76 LAB (saab) 77 LAB 79 LN 80 LN (opel) 80 LAB 79 LN 78 LN 74 LN 73 LN 69 LN 66 LN 62 LN 64 LN (saab) 62 LAB 55 LN (saab) 53 LAB (bus) 52 LAB (opel) 54 LAB (opel) 49 LAB (opel) 48 LAB (opel) 54 LAB 62 LN (opel) 73 LAB 81 LN (saab) 81 LAB NL NL
+XSH 89 LN 86 LN (saab) 82 LAB (van) 74 LAB 75 LN 76 LN (van) 80 LAB (van) 80 LAB 80 LN 80 LN (bus) 78 LAB 77 LN 74 LN 68 LN 69 LN 67 LN 65 LN 63 LN 57 LN 50 LN (opel) 49 LAB (bus) 44 LAB (saab) 45 LAB 51 LN 54 LN (saab) 62 LAB 71 LN 78 LN 82 LN (saab) 85 LAB NL NL
+XSH (van) 89 LAB (van) 87 LAB (saab) 83 LAB 77 LN (opel) 75 LAB 78 LN (bus) 80 LAB (van) 80 LAB (van) 82 LAB (bus) 81 LAB 79 LN (bus) 78 LAB (van) 74 LAB (bus) 72 LAB 70 LN (opel) 66 LAB (bus) 64 LAB (bus) 61 LAB (opel) 58 LAB 45 LN 43 LN 38 LN 41 LN (saab) 50 LAB (opel) 56 LAB (saab) 61 LAB 69 LN 78 LN 84 LN (saab) 82 LAB NL NL
+XSH (van) 81 LAB 82 LN 81 LN 77 LN 79 LN (saab) 80 LAB 83 LN (bus) 82 LAB 83 LN 81 LN 80 LN 77 LN 74 LN 69 LN (bus) 69 LAB (saab) 63 LAB 60 LN 53 LN (opel) 44 LAB 38 LN 35 LN 41 LN 47 LN (saab) 57 LAB 62 LN 68 LN 75 LN 81 LN 82 LN (saab) 72 LAB NL NL
+XSH (saab) 81 LAB (opel) 80 LAB (saab) 82 LAB (saab) 81 LAB 80 LN (saab) 82 LAB 83 LN (bus) 83 LAB 82 LN (van) 81 LAB (bus) 80 LAB 79 LN (bus) 75 LAB (bus) 73 LAB (bus) 68 LAB 64 LN 55 LN (saab) 52 LAB 48 LN (saab) 43 LAB 41 LN (saab) 36 LAB 48 LN (saab) 55 LAB 60 LN (saab) 66 LAB 72 LN 78 LN 72 LN (opel) 61 LAB NL NL
+XSH 78 LN 80 LN (saab) 82 LAB (opel) 83 LAB 84 LN 85 LN 84 LN (opel) 83 LAB (van) 82 LAB (opel) 80 LAB (van) 80 LAB (bus) 77 LAB (bus) 76 LAB 70 LN (bus) 62 LAB (bus) 58 LAB 53 LN (bus) 48 LAB 41 LN (saab) 41 LAB (saab) 33 LAB 41 LN (opel) 49 LAB (opel) 64 LAB (opel) 69 LAB 71 LN (saab) 68 LAB (saab) 65 LAB (opel) 56 LAB (opel) 38 LAB NL NL
+XSH 84 LN (saab) 85 LAB (saab) 87 LAB 85 LN (saab) 85 LAB (saab) 86 LAB (van) 85 LAB (bus) 83 LAB 82 LN (van) 82 LAB (van) 82 LAB (van) 80 LAB (saab) 78 LAB 73 LN 64 LN 61 LN 55 LN (bus) 50 LAB (opel) 43 LAB 33 LN 30 LN 36 LN (saab) 61 LAB 62 LN 68 LN 69 LN (saab) 56 LAB 52 LN 52 LN (opel) 38 LAB NL NL
+XSH (bus) 89 LAB 89 LN 90 LN (bus) 89 LAB (saab) 87 LAB (opel) 86 LAB (van) 84 LAB (van) 84 LAB (opel) 83 LAB 83 LN (van) 83 LAB 79 LN 75 LN (saab) 68 LAB 61 LN 59 LN (bus) 54 LAB 44 LN (saab) 33 LAB 34 LN 37 LN 52 LN 61 LN (saab) 63 LAB (opel) 65 LAB 55 LN (opel) 31 LAB 43 LN 50 LN 48 LN NL NL
+XSH (bus) 94 LAB (bus) 94 LAB (bus) 94 LAB (opel) 91 LAB (saab) 90 LAB (saab) 88 LAB 87 LN (saab) 86 LAB 85 LN 85 LN (saab) 85 LAB (van) 82 LAB (opel) 77 LAB 72 LN 69 LN 64 LN (saab) 56 LAB 47 LN (bus) 36 LAB (opel) 33 LAB 39 LN 44 LN 55 LN 61 LN 60 LN (saab) 49 LAB 24 LN 31 LN 44 LN 48 LN NL NL
+XSH 97 LN 96 LN 95 LN (bus) 93 LAB 90 LN 89 LN 87 LN 87 LN 86 LN 87 LN 85 LN (van) 82 LAB 77 LN (saab) 71 LAB 64 LN 62 LN 48 LN (saab) 41 LAB 34 LN (saab) 42 LAB 47 LN 49 LN (opel) 59 LAB 58 LN 49 LN 26 LN 18 LN 40 LN 56 LN (bus) 61 LAB NL NL
+XSH (bus) 99 LAB (bus) 98 LAB (bus) 97 LAB (bus) 96 LAB (bus) 92 LAB 90 LN 88 LN 88 LN (van) 89 LAB (van) 89 LAB (van) 89 LAB 87 LN (saab) 83 LAB 75 LN 70 LN (opel) 60 LAB (saab) 54 LAB 39 LN 37 LN 39 LN 46 LN 51 LN (opel) 58 LAB (opel) 63 LAB (opel) 53 LAB 33 LN 14 LN 36 LN 46 LN (bus) 56 LAB NL NL
+XSH (bus) 99 LAB (bus) 98 LAB 97 LN (bus) 94 LAB (bus) 90 LAB (bus) 87 LAB (van) 86 LAB (van) 88 LAB (van) 89 LAB (van) 90 LAB (van) 87 LAB 81 LN (opel) 74 LAB 65 LN (opel) 52 LAB (bus) 40 LAB (opel) 36 LAB (opel) 27 LAB 25 LN 38 LN 42 LN (saab) 47 LAB (opel) 55 LAB (saab) 56 LAB (bus) 34 LAB 15 LN (bus) 18 LAB (bus) 35 LAB (bus) 39 LAB (bus) 31 LAB NL NL
+end
+% end of EPS object
